@@ -16,7 +16,8 @@ if ((array_key_exists('login', $_POST))
 	}
 
 	?>
-		<p>Bitte laden Sie die Seite neu</p>
+		<p>Sie sind nun eingeloggt.</p>
+		<p><a href='index.php'>Zurück zur Startseite</a></p>
 	<?php
 } else {
 ?>
