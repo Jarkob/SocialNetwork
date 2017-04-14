@@ -1,4 +1,4 @@
-CREATE DATABASE socialnetwork,
+CREATE DATABASE socialnetwork;
 
 USE socialnetwork;
 
