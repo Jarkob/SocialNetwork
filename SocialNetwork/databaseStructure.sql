@@ -45,4 +45,47 @@ CREATE TABLE entry(
 	ON UPDATE CASCADE
 );
 
-#Tabellen anlegen klappt, Funktionalität muss noch getestet werden
+
+CREATE TABLE friendrequest(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	zeit TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	sender_friendrequest VARCHAR(20) NOT NULL,
+	empfaenger_friendrequest VARCHAR(20) NOT NULL,
+
+	INDEX user_sender_friendrequest (sender_friendrequest),
+	CONSTRAINT user_sender_friendrequest
+	FOREIGN KEY (sender_friendrequest)
+	REFERENCES socialnetwork.user (username)
+	ON DELETE NO ACTION
+	ON UPDATE CASCADE,
+
+	INDEX user_empfaenger (empfaenger_friendrequest),
+	CONSTRAINT user_empfaenger_friendrequest
+	FOREIGN KEY (empfaenger_friendrequest)
+	REFERENCES socialnetwork.user (username)
+	ON DELETE NO ACTION
+	ON UPDATE CASCADE
+);
+
+
+CREATE TABLE message(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	zeit TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	content TEXT NOT NULL,
+	sender_message VARCHAR(20) NOT NULL,
+	empfaenger_message VARCHAR(20) NOT NULL,
+
+	INDEX user_sender_message (sender_message),
+	CONSTRAINT user_sender_message
+	FOREIGN KEY (sender_message)
+	REFERENCES socialnetwork.user (username)
+	ON DELETE NO ACTION
+	ON UPDATE CASCADE,
+
+	INDEX user_empfaenger_message (empfaenger_message),
+	CONSTRAINT user_empfaenger_message
+	FOREIGN KEY (empfaenger_message)
+	REFERENCES socialnetwork.user (username)
+	ON DELETE NO ACTION
+	ON UPDATE CASCADE
+);
