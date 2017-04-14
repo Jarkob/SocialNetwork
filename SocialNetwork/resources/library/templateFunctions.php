@@ -42,6 +42,27 @@ function renderLayoutWithContentFile()
 }
 
 
+function renderEntry($id)
+{
+	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
+
+	$sql = "SELECT * FROM entry WHERE id = ?";
+	$statement = $pdo->prepare($sql);
+	$statement->execute($id);
+	while($row = $statement->fetch()) {
+		?>
+		<div class="entry">
+			<p><?= $row['zeit']?></p>
+			<h3><?= $row['autor']?></h3>
+			<div>
+				<?= $row['content']?>
+			</div>
+		</div>
+		<?php
+	}
+}
+
+
 function loginFunction($name, $password)
 {
 	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
@@ -101,7 +122,7 @@ function getUserValue($userid, $column)
 	$statement->execute(array(':column' => $column, ':username' => $userid));
 	$value = "empty";
 	while($row = $statement->fetch()) {
-		$value = $row[$column];
+		$value = $row[$column];//Problem: der Inhalt der eckigen Klammern muss in einfachen Anführungszeichen sein.
 	}
 	return $value;
 }
@@ -115,6 +136,32 @@ function editUserValue($userid, $column, $newValue)
 	$statement = $pdo->prepare($sql);
 	$statement->execute(array(':column' => $column, ':username' => $userid));
 	echo "<p>User Value wurde erfolgreich editiert.";
+}
+
+
+function getFriends($userid)
+{
+	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
+
+	$friends = array();
+
+	$sql = "SELECT * FROM friendship WHERE friend1 = ?";
+	$statement = $pdo->prepare($sql);
+	$statement->execute($userid);
+
+	while($row = $statement->fetch()) {
+		$friends[] = $row['freund2'];
+	}
+
+	$sql = "SELECT * FROM friendship WHERE friend2 = ?";
+	$statement = $pdo->prepare($sql);
+	$statement->execute($userid);
+
+	while($row = $statement->fetch()) {
+		$friends[] = $row['freund1'];
+	}
+
+	return $friends;
 }
 
 ?>
