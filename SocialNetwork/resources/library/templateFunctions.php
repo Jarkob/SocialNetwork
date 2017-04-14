@@ -35,4 +35,17 @@ function renderLayoutWithContentFile()
 	require_once(TEMPLATES_PATH . "/footer.php");
 }
 
+function loginFunction($name, $password)
+{
+	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
+
+	$sql = "SELECT * FROM user WHERE username = ?";
+	$statement = $pdo->prepare($sql);
+	$statement->execute($name);
+	$username = "test";
+	while($row = $statement->fetch()) {
+		$id = $row['username'];
+	}
+}
+
 ?>
