@@ -15,7 +15,8 @@ if($loggedin) {
 
 	//die Abfrage soll die Einträge von allen Freunden abfragen, diese aufsteigend nach der Zeit
 	//ordnen, und dann auf 10 begrenzen
-	$sql = "SELECT * FROM entry WHERE autor = ugly";//Notlösung
+	//edit: auch eigene Einträge sollen angezeigt werden
+	$sql = "SELECT * FROM entry WHERE autor = ". $username;
 	foreach($friends as $friend) {
 		$sql .= " OR autor = ". $friend;
 	}

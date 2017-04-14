@@ -66,15 +66,13 @@ function renderEntry($id)
 function loginFunction($name, $password)
 {
 	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
-
 	$sql = "SELECT * FROM user WHERE username = ?";
 	$statement = $pdo->prepare($sql);
-	$statement->execute($name);
-	$username = "test";
+	$statement->execute(array($name));//Achtung: hier muss immer ein Array sein
 	while($row = $statement->fetch()) {
-		$id = $row['username'];
-
-		if($password == $row['passwort']) {
+		
+		if(password_verify($password, $row['passwort'])) {
+			echo "<p>Richtiges Passwort</p>";
 			return true;
 		}
 	}
@@ -88,7 +86,7 @@ function getLoginStatus($sid)
 
 	$sql = "SELECT * FROM user WHERE sid = ?";
 	$statement = $pdo->prepare($sql);
-	$statement->execute($sid);
+	$statement->execute(array($sid));
 	$gefundeneSIDs = $statement->rowCount();
 	if($gefundeneSIDs > 0) {
 		return true;
@@ -104,7 +102,7 @@ function getUserName($sid)
 
 	$sql = "SELECT * FROM user WHERE sid = ?";
 	$statement = $pdo->prepare($sql);
-	$statement->execute($sid);
+	$statement->execute(array($sid));
 	$username = "failure";
 	while($row = $statement->fetch()) {
 		$username = $row['username'];
@@ -127,14 +125,14 @@ function getUserValue($userid, $column)
 	return $value;
 }
 
-
+//funktioniert nicht
 function editUserValue($userid, $column, $newValue)
 {
 	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
 
-	$sql = "UPDATE user SET :column WHERE username = :userid";
+	$sql = "UPDATE user SET :column = :new WHERE username = :username";
 	$statement = $pdo->prepare($sql);
-	$statement->execute(array(':column' => $column, ':username' => $userid));
+	$statement->execute(array(':column' => $column, ':new' => $newValue, ':username' => $userid));
 	echo "<p>User Value wurde erfolgreich editiert.";
 }
 
@@ -147,7 +145,7 @@ function getFriends($userid)
 
 	$sql = "SELECT * FROM friendship WHERE friend1 = ?";
 	$statement = $pdo->prepare($sql);
-	$statement->execute($userid);
+	$statement->execute(array($userid));
 
 	while($row = $statement->fetch()) {
 		$friends[] = $row['freund2'];
@@ -155,7 +153,7 @@ function getFriends($userid)
 
 	$sql = "SELECT * FROM friendship WHERE friend2 = ?";
 	$statement = $pdo->prepare($sql);
-	$statement->execute($userid);
+	$statement->execute(array($userid));
 
 	while($row = $statement->fetch()) {
 		$friends[] = $row['freund1'];

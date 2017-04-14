@@ -9,16 +9,21 @@
 if ((array_key_exists('login', $_POST))
 	&& (array_key_exists('pass', $_POST))) {
 	$username = $_POST['login'];
-	$password = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+	$password = $_POST['pass'];
 
 	if(loginFunction($username, $password)) {
-		editUserValue($username, "sid", session_id());
-	}
-
+		editUserValue($username, "sid", "session_id");//da muss die sid hin
 	?>
 		<p>Sie sind nun eingeloggt.</p>
 		<p><a href='index.php'>Zurück zur Startseite</a></p>
 	<?php
+	} else {
+		?>
+		<p>Ihre Logindaten waren leider inkorrekt</p>
+		<p><a href='?page=login'>Nochmal versuchen</a></p>
+
+		<?php
+	}
 } else {
 ?>
 
@@ -33,11 +38,7 @@ if ((array_key_exists('login', $_POST))
 	</div>
 	<p><button>anmelden</button></p>
 </form>
-
 <?php
-$passwort = password_hash('password', PASSWORD_DEFAULT);
-
 }
 ?>
-
 </div>
