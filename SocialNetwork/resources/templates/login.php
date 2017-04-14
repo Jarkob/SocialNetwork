@@ -11,7 +11,13 @@ if ((array_key_exists('login', $_POST))
 	$username = $_POST['login'];
 	$password = password_hash($_POST['pass'], PASSWORD_DEFAULT);
 
-	loginFunction($username, $password);
+	if(loginFunction($username, $password)) {
+		editUserValue($username, "sid", session_id());
+	}
+
+	?>
+		<p>Bitte laden Sie die Seite neu</p>
+	<?php
 } else {
 ?>
 

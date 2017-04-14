@@ -7,7 +7,8 @@ CREATE TABLE user(
 	vorname VARCHAR(50) NOT NULL,
 	nachname VARCHAR(50) NOT NULL,
 	gebdatum DATE NOT NULL,
-	passwort VARCHAR(100) NOT NULL
+	passwort VARCHAR(100) NOT NULL,
+	sid VARCHAR(100) DEFAULT "sessionid" NOT NULL
 );
 
 
