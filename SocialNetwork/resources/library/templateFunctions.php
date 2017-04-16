@@ -48,7 +48,7 @@ function renderEntry($id)
 
 	$sql = "SELECT * FROM entry WHERE id = ?";
 	$statement = $pdo->prepare($sql);
-	$statement->execute($id);
+	$statement->execute(array($id));
 	while($row = $statement->fetch()) {
 		?>
 		<div class="entry">
@@ -110,7 +110,7 @@ function getUserName($sid)
 	return $username;
 }
 
-
+//Achtung muss ersetzt werden
 function getUserValue($userid, $column)
 {
 	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
@@ -125,25 +125,27 @@ function getUserValue($userid, $column)
 	return $value;
 }
 
-//funktioniert nicht
-function editUserValue($userid, $column, $newValue)
+//Achtung: table oder column Namen in einer SQL Anweisung können bei prepared statements nicht
+//durch Parameter ersetzt werden, daher müssen hier mehrere Funktionen geschrieben werden statt
+//nur editUserValue()
+function editUserSid($userid, $newValue)
 {
 	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
 
-	$sql = "UPDATE user SET :column = :new WHERE username = :username";
+	$sql = "UPDATE user SET sid = :new WHERE username = :username";
 	$statement = $pdo->prepare($sql);
-	$statement->execute(array(':column' => $column, ':new' => $newValue, ':username' => $userid));
-	echo "<p>User Value wurde erfolgreich editiert.";
+	$statement->execute(array(':new' => $newValue, ':username' => $userid));
 }
 
 
+//errror in sql crap
 function getFriends($userid)
 {
 	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
 
 	$friends = array();
 
-	$sql = "SELECT * FROM friendship WHERE friend1 = ?";
+	$sql = "SELECT * FROM friendship WHERE freund1 = ?";
 	$statement = $pdo->prepare($sql);
 	$statement->execute(array($userid));
 
@@ -151,7 +153,7 @@ function getFriends($userid)
 		$friends[] = $row['freund2'];
 	}
 
-	$sql = "SELECT * FROM friendship WHERE friend2 = ?";
+	$sql = "SELECT * FROM friendship WHERE freund2 = ?";
 	$statement = $pdo->prepare($sql);
 	$statement->execute(array($userid));
 

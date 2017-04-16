@@ -1,6 +1,5 @@
 <div id="home">
 
-<p>Hallo Welt</p>
 <p>Hier sollen die letzten 10 Posts von Freunden angezeigt werden</p>
 
 <?php
@@ -16,11 +15,11 @@ if($loggedin) {
 	//die Abfrage soll die Einträge von allen Freunden abfragen, diese aufsteigend nach der Zeit
 	//ordnen, und dann auf 10 begrenzen
 	//edit: auch eigene Einträge sollen angezeigt werden
-	$sql = "SELECT * FROM entry WHERE autor = ". $username;
+	$sql = "SELECT * FROM entry WHERE autor = '". $username;
 	foreach($friends as $friend) {
-		$sql .= " OR autor = ". $friend;
+		$sql .= "' OR autor = '". $friend;
 	}
-	$sql .= " ORDER BY zeit ASC LIMIT 10";
+	$sql .= "' ORDER BY zeit ASC LIMIT 10";
 
 	$statement = $pdo->prepare($sql);
 	$statement->execute();

@@ -12,7 +12,7 @@ if ((array_key_exists('login', $_POST))
 	$password = $_POST['pass'];
 
 	if(loginFunction($username, $password)) {
-		editUserValue($username, "sid", "session_id");//da muss die sid hin
+		editUserSid($username, session_id());//da muss die sid hin
 	?>
 		<p>Sie sind nun eingeloggt.</p>
 		<p><a href='index.php'>Zurück zur Startseite</a></p>
