@@ -28,4 +28,8 @@ VALUES
     
     ('<p>Hallo</p><p>Dies ist der zweite Eintrag, diesmal verfasst vom Testuser.</p><br /><p>Vale</p>',
      'testfreund'
-	);
+	),
+    
+    ('<p>Hallo</p><p>Noch ein eintrag von Jakobs Admin-User</p>',
+	 'admin_jakob'
+    );
