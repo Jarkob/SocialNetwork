@@ -12,6 +12,7 @@ function renderLayoutWithContentFile()
 
 	require_once(TEMPLATES_PATH . "/header.php");
 
+	//jede Seite die über einen Link mit get Parameter aufgerufen werden können soll muss hier hinzugefügt werden
 	if(isset($_GET['page'])) {
 		switch($_GET['page']) {
 			case 'login':
@@ -22,6 +23,15 @@ function renderLayoutWithContentFile()
 				break;
 			case 'impressum':
 				$contentFileFullPath = TEMPLATES_PATH . "/impressum.php";
+				break;
+			case 'login':
+				$contentFileFullPath = TEMPLATES_PATH . "/login.php";
+				break;
+			case 'logout':
+				$contentFileFullPath = TEMPLATES_PATH . "/logout.php";
+				break;
+			case 'search':
+				$contentFileFullPath = TEMPLATES_PATH . "/search.php";
 				break;
 			default:
 				$contentFileFullPath = TEMPLATES_PATH . "/error.php";
@@ -77,6 +87,29 @@ function loginFunction($name, $password)
 		}
 	}
 	return false;
+}
+
+
+function logoutFunction($name)
+{
+	/* doesn't work
+	session_destroy();
+	if (ini_get("session.use_cookies")) {
+    $params = session_get_cookie_params();
+    setcookie(session_name(), '', time() - 42000, $params["path"],
+        $params["domain"], $params["secure"], $params["httponly"]
+    );
+	}
+	*/
+	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
+
+	$sql = "UPDATE user SET sid = 'loggedout' WHERE username = ?";
+	$statement = $pdo->prepare($sql);
+	$statement->execute(array($name));
+
+	?>
+	<p>Sie wurden ausgeloggt.</p>
+	<?php
 }
 
 

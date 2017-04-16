@@ -9,9 +9,21 @@
 <div id="header">
 	<h1><?=SITE_NAME?></h1>
 	<ul>
-		<li><a href="#">Home</a></li>
+		<li><a href="index.php">Home</a></li>
 		<li><a href="#">Profile</a></li>
-		<li><a href="#">Coming Soon</a></li>
+		<li><a href="?page=search">Search</a></li>
+		<?php
+		$loggedin = getLoginStatus(session_id());
+		if($loggedin) {
+			?>
+			<li><a href="?page=logout">Logout</a></li>
+			<?php
+		} else {
+			?>
+			<li><a href="?page=login">Login</a></li>
+			<?php
+		}
+		?>
 	</ul>
 </div>
 
