@@ -16,8 +16,9 @@
 
 		$loggedin = getLoginStatus(session_id());
 		if($loggedin) {
+			$username = getUserName(session_id());
 			?>
-			<li><a href="#">Profile</a></li>
+			<li><a href="?page=profile&owner=<?= $username?>">Profile</a></li>
 			<li><a href="?page=logout">Logout</a></li>
 			<?php
 		} else {

@@ -28,7 +28,7 @@ if(array_key_exists('suche', $_GET)) {
 		foreach($searchResults as $person) {
 			//zeige Person an
 			?>
-			<p><a href="index.php"><?= $person?></a></p>
+			<p><a href="?page=profile&owner=<?= $person?>"><?= $person?></a></p>
 			<?php
 			//Achtung hier muss noch ein Link zum Profil angegeben werden
 		}

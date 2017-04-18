@@ -17,6 +17,7 @@ function renderLayoutWithContentFile()
 		switch($_GET['page']) {
 			case 'home':
 				$contentFileFullPath = TEMPLATES_PATH . "/home.php";
+				break;
 			case 'login':
 				$contentFileFullPath = TEMPLATES_PATH . "/login.php";
 				break;
@@ -34,6 +35,9 @@ function renderLayoutWithContentFile()
 				break;
 			case 'search':
 				$contentFileFullPath = TEMPLATES_PATH . "/search.php";
+				break;
+			case 'profile':
+				$contentFileFullPath = TEMPLATES_PATH . "/profile.php";
 				break;
 			default:
 				$contentFileFullPath = TEMPLATES_PATH . "/error.php";
@@ -78,6 +82,43 @@ function renderEntry($id)
 			</div>
 			<hr>
 		</div>
+		<?php
+	}
+}
+
+
+function renderProfile($id)
+{
+	$loggedin = getLoginStatus(session_id());
+
+	if($loggedin) {
+		$username = getUserName(session_id());
+		
+		//wenn es das eigene Profil des Users ist, soll er es bearbeiten können
+		if($username == $id) {
+			$eigenesProfil = true;
+		} else {
+			$eigenesProfil = false;
+		}
+
+		$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
+
+		$sql = "SELECT * FROM user WHERE username = :username";
+		$statement = $pdo->prepare($sql);
+		$statement->execute(array(':username' => $id));	
+		while($row = $statement->fetch()) {
+			?>
+				<h3>Profil von <?= $id?></h3>
+				<p>Vorname: <?= $row['vorname']?></p>
+				<p>Nachname: <?= $row['nachname']?></p>
+				<p>Geburtsdatum: <?= $row['gebdat']?></p>
+			<?php
+		}
+
+	} else {
+		?>
+		<p>Bitte loggen Sie sich zuerst ein.</p>
+		<p><a href="?page=login">Zum Login</a></p>
 		<?php
 	}
 }
