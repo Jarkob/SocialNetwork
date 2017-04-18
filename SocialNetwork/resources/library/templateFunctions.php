@@ -15,6 +15,8 @@ function renderLayoutWithContentFile()
 	//jede Seite die über einen Link mit get Parameter aufgerufen werden können soll muss hier hinzugefügt werden
 	if(isset($_GET['page'])) {
 		switch($_GET['page']) {
+			case 'home':
+				$contentFileFullPath = TEMPLATES_PATH . "/home.php";
 			case 'login':
 				$contentFileFullPath = TEMPLATES_PATH . "/login.php";
 				break;

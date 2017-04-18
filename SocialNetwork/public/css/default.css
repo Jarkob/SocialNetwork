@@ -113,7 +113,19 @@ a {
 }
 
 .entry {
-	padding: 15px;
+	/*padding: 15px;
+	*/
+}
+
+
+#newEntry {
+	
+}
+
+
+#newEntry textarea {
+width: 50em;
+height: 10em;
 }
 
 #footer {

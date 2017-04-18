@@ -1,7 +1,5 @@
 <div id="home">
 
-<p>Hier sollen die letzten 10 Posts von Freunden angezeigt werden</p>
-
 <?php
 $loggedin = getLoginStatus(session_id());
 
@@ -9,6 +7,11 @@ if($loggedin) {
 	$username = getUserName(session_id());
 
 	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
+
+
+	//neuer Eintrag
+	require_once(TEMPLATES_PATH . "/newEntry.php");
+
 
 	$friends = getFriends($username);
 
