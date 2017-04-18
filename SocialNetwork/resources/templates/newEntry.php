@@ -1,8 +1,8 @@
 <div id="newEntry">
 <h3>Neuer Post</h3>
-<form id="entryForm" action="index.php?page=home" method="post">
+<form action="index.php" method="post">
 	<textarea name="content"></textarea>
-	<button>Posten</button>
+	<button type="submit">Posten</button>
 </form>
 
 </div>
@@ -15,9 +15,14 @@ if(array_key_exists('content', $_POST)) {
 
 	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
 
-	$sql = "INSERT INTO entry (content, autor) VALUES (:content, :autor";
+	$sql = "INSERT INTO entry (content, autor) VALUES (:content, :autor)";
 	$statement = $pdo->prepare($sql);
 	$statement->execute(array(':content' => $_POST['content'], ':autor' => $username));
+
+	while($row = $statement->fetch()) {
+		echo "neuer Eintrag wurde erstellt";
+	}
+	
 }
 
 ?>

@@ -22,7 +22,7 @@ if($loggedin) {
 	foreach($friends as $friend) {
 		$sql .= "' OR autor = '". $friend;
 	}
-	$sql .= "' ORDER BY zeit ASC LIMIT 10";
+	$sql .= "' ORDER BY zeit DESC LIMIT 10";
 
 	$statement = $pdo->prepare($sql);
 	$statement->execute();
