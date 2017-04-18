@@ -7,6 +7,4 @@ require_once(LIBRARY_PATH . "/templateFunctions.php");
 
 renderLayoutWithContentFile();
 
-echo "This is the index.php file.";
-
 ?>

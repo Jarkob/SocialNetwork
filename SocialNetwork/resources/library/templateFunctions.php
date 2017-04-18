@@ -41,12 +41,19 @@ function renderLayoutWithContentFile()
 		$contentFileFullPath = TEMPLATES_PATH . "/home.php";
 	}
 
+	?>
+	<div id="content">
+	<?php
 
 	if(file_exists($contentFileFullPath)) {
 		require_once($contentFileFullPath);
 	} else {
 		require_once(TEMPLATES_PATH . "/error.php");
 	}
+
+	?>
+	</div>
+	<?php
 
 	require_once(TEMPLATES_PATH . "/footer.php");
 }
@@ -67,6 +74,7 @@ function renderEntry($id)
 			<div>
 				<?= $row['content']?>
 			</div>
+			<hr>
 		</div>
 		<?php
 	}
