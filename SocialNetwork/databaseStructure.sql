@@ -93,11 +93,13 @@ CREATE TABLE verlauf(
 );
 
 
+
 CREATE TABLE message(
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	zeit TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	content TEXT NOT NULL,
-	sender_message VARCHAR(20) NOT NULL,
+    sender_id VARCHAR(20) NOT NULL,
+    empfaenger_id VARCHAR(20) NOT NULL,
 	verlauf_id INT NOT NULL,
     
     INDEX verlauf_id (verlauf_id),
@@ -105,6 +107,19 @@ CREATE TABLE message(
     FOREIGN KEY (verlauf_id)
     REFERENCES socialnetwork.verlauf (id)
     ON DELETE NO ACTION
+    ON UPDATE CASCADE,
+    
+    INDEX sender_id (sender_id),
+    CONSTRAINT sender_id
+    FOREIGN KEY (sender_id)
+    REFERENCES socialnetwork.user (username)
+    ON DELETE NO ACTION
+    ON UPDATE CASCADE,
+    
+    INDEX empfaenger_id (empfaenger_id),
+    CONSTRAINT empfaenger_id
+    FOREIGN KEY (empfaenger_id)
+    REFERENCES socialnetwork.user (username)
+    ON DELETE NO ACTION
     ON UPDATE CASCADE
-	
 );

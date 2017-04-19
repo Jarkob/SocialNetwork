@@ -39,6 +39,9 @@ function renderLayoutWithContentFile()
 			case 'profile':
 				$contentFileFullPath = TEMPLATES_PATH . "/profile.php";
 				break;
+			case 'messages':
+				$contentFileFullPath = TEMPLATES_PATH . "/messages.php";
+				break;
 			default:
 				$contentFileFullPath = TEMPLATES_PATH . "/error.php";
 				break;
@@ -250,30 +253,32 @@ function getFriends($userid)
 
 
 
-//message functions
+//message functions fucked up
 
-function getMessages($sender, $empfaenger) {
+function getMessages($id)
+{
+	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
 
-$sql = "SELECT * FROM message WHERE sender_message = :sender OR empfaenger_message = :empfaenger ORDER BY zeit DESC LIMIT 20"; 
-$statement = $pdo->prepare($sql);
-$statement->execute(array(':sender' => $sender, ':empfaenger' => $empfaenger));
+	$sql = "SELECT * FROM messages WHERE id = :id";
+	$statement = $pdo->prepare($sql);
+	$statement->execute(array(':id' => $id));
 
-while($row = $statement->fetch()) {
-	
-}
+	$sql = "SELECT * FROM message WHERE sender_message = :sender OR empfaenger_message = :empfaenger ORDER BY zeit DESC LIMIT 20"; 
+	$statement = $pdo->prepare($sql);
+	$statement->execute(array(':sender' => $sender, ':empfaenger' => $empfaenger));
 
-echo "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>";
-echo "<messages>";
-while($erg2=mysql_fetch_array($erg)) //Erzeugung der XML Ausgabe
-{ 
-echo "<message><id>".$erg2['id'];
-echo "</id><name>".$erg2['name'];
-echo "</name><nachricht>".$erg2['nachricht'];
-//Formatierung des Timestamps
-echo "</nachricht><date>".date("d.m.Y H:i",$erg2['date']); 
-echo "</date></message>";
-}
-echo "</messages>";
+	echo "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>";
+	echo "<messages>";
+	while($row = $statement->fetch()) {
+		echo "<message><id>".$row['id'];
+		echo "</id><name>".$row['name'];
+		echo "</name><nachricht>".$row['nachricht'];
+		//Formatierung des Timestamps
+		echo "</nachricht><date>".date("d.m.Y H:i",$row['date']); 
+		echo "</date></message>";
+	}
+	echo "</messages>";
+
 }
 
 

@@ -1,5 +1,7 @@
 <div id="messages">
+<h2>Nachrichten</h2>
 <?php
+//fucked up
 //zeige alle Konversationen an, an denen die Person die die Seite aufruft beteiligt ist
 
 $loggedin = getLoginStatus(session_id());
@@ -15,7 +17,7 @@ if($loggedin) {
 	while($row = $statement->fetch()) {
 		?>
 		<div class="verlauf">
-		<p><a href="#">Konversation mit 
+		<p><a href="?page=verlauf&id=<?= $row['id']?>">Konversation mit 
 			<?php
 			if($row['teilnehmer1'] == $username) {
 				echo $row['teilnehmer2'];
@@ -29,6 +31,12 @@ if($loggedin) {
 		</div>
 		<?php
 	}
-}
+	
+} else {
+		?>
+		<p>Bitte loggen Sie sich zuerst ein.</p>
+		<p><a href="?page=login">Zum Login</a></p>
+		<?php
+	}
 ?>
 </div>

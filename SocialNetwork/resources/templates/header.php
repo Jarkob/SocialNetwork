@@ -19,6 +19,7 @@
 			$username = getUserName(session_id());
 			?>
 			<li><a href="?page=profile&owner=<?= $username?>">Profile</a></li>
+			<li><a href="?page=messages">Messages</a></li>
 			<li><a href="?page=logout">Logout</a></li>
 			<?php
 		} else {
