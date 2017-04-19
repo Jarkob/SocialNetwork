@@ -253,7 +253,7 @@ function getFriends($userid)
 
 
 
-//message functions fucked up
+//message functions
 
 function getMessages($id)
 {
@@ -263,24 +263,44 @@ function getMessages($id)
 	$statement = $pdo->prepare($sql);
 	$statement->execute(array(':id' => $id));
 
-	$sql = "SELECT * FROM message WHERE sender_message = :sender OR empfaenger_message = :empfaenger ORDER BY zeit DESC LIMIT 20"; 
-	$statement = $pdo->prepare($sql);
-	$statement->execute(array(':sender' => $sender, ':empfaenger' => $empfaenger));
-
 	echo "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>";
 	echo "<messages>";
 	while($row = $statement->fetch()) {
 		echo "<message><id>".$row['id'];
-		echo "</id><name>".$row['name'];
-		echo "</name><nachricht>".$row['nachricht'];
+		echo "</id><name>".$row['sender_id'];
+		echo "</name><nachricht>".$row['content'];
 		//Formatierung des Timestamps
-		echo "</nachricht><date>".date("d.m.Y H:i",$row['date']); 
+		echo "</nachricht><date>".date("d.m.Y H:i",$row['zeit']); 
 		echo "</date></message>";
 	}
 	echo "</messages>";
 
 }
 
+
+function createNewEntry($sender, $empfaenger, $content)
+{
+	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
+
+	//HTML Tags entfernen
+	$sender = strip_tags($sender, '');
+	$empfaenger = strip_tags($empfaenger, '');
+	$content = strip_tags($content,''); 
+
+	$sql = "INSERT INTO message (content, sender_id, empfaenger_id) 
+	VALUES (:content, :sender, :empfaenger)";
+	$statement = $pdo->prepare($sql);
+	$statement->execute(array(':content' => $content, ':sender' => $sender, ':empfaenger' => $empfaenger));
+
+	/*unnötig ab hier nur Fehlerkontrolle
+	echo "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>";
+	while($row = $statement->fetch()) {
+		echo "<createNewEntry>0</createNewEntry>";
+	} else {
+		echo "<createNewEntry>1</createNewEntry>";
+	}
+	*/
+}
 
 
 ?>

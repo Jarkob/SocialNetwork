@@ -17,7 +17,7 @@ if($loggedin) {
 	while($row = $statement->fetch()) {
 		?>
 		<div class="verlauf">
-		<p><a href="?page=verlauf&id=<?= $row['id']?>">Konversation mit 
+		<p><a href="?page=chat&id=<?= $row['id']?>">Konversation mit 
 			<?php
 			if($row['teilnehmer1'] == $username) {
 				echo $row['teilnehmer2'];
