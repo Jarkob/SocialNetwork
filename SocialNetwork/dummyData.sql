@@ -33,3 +33,9 @@ VALUES
     ('<p>Hallo</p><p>Noch ein eintrag von Jakobs Admin-User</p>',
 	 'admin_jakob'
     );
+    
+INSERT INTO verlauf (teilnehmer1, teilnehmer2)
+VALUES (
+	'admin_jakob',
+    'testfreund'
+);

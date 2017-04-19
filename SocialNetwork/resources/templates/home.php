@@ -1,9 +1,9 @@
 <div id="home">
 
 <?php
-$loggedin = getLoginStatus(session_id());
+$loggedIn = getLoginStatus(session_id());
 
-if($loggedin) {
+if($loggedIn) {
 	$username = getUserName(session_id());
 
 	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');

@@ -42,6 +42,9 @@ function renderLayoutWithContentFile()
 			case 'messages':
 				$contentFileFullPath = TEMPLATES_PATH . "/messages.php";
 				break;
+			case 'messageHistory':
+				$contentFileFullPath = TEMPLATES_PATH . "/messageHistory.php";
+				break;
 			default:
 				$contentFileFullPath = TEMPLATES_PATH . "/error.php";
 				break;
