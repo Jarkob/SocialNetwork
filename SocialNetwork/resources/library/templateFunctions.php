@@ -248,4 +248,34 @@ function getFriends($userid)
 	return $friends;
 }
 
+
+
+//message functions
+
+function getMessages($sender, $empfaenger) {
+
+$sql = "SELECT * FROM message WHERE sender_message = :sender OR empfaenger_message = :empfaenger ORDER BY zeit DESC LIMIT 20"; 
+$statement = $pdo->prepare($sql);
+$statement->execute(array(':sender' => $sender, ':empfaenger' => $empfaenger));
+
+while($row = $statement->fetch()) {
+	
+}
+
+echo "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>";
+echo "<messages>";
+while($erg2=mysql_fetch_array($erg)) //Erzeugung der XML Ausgabe
+{ 
+echo "<message><id>".$erg2['id'];
+echo "</id><name>".$erg2['name'];
+echo "</name><nachricht>".$erg2['nachricht'];
+//Formatierung des Timestamps
+echo "</nachricht><date>".date("d.m.Y H:i",$erg2['date']); 
+echo "</date></message>";
+}
+echo "</messages>";
+}
+
+
+
 ?>

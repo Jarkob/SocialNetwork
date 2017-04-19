@@ -71,24 +71,40 @@ CREATE TABLE friendrequest(
 );
 
 
+CREATE TABLE verlauf(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	zeit TIMESTAMP NOT NULL,/*soll der Zeitpunkt der letzten Änderung sein, muss also bei jeder neuen Nachricht geändert werden.*/
+	teilnehmer1 VARCHAR(20) NOT NULL,
+	teilnehmer2 VARCHAR(20) NOT NULL,
+    
+    INDEX user_verlauf_teilnehmer1 (teilnehmer1),
+    CONSTRAINT user_verlauf_teilnehmer1
+    FOREIGN KEY (teilnehmer1)
+    REFERENCES socialnetwork.user (username)
+    ON DELETE NO ACTION
+    ON UPDATE CASCADE,
+    
+    INDEX user_verlauf_teilnehmer2 (teilnehmer2),
+    CONSTRAINT user_verlauf_teilnehmer2
+    FOREIGN KEY (teilnehmer2)
+    REFERENCES socialnetwork.user (username)
+    ON DELETE NO ACTION
+    ON UPDATE CASCADE
+);
+
+
 CREATE TABLE message(
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	zeit TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	content TEXT NOT NULL,
 	sender_message VARCHAR(20) NOT NULL,
-	empfaenger_message VARCHAR(20) NOT NULL,
-
-	INDEX user_sender_message (sender_message),
-	CONSTRAINT user_sender_message
-	FOREIGN KEY (sender_message)
-	REFERENCES socialnetwork.user (username)
-	ON DELETE NO ACTION
-	ON UPDATE CASCADE,
-
-	INDEX user_empfaenger_message (empfaenger_message),
-	CONSTRAINT user_empfaenger_message
-	FOREIGN KEY (empfaenger_message)
-	REFERENCES socialnetwork.user (username)
-	ON DELETE NO ACTION
-	ON UPDATE CASCADE
+	verlauf_id INT NOT NULL,
+    
+    INDEX verlauf_id (verlauf_id),
+    CONSTRAINT verlauf_id
+    FOREIGN KEY (verlauf_id)
+    REFERENCES socialnetwork.verlauf (id)
+    ON DELETE NO ACTION
+    ON UPDATE CASCADE
+	
 );
