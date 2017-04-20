@@ -29,6 +29,10 @@ if($loggedIn) {
 	while($row = $statement->fetch()) {
 		renderEntry($row['id']);
 	}
+	$anzahl = $statement->rowCount();
+	?>
+	<p><a href="#">Ältere Beiträge laden</a></p>
+	<?php
 
 } else {
 	?>
