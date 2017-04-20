@@ -4,6 +4,8 @@ require_once(realpath(dirname(__FILE__) . "/../config.php"));
 
 function renderLayoutWithContentFile()
 {
+	require_once(TEMPLATES_PATH . "/log.php");
+
 	$loggedin = getLoginStatus(session_id());
 
 	if($loggedin) {
@@ -225,6 +227,9 @@ function logoutFunction($name)
 
 	?>
 	<p>Sie wurden ausgeloggt.</p>
+	<script type="text/javascript">
+		document.location.href = "index.php";
+	</script>
 	<?php
 }
 

@@ -10,6 +10,9 @@ if ((array_key_exists('login', $_POST))
 		editUserSid($username, session_id());//da muss die sid hin
 	?>
 		<p>Sie sind nun eingeloggt.</p>
+		<script type="text/javascript">
+			document.location.href = "index.php";
+		</script>
 		<p><a href='index.php'>Zurück zur Startseite</a></p>
 	<?php
 	} else {
