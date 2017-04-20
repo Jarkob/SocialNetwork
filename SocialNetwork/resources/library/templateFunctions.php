@@ -45,6 +45,9 @@ function renderLayoutWithContentFile()
 			case 'messageHistory':
 				$contentFileFullPath = TEMPLATES_PATH . "/messageHistory.php";
 				break;
+			case 'editProfile':
+				$contentFileFullPath = TEMPLATES_PATH . "/editProfile.php";
+				break;
 			default:
 				$contentFileFullPath = TEMPLATES_PATH . "/error.php";
 				break;
@@ -105,6 +108,12 @@ function renderProfile($id)
 			$eigenesProfil = true;
 		} else {
 			$eigenesProfil = false;
+		}
+
+		if($eigenesProfil) {
+			?>
+			<p><a href="?page=editProfile">Profil bearbeiten</a></p>
+			<?php
 		}
 
 		$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');

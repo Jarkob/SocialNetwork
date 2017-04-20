@@ -1,4 +1,4 @@
-<div class="verlauf">
+<div id="editProfile">
 
 <?php
 
@@ -6,32 +6,29 @@ $loggedIn = getLoginStatus(session_id());
 
 if($loggedIn) {
 	$username = getUserName(session_id());
-	$id = $_GET['id'];
-
-	require_once(TEMPLATES_PATH . "/newMessage.php");
 
 	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
-
-	$sql = "SELECT * FROM message WHERE verlauf_id = :id ORDER BY zeit DESC LIMIT 20";
+	
+	$sql = "SELECT * FROM user WHERE username = :username";
 	$statement = $pdo->prepare($sql);
-	$statement->execute(array(':id' => $id));
+	$statement->execute(array(':username' => $username));
 
 	while($row = $statement->fetch()) {
+		//Formular zum Editieren der Userdaten, dafür sollte erst eine finale Version von der User Entität erstellt werden
 		?>
-		<div class="message">
-			<h4><?= $row['sender_id']?></h4>
-			<p><?= $row['content']?></p>
-		</div>
+		<form>
+
+		</form>
 		<?php
 	}
+
+
 } else {
 	?>
 	<p>Bitte loggen Sie sich zuerst ein.</p>
 	<p><a href="?page=login">Zum Login</a></p>
 	<?php
 }
-
-
 ?>
 
 </div>

@@ -13,8 +13,7 @@ if(array_key_exists('content', $_POST)) {
 
 	$username = getUserName(session_id());
 	$id = $_GET['id'];
-	echo $id . 'id';
-
+	
 	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
 
 	//empfaenger herausfinden
@@ -29,11 +28,15 @@ if(array_key_exists('content', $_POST)) {
 			$empfaenger = $row['teilnehmer1'];
 		}
 	}
-echo $empfaenger;
 
 	$sql = "INSERT INTO message (content, sender_id, empfaenger_id, verlauf_id) VALUES (:content, :sender, :empfaenger, :verlauf)";
 	$statement = $pdo->prepare($sql);
 	$statement->execute(array(':content' => $_POST['content'], ':sender' => $username, ':empfaenger' => $empfaenger, ':verlauf' => $id));
+
+	//setzt das letzte Änderungsdatum vom Verlauf auf den CURRENT TIMESTAMP
+	$sql = "UPDATE verlauf SET zeit = CURRENT_TIMESTAMP WHERE id = :id";
+	$statement = $pdo->prepare($sql);
+	$statement->execute(array(':id' => $id));
 }
 
 ?>
