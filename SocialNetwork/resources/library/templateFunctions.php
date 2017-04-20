@@ -50,6 +50,9 @@ function renderLayoutWithContentFile()
 			case 'acceptFriendrequest':
 				$contentFileFullPath = TEMPLATES_PATH . "/acceptFriendrequest.php";
 				break;
+			case 'declineFriendrequest':
+				$contentFileFullPath = TEMPLATES_PATH . "/declineFriendrequest.php";
+				break;
 			case 'manageFriendrequest':
 				$contentFileFullPath = TEMPLATES_PATH . "/manageFriendrequest.php";
 				break;

@@ -15,7 +15,9 @@ if($loggedIn) {
 	<?php
 	while($row = $statement->fetch()) {
 		?>
-		<p>Freundschaftsanfrage von <?= $row['sender_friendrequest']?><a href="?page=acceptFriendrequest&id=<?= $row['id']?>">Bestätigen</a></p>
+		<p>Freundschaftsanfrage von <?= $row['sender_friendrequest']?></p>
+		<p><a href="?page=acceptFriendrequest&id=<?= $row['id']?>">Bestätigen</a></p>
+		<p><a href="?page=declineFriendrequest&id=<?= $row['id']?>">Ablehnen</a></p><br>
 		<?php
 	}
 	?>
