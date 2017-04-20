@@ -27,6 +27,9 @@ function renderLayoutWithContentFile()
 			case 'impressum':
 				$contentFileFullPath = TEMPLATES_PATH . "/impressum.php";
 				break;
+			case 'registration':
+				$contentFileFullPath = TEMPLATES_PATH . "/registration.php";
+				break;
 			case 'login':
 				$contentFileFullPath = TEMPLATES_PATH . "/login.php";
 				break;
@@ -38,6 +41,15 @@ function renderLayoutWithContentFile()
 				break;
 			case 'profile':
 				$contentFileFullPath = TEMPLATES_PATH . "/profile.php";
+				break;
+			case 'sendFriendrequest':
+				$contentFileFullPath = TEMPLATES_PATH . "/sendFriendrequest.php";
+				break;
+			case 'acceptFriendrequest':
+				$contentFileFullPath = TEMPLATES_PATH . "/acceptFriendrequest.php";
+				break;
+			case 'manageFriendrequest':
+				$contentFileFullPath = TEMPLATES_PATH . "/manageFriendrequest.php";
 				break;
 			case 'messages':
 				$contentFileFullPath = TEMPLATES_PATH . "/messages.php";
@@ -102,7 +114,9 @@ function renderProfile($id)
 
 	if($loggedin) {
 		$username = getUserName(session_id());
-		
+
+		$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
+
 		//wenn es das eigene Profil des Users ist, soll er es bearbeiten können
 		if($username == $id) {
 			$eigenesProfil = true;
@@ -114,9 +128,30 @@ function renderProfile($id)
 			?>
 			<p><a href="?page=editProfile">Profil bearbeiten</a></p>
 			<?php
-		}
+		} else {
+			//getFreundschaft, else biete Freundschaftsanfrage an
+			$freundschaft = false;
 
-		$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
+			$sql = "SELECT * FROM friendship WHERE 
+			(freund1 = :username || freund2 = :username) && 
+			(freund1 = :otherUser || freund2 = :otherUser)";
+			$statement = $pdo->prepare($sql);
+			$statement->execute(array(':username' => $username, ':otherUser' => $id));
+			while($row = $statement->fetch()) {
+				$freundschaft = true;
+			}
+
+			if($freundschaft) {
+				?>
+				<p>Du bist mit <?= $id?> befreundet.</p>
+				<?php
+			} else {
+				?>
+				<p>Willst du <?= $id?> eine Freundschaftsanfrage senden?</p>
+				<p>Dann klicke <a href="?page=sendFriendrequest&id=<?= $id?>">hier</a></p>
+				<?php
+			}
+		}
 
 		$sql = "SELECT * FROM user WHERE username = :username";
 		$statement = $pdo->prepare($sql);

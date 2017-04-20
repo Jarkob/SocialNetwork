@@ -33,6 +33,8 @@ if ((array_key_exists('login', $_POST))
 	</div>
 	<p><button>anmelden</button></p>
 </form>
+<p>Haben Sie noch keinen Account?</p>
+<p>Dann können Sie sich <a href="?page=registration">hier</a> kostenlos registrieren.</p>
 <?php
 }
 ?>

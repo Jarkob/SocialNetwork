@@ -20,11 +20,14 @@
 			?>
 			<li><a href="?page=profile&owner=<?= $username?>">Profile</a></li>
 			<li><a href="?page=messages">Messages</a></li>
+			<li><a href="?page=manageFriendrequest">Friendrequests</a></li>
 			<li><a href="?page=logout">Logout</a></li>
+			<li>Hallo <?= $username?></li>
 			<?php
 		} else {
 			?>
 			<li><a href="?page=login">Login</a></li>
+			<li><a href="?page=registration">Registration</a></li>
 			<?php
 		}
 
