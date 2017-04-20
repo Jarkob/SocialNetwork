@@ -8,7 +8,9 @@ CREATE TABLE user(
 	nachname VARCHAR(50) NOT NULL,
 	gebdatum DATE NOT NULL,
 	passwort VARCHAR(100) NOT NULL,
-	sid VARCHAR(100) DEFAULT "sessionid" NOT NULL
+	sid VARCHAR(100) DEFAULT "sessionid" NOT NULL,
+    geschlecht VARCHAR(20),
+    beziehungsstatus VARCHAR(20)
 );
 
 
@@ -122,4 +124,24 @@ CREATE TABLE message(
     REFERENCES socialnetwork.user (username)
     ON DELETE NO ACTION
     ON UPDATE CASCADE
+);
+
+
+CREATE TABLE interesse(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    bezeichnung VARCHAR(30) NOT NULL,
+    user_id VARCHAR(20) NOT NULL,
+    
+    INDEX user_id (user_id),
+    CONSTRAINT user_id
+    FOREIGN KEY (user_id)
+    REFERENCES socialnetwork.user (username)
+    ON DELETE NO ACTION
+    ON UPDATE CASCADE
+);
+
+
+CREATE TABLE ort(
+	stadtname VARCHAR(20) NOT NULL PRIMARY KEY,
+    plz INT NOT NULL
 );

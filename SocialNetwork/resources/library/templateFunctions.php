@@ -126,9 +126,24 @@ function renderProfile($id)
 				<h3>Profil von <?= $id?></h3>
 				<p>Vorname: <?= $row['vorname']?></p>
 				<p>Nachname: <?= $row['nachname']?></p>
-				<p>Geburtsdatum: <?= $row['gebdat']?></p>
+				<p>Geburtsdatum: <?= $row['gebdatum']?></p>
+				<p>Geschlecht: <?= $row['geschlecht']?></p>
+				<p>Beziehungsstatus: <?= $row['bezstatus']?></p>
+				<p>Interessen: 
 			<?php
 		}
+
+		$sql = "SELECT * FROM interesse WHERE user_id = :username";
+		$statement = $pdo->prepare($sql);
+		$statement->execute(array(':username' => $username));
+		while($row = $statement->fetch()) {
+			?>
+			<?= $row['bezeichnung']?>, 
+			<?php
+		}
+		?>
+		</p>
+		<?php
 
 	} else {
 		?>
