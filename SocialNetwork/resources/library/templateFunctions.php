@@ -106,6 +106,7 @@ function renderEntry($id)
 			<div>
 				<?= $row['content']?>
 			</div>
+			<p><a href="?page=home&like=<?= $id?>">Gefällt mir</a></p>
 			<hr>
 		</div>
 		<?php

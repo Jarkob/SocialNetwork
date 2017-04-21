@@ -152,3 +152,24 @@ CREATE TABLE access_log(
     ip VARCHAR(40) NOT NULL,
     browser VARCHAR(150) NOT NULL
 );
+
+
+CREATE TABLE gefaelltMir(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    autor_user VARCHAR(20) NOT NULL,
+    gefallender_entry INT NOT NULL,
+    
+    INDEX autor_user (autor_user),
+    CONSTRAINT autor_user
+    FOREIGN KEY (autor_user)
+    REFERENCES socialnetwork.user (username)
+    ON DELETE NO ACTION
+    ON UPDATE CASCADE,
+    
+    INDEX gefallender_entry (gefallender_entry),
+    CONSTRAINT gefallender_entry
+    FOREIGN KEY (gefallender_entry)
+    REFERENCES socialnetwork.entry (id)
+    ON DELETE NO ACTION
+    ON UPDATE CASCADE
+);

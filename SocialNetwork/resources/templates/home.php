@@ -57,7 +57,9 @@ if($loggedIn) {
 		renderEntry($row['id']);
 	}
 
-	echo "<ul>";
+	?>
+	<ul id="seiten">
+	<?php
 	for ($i = 1; $i <= $anzahlSeiten; $i++) {
     	if ($seite == $i) {
         ?>

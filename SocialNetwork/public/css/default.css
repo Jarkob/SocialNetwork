@@ -132,3 +132,13 @@ height: 10em;
 	text-align: center;
 	padding: 15px;
 }
+
+
+#seiten {
+	list-style-type: none;
+	padding: 0;
+}
+
+#seiten li {
+	display: inline-block;
+}
