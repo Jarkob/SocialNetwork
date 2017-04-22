@@ -1,11 +1,11 @@
-</div>
-<div id="footer">
+</main>
+<footer>
 	<br>
 	<br>
 	<hr>
 	<br>
 	<p><a href="#">Impressum</a></p>
-</div>
+</footer>
 
 </body>
 </html>

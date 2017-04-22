@@ -5,6 +5,7 @@
 
 body {
 	margin: 0;
+	padding: 0;
 	font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
@@ -13,17 +14,29 @@ a {
 	text-decoration: none;
 }
 
-.header {
-	background-color: #444;
-	color: white;
-	text-align: center;
-	padding: 15px;
+header, nav, footer {
+	display: block;
 }
 
-#header {
+header {
 	text-align: center;
+	position: relative;
+	z-index: 5;
+	top: 50px;
 }
 
+nav {
+	position: fixed;
+	width: 100%;
+	top: 0;
+	background-color: #666666;
+	box-shadow: 10px 20px 30px grey;
+	z-index: 10;
+}
+
+main {
+	min-height: 550px;
+}
 
 .footer {
 	background-color: #444;
@@ -36,7 +49,6 @@ a {
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
-	background-color: #777;
 }
 
 .topmenu li {
@@ -55,9 +67,8 @@ a {
 	background-color: #222;
 }
 
-.topmenu li a.active {
-	color: white;
-	background-color: #4CAF50;
+.topmenu li a:active {
+	background-color: #ffffff;
 }
 
 .column {
@@ -128,7 +139,7 @@ width: 50em;
 height: 10em;
 }
 
-#footer {
+footer {
 	text-align: center;
 	padding: 15px;
 }
