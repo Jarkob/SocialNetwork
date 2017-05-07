@@ -1,1 +1,665 @@
-{}
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"st",
+				"sticky"
+			],
+			[
+				"inlin",
+				"inline-block"
+			],
+			[
+				"new",
+				"newPassword"
+			],
+			[
+				"usernam",
+				"usernameExistsAlready"
+			],
+			[
+				"interess",
+				"interessen"
+			],
+			[
+				"teil",
+				"teilnehmer1"
+			],
+			[
+				"teilnehme",
+				"teilnehmer1"
+			],
+			[
+				"teilne",
+				"teilnehmer2"
+			],
+			[
+				"contentfile",
+				"contentFileFullPath"
+			],
+			[
+				"align",
+				"text-align"
+			],
+			[
+				"left",
+				"leftImage"
+			],
+			[
+				"sql",
+				"sqlStatement"
+			],
+			[
+				"E",
+				"ENTRIES_PATH"
+			],
+			[
+				"count",
+				"countWomen"
+			],
+			[
+				"S",
+				"sans-serif"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "SocialNetwork/resources/templates/manageFriendrequest.php",
+			"settings":
+			{
+				"buffer_size": 1205,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "SocialNetwork/public/css/default.css",
+			"settings":
+			{
+				"buffer_size": 1700,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "SocialNetwork/resources/config.php",
+			"settings":
+			{
+				"buffer_size": 913,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "SocialNetwork/resources/library/templateFunctions.php",
+			"settings":
+			{
+				"buffer_size": 9784,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "SocialNetwork/resources/templates/like.php",
+			"settings":
+			{
+				"buffer_size": 11,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "SocialNetwork/resources/templates/home.php",
+			"settings":
+			{
+				"buffer_size": 1779,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "SocialNetwork/resources/templates/header.php",
+			"settings":
+			{
+				"buffer_size": 961,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "SocialNetwork/resources/templates/footer.php",
+			"settings":
+			{
+				"buffer_size": 101,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 87.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/public",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/public/css",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/library",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/templates"
+	],
+	"file_history":
+	[
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/templates/search.php",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/templates/declineFriendrequest.php",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/templates/acceptFriendrequest.php",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/templates/sendFriendrequest.php",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/templates/log.php",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/templates/logout.php",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/templates/login.php",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/templates/registration.php",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/templates/messages.php",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/templates/messageHistory.php",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/templates/editProfile.php",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/templates/profile.php",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/templates/newEntry.php",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/config.php",
+		"/Users/jakobbussas/Documents/Schule/WEB/2017.04.25/index2.html",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/templates/home.php",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/templates/newMessage.php",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/public/css/default.css",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/public/index.php",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/templates/chat.php",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/databaseStructure.sql",
+		"/Applications/MAMP/htdocs/projects/Facemash/Facemash/resources/config.php",
+		"/Applications/MAMP/htdocs/projects/bib_Seite/bib_Seite/resources/config.php",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/library/controller.php",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/library/application.php",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/index.php",
+		"/Applications/MAMP/htdocs/projects/Facemash/Facemash/index.php",
+		"/Applications/MAMP/htdocs/projects/bib_Seite/bib_Seite/resources/templates/newEntry.php",
+		"/Applications/MAMP/htdocs/projects/bib_Seite/bib_Seite/resources/templates/impressum.php",
+		"/Applications/MAMP/htdocs/projects/bib_Seite/bib_Seite/resources/templates/header.php",
+		"/Applications/MAMP/htdocs/projects/bib_Seite/bib_Seite/resources/library/dbconnection.php",
+		"/Applications/MAMP/htdocs/projects/bib_Seite/bib_Seite/resources/templates/home.php",
+		"/Applications/MAMP/htdocs/projects/bib_Seite/bib_Seite/public/index.php",
+		"/Applications/MAMP/htdocs/projects/bib_Seite/bib_Seite/resources/templates/footer.php",
+		"/Applications/MAMP/htdocs/projects/bib_Seite/bib_Seite/resources/templates/error.php",
+		"/Applications/MAMP/htdocs/projects/bib_Seite/bib_Seite/resources/entries/5.php",
+		"/Applications/MAMP/htdocs/projects/bib_Seite/bib_Seite/resources/entries/4.php",
+		"/Applications/MAMP/htdocs/projects/bib_Seite/bib_Seite/resources/entries/3.php",
+		"/Applications/MAMP/htdocs/projects/bib_Seite/bib_Seite/resources/entries/2.php",
+		"/Applications/MAMP/htdocs/projects/bib_Seite/bib_Seite/resources/entries/1.php",
+		"/Applications/MAMP/htdocs/projects/bib_Seite/bib_Seite/resources/library/phpFunctions.php",
+		"/Users/jakobbussas/Downloads/test.php",
+		"/Applications/MAMP/htdocs/projects/Facemash/Facemash/public/css/default.css",
+		"/Applications/MAMP/htdocs/projects/Facemash/Facemash/resources/library/templateFunctions.php",
+		"/Applications/MAMP/htdocs/projects/Facemash/Facemash/resources/templates/comparison.php",
+		"/Applications/MAMP/htdocs/projects/Facemash/Facemash/resources/templates/upload.php",
+		"/Applications/MAMP/htdocs/projects/Facemash/Facemash/resources/templates/leaderboard.php",
+		"/Applications/MAMP/htdocs/projects/Facemash/Facemash/public/media/images/steve_jobs.jpg",
+		"/Applications/MAMP/htdocs/projects/Facemash/Facemash/resources/templates/error.php",
+		"/Applications/MAMP/htdocs/projects/Facemash/Facemash/resources/templates/algorithm.php",
+		"/Applications/MAMP/htdocs/projects/Facemash/Facemash/resources/templates/header.php",
+		"/Applications/MAMP/htdocs/projects/Facemash/Facemash/resources/library/dbconnection.php",
+		"/Applications/MAMP/htdocs/projects/Facemash/Facemash/public/index.php",
+		"/Applications/MAMP/htdocs/projects/Facemash/Facemash/resources/templates/footer.php",
+		"/Applications/MAMP/htdocs/projects/Facemash/Facemash/public/javascripts/jsfunctions.js",
+		"/Applications/MAMP/htdocs/projects/Facemash/Facemash/public_html/css/default.css",
+		"/Applications/MAMP/htdocs/projects/Facemash/Facemash/resources/templates/image.php",
+		"/Applications/MAMP/htdocs/projects/Facemash/Facemash/public_html/index.php",
+		"/Applications/MAMP/htdocs/projects/Facemash/Facemash/resources/templates/home.php",
+		"/Applications/MAMP/htdocs/projects/Facemash/Facemash/resources/templates/impressum.php",
+		"/Applications/MAMP/htdocs/projects/Minesweeper/Minesweeper/public_html/css/default.css",
+		"/Applications/MAMP/htdocs/projects/Minesweeper/Minesweeper/resources/templates/header.php",
+		"/Applications/MAMP/htdocs/projects/Minesweeper/Minesweeper/resources/templates/footer.php",
+		"/Applications/MAMP/htdocs/projects/Minesweeper/Minesweeper/resources/library/templateFunctions.php",
+		"/Applications/MAMP/htdocs/projects/Minesweeper/Minesweeper/resources/config.php",
+		"/Applications/MAMP/htdocs/projects/Minesweeper/Minesweeper/public_html/index.php",
+		"/Applications/MAMP/htdocs/projects/Facemash/Facemash/public_html/<?php",
+		"/Applications/MAMP/htdocs/projects/FlappyBird/FlappyBird/css/default.css",
+		"/Applications/MAMP/htdocs/projects/FlappyBird/FlappyBird/js/functions.js",
+		"/Applications/MAMP/htdocs/projects/FlappyBird/FlappyBird/html/game.html",
+		"/Applications/MAMP/htdocs/projects/Tic-Tac-Toe/Tic-Tac-Toe/javaScripts/tictactoe.js",
+		"/Applications/MAMP/htdocs/projects/FlappyBird/FlappyBird/readme.txt",
+		"/Applications/MAMP/htdocs/projects/FlappyBird/FlappyBird/index.php",
+		"/Applications/MAMP/htdocs/projects/FlappyBird/FlappyBird/game.html",
+		"/Applications/MAMP/htdocs/projects/Minesweeper/Minesweeper/resources/templates/field.php",
+		"/Applications/MAMP/htdocs/projects/Confusion/Blog/resources/config.php",
+		"/Applications/MAMP/htdocs/projects/Confusion/Blog/resources/templates/header.php",
+		"/Applications/MAMP/htdocs/projects/Confusion/Blog/resources/library/templateFunctions.php",
+		"/Applications/MAMP/htdocs/projects/Confusion/Blog/public_html/index.php",
+		"/Applications/MAMP/htdocs/projects/Confusion/Blog/resources/templates/createEntry.php",
+		"/Applications/MAMP/htdocs/projects/Confusion/Blog/config.txt",
+		"/Applications/MAMP/htdocs/projects/Confusion/Blog/resources/config.txt",
+		"/Applications/MAMP/htdocs/projects/Confusion/Blog/resources/entries/00003.html",
+		"/Applications/MAMP/htdocs/projects/Confusion/Blog/resources/entries/00004.html",
+		"/Applications/MAMP/htdocs/projects/Confusion/Blog/resources/templates/impressum.php",
+		"/Applications/MAMP/htdocs/projects/Blog/Blog/resources/templates/home.php",
+		"/Applications/MAMP/htdocs/projects/Blog/Blog/resources/templates/rightPanel.php",
+		"/Applications/MAMP/htdocs/projects/Blog/Blog/resources/templates/header.php",
+		"/Applications/MAMP/htdocs/projects/Blog/Blog/resources/templates/error.php",
+		"/Applications/MAMP/htdocs/projects/Blog/Blog/resources/templates/footer.php",
+		"/Applications/MAMP/htdocs/projects/Blog/Blog/resources/library/templateFunctions.php",
+		"/Applications/MAMP/htdocs/projects/Blog/Blog/public_html/css/default.css",
+		"/Applications/MAMP/htdocs/projects/Blog/Blog/public_html/index.php",
+		"/Applications/MAMP/htdocs/projects/Blog/Blog/resources/templates/entry.php",
+		"/Applications/MAMP/htdocs/projects/Blog/Blog/resources/templates/impressum.php",
+		"/Applications/MAMP/htdocs/projects/Blog/Blog/resources/config.php",
+		"/Applications/MAMP/htdocs/projects/Blog/Blog/resources/entries/00003.html",
+		"/Applications/MAMP/htdocs/projects/Blog/Blog/resources/entries/00002.txt",
+		"/Applications/MAMP/htdocs/projects/Blog/Blog/resources/entries/00001.txt",
+		"/Applications/MAMP/htdocs/projects/Blog/Blog/public_html/css/rightPanel.css",
+		"/Applications/MAMP/htdocs/projects/Blog/Blog/resources/templates/templateFunctions.php",
+		"/Applications/MAMP/htdocs/projects/Blog/Blog/public_html/header.php",
+		"/Applications/MAMP/htdocs/projects/Blog/Blog/public_html/footer.php",
+		"/Users/jakobbussas/Desktop/rightPanel.php",
+		"/Applications/MAMP/htdocs/projects/Blog/Blog/index.php",
+		"/Applications/MAMP/htdocs/index.php",
+		"/Users/jakobbussas/Documents/facemash/db/dbaccess.php",
+		"/Users/jakobbussas/Documents/facemash/classes/Woman.php",
+		"/Users/jakobbussas/Documents/facemash/scripts/stylesheets/default.css",
+		"/Users/jakobbussas/Documents/facemash/index.php",
+		"/Users/jakobbussas/Documents/halloWelt.html"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"?>\">\n",
+			"hitBottom",
+			"hitbottom",
+			"crashwith",
+			"\t\n"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "SocialNetwork/resources/templates/manageFriendrequest.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1205,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								490,
+								490
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "SocialNetwork/public/css/default.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1700,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								446,
+								446
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "SocialNetwork/resources/config.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 913,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								111,
+								111
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 3,
+					"file": "SocialNetwork/resources/library/templateFunctions.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9784,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2854,
+								2854
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "SocialNetwork/resources/templates/like.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7,
+								7
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "SocialNetwork/resources/templates/home.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1779,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1297,
+								1297
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "SocialNetwork/resources/templates/header.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 961,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								893,
+								893
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "SocialNetwork/resources/templates/footer.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 101,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6,
+								6
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "SocialNetwork.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 193.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
