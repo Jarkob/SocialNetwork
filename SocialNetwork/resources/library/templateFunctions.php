@@ -114,6 +114,15 @@ function renderEntry($id)
 }
 
 
+function likeEntry($userid, $entryid)
+{
+	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
+	$sql = "INSERT INTO gefaelltMir (autor_user, gefallender_entry) VALUES (:autor_user, :gefallender_entry)";
+	$statement = $pdo->prepare($sql);
+	$statement->execute(array(':autor_user' => $userid, ':gefallender_entry' => $entryid));
+}
+
+
 function renderProfile($id)
 {
 	$loggedin = getLoginStatus(session_id());

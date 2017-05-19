@@ -8,6 +8,9 @@ if($loggedIn) {
 
 	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
 
+	if(isset($_GET['like'])) {
+		likeEntry($username, $_GET['like']);
+	}
 
 	//neuer Eintrag
 	require_once(TEMPLATES_PATH . "/newEntry.php");
