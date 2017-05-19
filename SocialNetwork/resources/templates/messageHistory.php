@@ -17,9 +17,18 @@ if($loggedIn) {
 	$statement->execute(array(':id' => $id));
 
 	while($row = $statement->fetch()) {
+		if($row['sender_id'] == $username) {
 		?>
-		<div class="message">
-			<h4><?= $row['sender_id']?></h4>
+			<div class="rmessage">
+		<?php
+		} else {
+		?>
+			<div class="message">
+		<?php
+		}
+		?>
+			<p><i><?= $row['zeit']?></i></p>
+			<p><b><?= $row['sender_id']?></b></p>
 			<p><?= $row['content']?></p>
 		</div>
 		<?php

@@ -118,3 +118,12 @@ footer a {
 #seiten li {
 	display: inline-block;
 }
+
+.message, .rmessage {
+	padding: 16px;
+}
+
+.rmessage {
+	text-align: right;
+}
+
