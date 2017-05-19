@@ -1,4 +1,5 @@
 <?php
+//unnötiges Konfigurationsarray, welches nie benutzt wird, obwohl es benutzt werden sollte
 $config = array(
 	"db" => array(
 		"db1" => array(
@@ -27,6 +28,8 @@ $config = array(
 	)
 );
 
+
+//wichtige Pfade
 defined("LIBRARY_PATH")
 	or define("LIBRARY_PATH", realpath(dirname(__FILE__) . '/library'));
 
@@ -37,10 +40,12 @@ defined("SITE_NAME")
 	or define("SITE_NAME", "Freundeverzeichnis");
 
 
+//Keine Ahnung irgendwas mit errors
 ini_set("error_reporting", "true");
 error_reporting(E_ALL|E_STRCT);
 
 
+//Datenbankverbindung
 try {
   $pdo = new PDO("mysql:host=localhost;dbname=socialnetwork", 'root', 'root', array(
   PDO::ATTR_PERSISTENT => true

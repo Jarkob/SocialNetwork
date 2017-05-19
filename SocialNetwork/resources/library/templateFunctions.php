@@ -3,16 +3,20 @@
 
 require_once(realpath(dirname(__FILE__) . "/../config.php"));
 
+
+//Diese Funktion springt immer an, ist sozusagen die Hauptlaufzeitumgebung. Sie lödt die entsprechenden Seiten oder Funktionen
 function renderLayoutWithContentFile()
 {
+	//loggt jeden Besucher in der Datenbank
 	require_once(TEMPLATES_PATH . "/log.php");
 
+	//prüft ob Besucher eingeloggt ist, wenn ja gibt es einige tolle Zusatzfunktionen
 	$loggedin = getLoginStatus($pdo, session_id());
-
 	if($loggedin) {
 		$username = getUserName($pdo, session_id());
 	}
 
+	//header laden
 	require_once(TEMPLATES_PATH . "/header.php");
 
 	//jede Seite die über einen Link mit get Parameter aufgerufen werden können soll muss hier hinzugefügt werden
@@ -71,27 +75,23 @@ function renderLayoutWithContentFile()
 				break;
 		}
 	} else {
+		//wenn die gewünschte Seite nicht gefunden wird/existiert kommt man zur Fehlerseite
 		$contentFileFullPath = TEMPLATES_PATH . "/home.php";
 	}
 
-	?>
-	<div id="content">
-	<?php
-
+	//Hauptfunktion wird geladen
 	if(file_exists($contentFileFullPath)) {
 		require_once($contentFileFullPath);
 	} else {
 		require_once(TEMPLATES_PATH . "/error.php");
 	}
 
-	?>
-	</div>
-	<?php
-
+	//footer laden
 	require_once(TEMPLATES_PATH . "/footer.php");
 }
 
 
+//lädt den Eintrag mit der übergebenen id und druckt ihn direkt auf die Seite(sinnvolle Funktion)
 function renderEntry(PDO $pdo, $id)
 {
 	$sql = "SELECT * FROM entry WHERE id = ?";
@@ -118,6 +118,7 @@ function renderEntry(PDO $pdo, $id)
 }
 
 
+//erstellt ein Like-Objekt zwischen dem übergebenen User und dem Eintrag mit der übergebenen ID
 function likeEntry(PDO $pdo, $userid, $entryid)
 {
 	if(!(hasUserLiked($pdo, $userid, $entryid))) {
@@ -157,6 +158,7 @@ function hasUserLiked(PDO $pdo, $userid, $entryid)
 }
 
 
+//druckt das Profil des Users mit der übergebenen id direkt auf die Seite
 function renderProfile(PDO $pdo, $id)
 {
 	$loggedin = getLoginStatus($pdo, session_id());
@@ -279,6 +281,7 @@ function logoutFunction(PDO $pdo, $name)
 }
 
 
+//gibt den Loginstatus des Users mit der übergebenen ID als boolean zurück
 function getLoginStatus(PDO $pdo, $sid)
 {
 	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
@@ -295,6 +298,7 @@ function getLoginStatus(PDO $pdo, $sid)
 }
 
 
+//gibt zu einer session-ID den passenden usernamen zurück (sinnvoll aber fehleranfällig)
 function getUserName(PDO $pdo, $sid) 
 {
 	$sql = "SELECT * FROM user WHERE sid = ?";
@@ -307,7 +311,8 @@ function getUserName(PDO $pdo, $sid)
 	return $username;
 }
 
-//Achtung muss ersetzt werden
+
+//funktioniert eh nicht siehe unten, aber Idee ist gut
 function getUserValue($userid, $column)
 {
 	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
@@ -336,10 +341,9 @@ function editUserSid($userid, $newValue)
 
 
 //errror in sql crap
+//gibt die Freunde des übergebenen Users als array zurück
 function getFriends(PDO $pdo, $userid)
 {
-	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
-
 	$friends = array();
 
 	$sql = "SELECT * FROM friendship WHERE freund1 = ?";
@@ -364,6 +368,7 @@ function getFriends(PDO $pdo, $userid)
 
 
 //message functions
+//funktioniert eh nicht, der Müll
 
 function getMessages($id)
 {
