@@ -106,7 +106,12 @@ function renderEntry($id)
 			<div>
 				<?= $row['content']?>
 			</div>
-			<p><a href="?page=home&like=<?= $id?>">Gefällt mir</a></p>
+			<p>
+				<?= getLikes($id)?> Leuten gefällt das | 
+
+				<a href="?page=home&like=<?= $id?>">Gefällt mir</a>
+			
+			</p>
 			<hr>
 		</div>
 		<?php
@@ -116,10 +121,43 @@ function renderEntry($id)
 
 function likeEntry($userid, $entryid)
 {
+	if(!(hasUserLiked($userid, $entryid))) {
+		$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
+		$sql = "INSERT INTO gefaelltMir (autor_user, gefallender_entry) VALUES (:autor_user, :gefallender_entry)";
+		$statement = $pdo->prepare($sql);
+		$statement->execute(array(':autor_user' => $userid, ':gefallender_entry' => $entryid));
+	}
+}
+
+
+//returns the amount of likes, the entry with the given id has
+function getLikes($entryid)
+{
 	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
-	$sql = "INSERT INTO gefaelltMir (autor_user, gefallender_entry) VALUES (:autor_user, :gefallender_entry)";
+	$sql = "SELECT * FROM gefaelltMir WHERE gefallender_entry = :entryid";
+	$statement = $pdo->prepare($sql);
+	$statement->execute(array(':entryid' => $entryid));
+	$amountOfLikes = 0;
+	while($row = $statement->fetch()) {
+		$amountOfLikes++;
+	}
+	return $amountOfLikes;
+}
+
+
+//returns as a boolean if the user with the given user id has already liked the entry with the given id
+//momentan obsolet
+//edit: doch nicht
+function hasUserLiked($userid, $entryid)
+{
+	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
+	$sql = "SELECT * FROM gefaelltMir WHERE autor_user = :autor_user AND gefallender_entry = :gefallender_entry";
 	$statement = $pdo->prepare($sql);
 	$statement->execute(array(':autor_user' => $userid, ':gefallender_entry' => $entryid));
+	while($row = $statement->fetch()) {
+		return true;
+	}
+	return false;
 }
 
 
