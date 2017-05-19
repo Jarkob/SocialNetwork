@@ -7,7 +7,7 @@
 
 $profilVon = $_GET['owner'];
 
-renderProfile($profilVon);
+renderProfile($pdo, $profilVon);
 
 ?>
 </div>

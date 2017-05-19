@@ -1,22 +1,21 @@
 <div id="home">
 
 <?php
-$loggedIn = getLoginStatus(session_id());
+$loggedIn = getLoginStatus($pdo, session_id());
 
 if($loggedIn) {
-	$username = getUserName(session_id());
+	$username = getUserName($pdo, session_id());
 
-	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
-
+	//hier werden die Likes ausgewertet
 	if(isset($_GET['like'])) {
-		likeEntry($username, $_GET['like']);
+		likeEntry($pdo, $username, $_GET['like']);
 	}
 
 	//neuer Eintrag
 	require_once(TEMPLATES_PATH . "/newEntry.php");
 
 
-	$friends = getFriends($username);
+	$friends = getFriends($pdo, $username);
 
 
 	//zuerst müssen alle einträge gezählt werden, dann auf seiten verteilt werden
@@ -57,7 +56,7 @@ if($loggedIn) {
 	$statement->execute();
 	
 	while($row = $statement->fetch()) {
-		renderEntry($row['id']);
+		renderEntry($pdo, $row['id']);
 	}
 
 	?>

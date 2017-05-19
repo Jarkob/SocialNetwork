@@ -1,10 +1,8 @@
 <?php
-$loggedIn = getLoginStatus(session_id());
+$loggedIn = getLoginStatus($pdo, session_id());
 
 if($loggedIn) {
-	$username = getUserName(session_id());
-
-	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
+	$username = getUserName($pdo, session_id());
 
 	$sql = "INSERT INTO friendrequest (sender_friendrequest, empfaenger_friendrequest)
 	 VALUES (:sender, :empfaenger)";

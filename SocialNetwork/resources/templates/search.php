@@ -13,8 +13,6 @@
 if(array_key_exists('suche', $_GET)) {
 	$searchResults = array();
 
-	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
-
 	$suchString = '%'. $_GET['suche'] .'%';
 	$sql = "SELECT * FROM user WHERE username LIKE ?";
 	$statement = $pdo->prepare($sql);

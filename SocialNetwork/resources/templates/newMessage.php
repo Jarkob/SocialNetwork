@@ -11,11 +11,9 @@
 
 if(array_key_exists('content', $_POST)) {
 
-	$username = getUserName(session_id());
+	$username = getUserName($pdo, session_id());
 	$id = $_GET['id'];
 	
-	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
-
 	//empfaenger herausfinden
 	$sql = "SELECT * FROM verlauf WHERE id = :id";
 	$statement = $pdo->prepare($sql);

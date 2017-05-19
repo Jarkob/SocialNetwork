@@ -2,15 +2,13 @@
 
 <?php
 
-$loggedIn = getLoginStatus(session_id());
+$loggedIn = getLoginStatus($pdo, session_id());
 
 if($loggedIn) {
-	$username = getUserName(session_id());
+	$username = getUserName($pdo, session_id());
 	$id = $_GET['id'];
 
 	require_once(TEMPLATES_PATH . "/newMessage.php");
-
-	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
 
 	$sql = "SELECT * FROM message WHERE verlauf_id = :id ORDER BY zeit DESC LIMIT 20";
 	$statement = $pdo->prepare($sql);

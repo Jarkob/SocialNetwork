@@ -2,16 +2,17 @@
 $config = array(
 	"db" => array(
 		"db1" => array(
-			"dbname" => "database1",
-			"username" => "dbUser",
-			"password" => "password",
+			"dbname" => "socialnetwork",
+			"username" => "root",
+			"password" => "root",
 			"host" => "localhost"
 		),
 		"db2" => array(
-			"dbname" => "datebase2",
-			"username" => "dbUser",
-			"password" => "password",
-			"host" => "localhost"
+			"dbname" => "socialnetwork",
+			"username" => "root",
+			"password" => "root",
+			"host" => "192.168.178.20",
+			"port" => "8888"
 		)
 	),
 	"urls" => array(
@@ -40,4 +41,11 @@ ini_set("error_reporting", "true");
 error_reporting(E_ALL|E_STRCT);
 
 
+try {
+  $pdo = new PDO("mysql:host=localhost;dbname=socialnetwork", 'root', 'root', array(
+  PDO::ATTR_PERSISTENT => true
+));
+} catch(PDOException $e) {
+  echo $e->getMessage();
+}
 ?>

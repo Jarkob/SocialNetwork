@@ -2,13 +2,10 @@
 
 <?php
 
-$loggedIn = getLoginStatus(session_id());
+$loggedIn = getLoginStatus($pdo, session_id());
 
 if($loggedIn) {
-	$username = getUserName(session_id());
-
-	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
-	
+	$username = getUserName($pdo, session_id());
 
 	if(isset($_POST['vorname'])
 		|| isset($_POST['nachname'])

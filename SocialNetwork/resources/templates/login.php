@@ -6,7 +6,7 @@ if ((array_key_exists('login', $_POST))
 	$username = $_POST['login'];
 	$password = $_POST['pass'];
 
-	if(loginFunction($username, $password)) {
+	if(loginFunction($pdo, $username, $password)) {
 		editUserSid($username, session_id());//da muss die sid hin
 	?>
 		<p>Sie sind nun eingeloggt.</p>

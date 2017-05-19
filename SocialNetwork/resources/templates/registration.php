@@ -5,8 +5,6 @@ if(isset($_POST['newUserName'], $_POST['newPassword'],
 	$_POST['newGebdat'])) {
 	$username = $_POST['newUserName'];
 
-	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
-
 	$sql = "SELECT * FROM user WHERE username = :username";
 	$statement = $pdo->prepare($sql);
 	$statement->execute(array(':username' => $username));

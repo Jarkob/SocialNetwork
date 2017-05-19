@@ -4,11 +4,9 @@
 //fucked up
 //zeige alle Konversationen an, an denen die Person die die Seite aufruft beteiligt ist
 
-$loggedin = getLoginStatus(session_id());
+$loggedin = getLoginStatus($pdo, session_id());
 if($loggedin) {
-	$username = getUserName(session_id());
-
-	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
+	$username = getUserName($pdo, session_id());
 
 	$sql = "SELECT * FROM verlauf WHERE teilnehmer1 = :username OR teilnehmer2 = :username ORDER BY zeit DESC LIMIT 10";
 	$statement = $pdo->prepare($sql);

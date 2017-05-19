@@ -1,11 +1,9 @@
 <?php
-$loggedIn = getLoginStatus(session_id());
+$loggedIn = getLoginStatus($pdo, session_id());
 
 if($loggedIn) {
-	$username = getUserName(session_id());
+	$username = getUserName($pdo, session_id());
 	$id = $_GET['id'];
-
-	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
 
 	//Friendrequest löschen
 	$sql = "DELETE FROM friendrequest WHERE id = :id";

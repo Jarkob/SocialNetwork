@@ -1,4 +1,5 @@
 <?php
+//note: bei allen Funktionen die etwas an der Datenbank machen sollen, muss das pdo Objekt im Aufruf übergeben werden und dementsprechend auch die Deklaration angepasst werden
 
 require_once(realpath(dirname(__FILE__) . "/../config.php"));
 
@@ -6,10 +7,10 @@ function renderLayoutWithContentFile()
 {
 	require_once(TEMPLATES_PATH . "/log.php");
 
-	$loggedin = getLoginStatus(session_id());
+	$loggedin = getLoginStatus($pdo, session_id());
 
 	if($loggedin) {
-		$username = getUserName(session_id());
+		$username = getUserName($pdo, session_id());
 	}
 
 	require_once(TEMPLATES_PATH . "/header.php");
@@ -91,10 +92,8 @@ function renderLayoutWithContentFile()
 }
 
 
-function renderEntry($id)
+function renderEntry(PDO $pdo, $id)
 {
-	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
-
 	$sql = "SELECT * FROM entry WHERE id = ?";
 	$statement = $pdo->prepare($sql);
 	$statement->execute(array($id));
@@ -107,7 +106,7 @@ function renderEntry($id)
 				<?= $row['content']?>
 			</div>
 			<p>
-				<?= getLikes($id)?> Leuten gefällt das | 
+				<?= getLikes($pdo, $id)?> Leuten gefällt das | 
 
 				<a href="?page=home&like=<?= $id?>">Gefällt mir</a>
 			
@@ -119,10 +118,9 @@ function renderEntry($id)
 }
 
 
-function likeEntry($userid, $entryid)
+function likeEntry(PDO $pdo, $userid, $entryid)
 {
-	if(!(hasUserLiked($userid, $entryid))) {
-		$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
+	if(!(hasUserLiked($pdo, $userid, $entryid))) {
 		$sql = "INSERT INTO gefaelltMir (autor_user, gefallender_entry) VALUES (:autor_user, :gefallender_entry)";
 		$statement = $pdo->prepare($sql);
 		$statement->execute(array(':autor_user' => $userid, ':gefallender_entry' => $entryid));
@@ -131,9 +129,8 @@ function likeEntry($userid, $entryid)
 
 
 //returns the amount of likes, the entry with the given id has
-function getLikes($entryid)
+function getLikes(PDO $pdo, $entryid)
 {
-	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
 	$sql = "SELECT * FROM gefaelltMir WHERE gefallender_entry = :entryid";
 	$statement = $pdo->prepare($sql);
 	$statement->execute(array(':entryid' => $entryid));
@@ -148,9 +145,8 @@ function getLikes($entryid)
 //returns as a boolean if the user with the given user id has already liked the entry with the given id
 //momentan obsolet
 //edit: doch nicht
-function hasUserLiked($userid, $entryid)
+function hasUserLiked(PDO $pdo, $userid, $entryid)
 {
-	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
 	$sql = "SELECT * FROM gefaelltMir WHERE autor_user = :autor_user AND gefallender_entry = :gefallender_entry";
 	$statement = $pdo->prepare($sql);
 	$statement->execute(array(':autor_user' => $userid, ':gefallender_entry' => $entryid));
@@ -161,14 +157,12 @@ function hasUserLiked($userid, $entryid)
 }
 
 
-function renderProfile($id)
+function renderProfile(PDO $pdo, $id)
 {
-	$loggedin = getLoginStatus(session_id());
+	$loggedin = getLoginStatus($pdo, session_id());
 
 	if($loggedin) {
-		$username = getUserName(session_id());
-
-		$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
+		$username = getUserName($pdo, session_id());
 
 		//wenn es das eigene Profil des Users ist, soll er es bearbeiten können
 		if($username == $id) {
@@ -242,9 +236,9 @@ function renderProfile($id)
 }
 
 
-function loginFunction($name, $password)
+//prüft ob das übergebene Passwort zum User passt und gibt boolsche Antwort zurück
+function loginFunction(PDO $pdo, $name, $password)
 {
-	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
 	$sql = "SELECT * FROM user WHERE username = ?";
 	$statement = $pdo->prepare($sql);
 	$statement->execute(array($name));//Achtung: hier muss immer ein Array sein
@@ -259,7 +253,8 @@ function loginFunction($name, $password)
 }
 
 
-function logoutFunction($name)
+//logged den User auf extrem hässliche und unsichere Art aus, benötigt dringend noch Arbeit
+function logoutFunction(PDO $pdo, $name)
 {
 	/* doesn't work
 	session_destroy();
@@ -270,8 +265,7 @@ function logoutFunction($name)
     );
 	}
 	*/
-	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
-
+	
 	$sql = "UPDATE user SET sid = 'loggedout' WHERE username = ?";
 	$statement = $pdo->prepare($sql);
 	$statement->execute(array($name));
@@ -285,7 +279,7 @@ function logoutFunction($name)
 }
 
 
-function getLoginStatus($sid)
+function getLoginStatus(PDO $pdo, $sid)
 {
 	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
 
@@ -301,10 +295,8 @@ function getLoginStatus($sid)
 }
 
 
-function getUserName($sid) 
+function getUserName(PDO $pdo, $sid) 
 {
-	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
-
 	$sql = "SELECT * FROM user WHERE sid = ?";
 	$statement = $pdo->prepare($sql);
 	$statement->execute(array($sid));
@@ -344,7 +336,7 @@ function editUserSid($userid, $newValue)
 
 
 //errror in sql crap
-function getFriends($userid)
+function getFriends(PDO $pdo, $userid)
 {
 	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
 

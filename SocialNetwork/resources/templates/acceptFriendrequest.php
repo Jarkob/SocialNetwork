@@ -1,11 +1,9 @@
 <?php
-$loggedIn = getLoginStatus(session_id());
+$loggedIn = getLoginStatus($pdo, session_id());
 
 if($loggedIn) {
-	$username = getUserName(session_id());
+	$username = getUserName($pdo, session_id());
 	$id = $_GET['id'];
-
-	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
 
 	//zugehörige Freunde raussuchen
 	$sql = "SELECT * FROM friendrequest WHERE id = :id";

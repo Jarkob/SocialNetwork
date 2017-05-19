@@ -11,9 +11,7 @@
 
 if(array_key_exists('content', $_POST)) {
 
-	$username = getUserName(session_id());
-
-	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
+	$username = getUserName($pdo, session_id());
 
 	$sql = "INSERT INTO entry (content, autor) VALUES (:content, :autor)";
 	$statement = $pdo->prepare($sql);
