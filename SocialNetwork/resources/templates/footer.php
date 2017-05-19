@@ -1,10 +1,13 @@
-</main>
+	</main>
+
+</div>
+
 <footer>
-	<br>
-	<br>
-	<hr>
-	<br>
-	<p><a href="#">Impressum</a></p>
+	<ul>
+		<li>
+			<a href="#">Impressum</a>
+		</li>
+	</ul>
 </footer>
 
 </body>

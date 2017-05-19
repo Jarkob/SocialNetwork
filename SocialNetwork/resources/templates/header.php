@@ -23,7 +23,7 @@
 				<li><a href="?page=messages">Messages</a></li>
 				<li><a href="?page=manageFriendrequest">Friendrequests</a></li>
 				<li><a href="?page=logout">Logout</a></li>
-				<li>Hallo <?= $username?></li>
+				<li><a href="#">Hallo <?= $username?></a></li>
 				<?php
 			} else {
 				?>
@@ -37,8 +37,11 @@
 	</div>
 </nav>
 
-<header>
-	<h1><?=SITE_NAME?></h1>
-</header>
+<div id="wrapper">
 
-<main>
+	<!--
+	<header>
+		<h1><?=SITE_NAME?></h1>
+	</header>
+	-->
+	<main>

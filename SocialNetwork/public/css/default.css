@@ -3,10 +3,25 @@
 	box-sizing: border-box;
 }
 
-body {
+html, body {
+	height: 100%;
+	min-height: 100%;
 	margin: 0;
 	padding: 0;
 	font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+	background-color: #ddd;
+}
+
+#wrapper {
+	width: 60%;
+	min-width: 600px;
+
+	min-height: 100%;
+
+	margin: 0 auto;
+	padding: 80px 0 0 0;
+	background-color: #fff;
+	box-shadow: 0px 0px 30px #444;
 }
 
 a {
@@ -20,28 +35,18 @@ header, nav, footer {
 
 header {
 	text-align: center;
-	position: relative;
-	z-index: 5;
-	top: 50px;
 }
 
 nav {
 	position: fixed;
 	width: 100%;
 	top: 0;
-	background-color: #666666;
-	box-shadow: 10px 20px 30px grey;
-	z-index: 10;
+	background-color: #000;
+	overflow: hidden;
 }
 
 main {
-	min-height: 500px;
-}
-
-.footer {
-	background-color: #444;
-	color: white;
-	padding: 15px;
+	padding: 30px;
 }
 
 .topmenu {
@@ -68,7 +73,7 @@ main {
 }
 
 .topmenu li a:active {
-	background-color: #ffffff;
+	background-color: #222;
 }
 
 .column {
@@ -82,57 +87,6 @@ main {
 	display: table;
 }
 
-.sidemenu {
-	width: 25%;
-}
-
-/*.content {
-	width: 75%;
-}
-*/
-
-#content {
-	width: 800px;
-	background-color: #ffffff;
-	margin:0 auto;
-	padding: 15px;
-}
-
-.sidemenu ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-}
-
-.sidemenu li a {
-	margin-bottom: 4px;
-	display: block;
-	padding: 8px;
-	background-color: #eee;
-	text-decoration: none;
-	color: #666;
-}
-
-.sidemenu li a:hover {
-	background-color: #555;
-	color: white;
-}
-
-.sidemenu li a.active {
-	background-color: #008CBA;
-	color: white;
-}
-
-.entry {
-	/*padding: 15px;
-	*/
-}
-
-
-#newEntry {
-	
-}
-
 
 #newEntry textarea {
 width: 50em;
@@ -141,7 +95,18 @@ height: 10em;
 
 footer {
 	text-align: center;
-	padding: 15px;
+	background-color: #000;
+	color: #fff;
+	overflow: hidden;
+}
+
+footer ul {
+	list-style-type: none;
+}
+
+footer a {
+	color: #fff;
+	padding: 16px;
 }
 
 
