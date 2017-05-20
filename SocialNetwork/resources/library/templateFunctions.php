@@ -208,6 +208,18 @@ function renderProfile(PDO $pdo, $id)
 		while($row = $statement->fetch()) {
 			?>
 				<h3>Profil von <?= $id?></h3>
+
+				<?php
+				//Profilbild laden
+				//hier isst der Wurm (drin)
+				if(file_exists("img/content/profile/"+ $id +".jpg")) {
+				?>
+					<script type="text/javascript">alert("alarm")</script>
+					<img id="profilePicture" title="Profilbild" src="img/content/profile/<?= $id?>.jpg">
+				<?php
+				}
+				?>
+
 				<p>Vorname: <?= $row['vorname']?></p>
 				<p>Nachname: <?= $row['nachname']?></p>
 				<p>Geburtsdatum: <?= $row['gebdatum']?></p>
