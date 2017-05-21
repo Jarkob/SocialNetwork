@@ -6,10 +6,12 @@ $loggedIn = getLoginStatus($pdo, session_id());
 
 if($loggedIn) {
 	$username = getUserName($pdo, session_id());
-	$id = $_GET['id'];
 
 	require_once(TEMPLATES_PATH . "/newMessage.php");
 
+	$id = $_GET['id'];
+
+	//Nachrichten anzeigen
 	$sql = "SELECT * FROM message WHERE verlauf_id = :id ORDER BY zeit DESC LIMIT 20";
 	$statement = $pdo->prepare($sql);
 	$statement->execute(array(':id' => $id));

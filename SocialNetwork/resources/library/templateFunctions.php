@@ -67,6 +67,9 @@ function renderLayoutWithContentFile()
 			case 'messageHistory':
 				$contentFileFullPath = TEMPLATES_PATH . "/messageHistory.php";
 				break;
+			case 'newHistory':
+				$contentFileFullPath = TEMPLATES_PATH . "/newHistory.php";
+				break;
 			case 'editProfile':
 				$contentFileFullPath = TEMPLATES_PATH . "/editProfile.php";
 				break;
@@ -204,6 +207,7 @@ function renderProfile(PDO $pdo, $id)
 			if($freundschaft) {
 				?>
 				<p>Du bist mit <?= $id?> befreundet.</p>
+				<p><a href="?page=newHistory&freund=<?= $id?>">Sende eine Nachricht an <?= $id?></a></p>
 				<?php
 			} else {
 				?>
