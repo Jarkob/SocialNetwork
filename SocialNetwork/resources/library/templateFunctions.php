@@ -101,7 +101,18 @@ function renderEntry(PDO $pdo, $id)
 		?>
 		<div class="entry">
 			<p><?= $row['zeit']?></p>
-			<h3><?= $row['autor']?></h3>
+			<a href="?page=profile&owner=<?= $row['autor']?>">
+				<h3>
+					<?php
+					if(file_exists("img/content/profile/". $row['autor'] .".jpg")) {
+					?>
+						<img id="profileIcon" title="<?= $row['autor']?>" src="img/content/profile/<?= $row['autor']?>.jpg" style="width: 20px;">
+					<?php
+					}
+					echo $row['autor'];
+					?>
+				</h3>
+			</a>
 			<div>
 				<?= $row['content']?>
 			</div>
@@ -215,7 +226,7 @@ function renderProfile(PDO $pdo, $id)
 				//der Wurm war eine Verwechslung mit javascript/c#
 				if(file_exists("img/content/profile/". $id .".jpg")) {
 				?>
-					<img id="profilePicture" title="Profilbild" src="img/content/profile/<?= $id?>.jpg">
+					<img id="profilePicture" title="Profilbild" src="img/content/profile/<?= $id?>.jpg" style="width: 300px">
 				<?php
 				}
 				?>
