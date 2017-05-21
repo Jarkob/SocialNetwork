@@ -212,6 +212,7 @@ function renderProfile(PDO $pdo, $id)
 				<?php
 				//Profilbild laden
 				//hier isst der Wurm (drin)
+				echo "img/content/profile/" + $id + ".jpg";
 				if(file_exists("img/content/profile/"+ $id +".jpg")) {
 				?>
 					<script type="text/javascript">alert("alarm")</script>
