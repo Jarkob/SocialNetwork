@@ -1,13 +1,13 @@
 <div class="login">
 <?php
-
+global $pdo;//unschön
 if ((array_key_exists('login', $_POST))
 	&& (array_key_exists('pass', $_POST))) {
 	$username = $_POST['login'];
 	$password = $_POST['pass'];
 
 	if(loginFunction($pdo, $username, $password)) {
-		editUserSid($username, session_id());//da muss die sid hin
+		editUserSid($pdo, $username, session_id());//da muss die sid hin
 	?>
 		<p>Sie sind nun eingeloggt.</p>
 		<script type="text/javascript">
