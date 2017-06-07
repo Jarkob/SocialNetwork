@@ -3,19 +3,19 @@
 
 require_once(realpath(dirname(__FILE__) . "/../config.php"));
 
-
 //Diese Funktion springt immer an, ist sozusagen die Hauptlaufzeitumgebung. Sie lödt die entsprechenden Seiten oder Funktionen
-function renderLayoutWithContentFile()
+function renderLayoutWithContentFile($pdo)
 {
 	//loggt jeden Besucher in der Datenbank
-	require_once(TEMPLATES_PATH . "/log.php");
-
+	//require_once(TEMPLATES_PATH . "/log.php");
+echo "ok";
 	//prüft ob Besucher eingeloggt ist, wenn ja gibt es einige tolle Zusatzfunktionen
+	
 	$loggedin = getLoginStatus($pdo, session_id());
 	if($loggedin) {
 		$username = getUserName($pdo, session_id());
 	}
-
+	
 	//header laden
 	require_once(TEMPLATES_PATH . "/header.php");
 
@@ -311,13 +311,11 @@ function logoutFunction(PDO $pdo, $name)
 //gibt den Loginstatus des Users mit der übergebenen ID als boolean zurück
 function getLoginStatus(PDO $pdo, $sid)
 {
-	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
-
 	$sql = "SELECT * FROM user WHERE sid = ?";
 	$statement = $pdo->prepare($sql);
 	$statement->execute(array($sid));
 	$gefundeneSIDs = $statement->rowCount();
-	if($gefundeneSIDs > 0) {
+	if($gefundeneSIDs != 0) {
 		return true;
 	} else {
 		return false;
@@ -340,6 +338,7 @@ function getUserName(PDO $pdo, $sid)
 
 
 //funktioniert eh nicht siehe unten, aber Idee ist gut
+/*
 function getUserValue($userid, $column)
 {
 	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
@@ -353,14 +352,14 @@ function getUserValue($userid, $column)
 	}
 	return $value;
 }
+*/
 
 //Achtung: table oder column Namen in einer SQL Anweisung können bei prepared statements nicht
 //durch Parameter ersetzt werden, daher müssen hier mehrere Funktionen geschrieben werden statt
 //nur editUserValue()
-function editUserSid($userid, $newValue)
-{
-	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
 
+function editUserSid($pdo, $userid, $newValue)
+{
 	$sql = "UPDATE user SET sid = :new WHERE username = :username";
 	$statement = $pdo->prepare($sql);
 	$statement->execute(array(':new' => $newValue, ':username' => $userid));
@@ -396,7 +395,7 @@ function getFriends(PDO $pdo, $userid)
 
 //message functions
 //funktioniert eh nicht, der Müll
-
+/*
 function getMessages($id)
 {
 	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
@@ -422,7 +421,7 @@ function getMessages($id)
 
 function createNewEntry($sender, $empfaenger, $content)
 {
-	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'root', 'root');
+	$pdo = new PDO('mysql:host=localhost;dbname=socialnetwork', 'azure', 'Iggibib!');
 
 	//HTML Tags entfernen
 	$sender = strip_tags($sender, '');
@@ -441,8 +440,8 @@ function createNewEntry($sender, $empfaenger, $content)
 	} else {
 		echo "<createNewEntry>1</createNewEntry>";
 	}
-	*/
+	
 }
-
+*/
 
 ?>

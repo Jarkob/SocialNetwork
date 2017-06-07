@@ -14,7 +14,8 @@
 			<li><a href="index.php">Home</a></li>
 			<li><a href="?page=search">Search</a></li>
 			<?php
-
+			global $pdo;//unschön
+			
 			$loggedin = getLoginStatus($pdo, session_id());
 			if($loggedin) {
 				$username = getUserName($pdo, session_id());
