@@ -37,7 +37,7 @@ defined("TEMPLATES_PATH")
 	or define("TEMPLATES_PATH", realpath(dirname(__FILE__) . '/templates'));
 
 defined("SITE_NAME")
-	or define("SITE_NAME", "Freundeverzeichnis");
+	or define("SITE_NAME", "youwho");
 
 
 //Keine Ahnung irgendwas mit errors
@@ -46,11 +46,15 @@ error_reporting(E_ALL|E_STRCT);
 
 
 //Datenbankverbindung
+//lokal: mysql:host=localhost;dbname=socialnetwork", "root", "root"
+//azure: "mysql:host=ka;dbname=ka", "root", "root"
 try {
-  $pdo = new PDO("mysql:host=localhost;dbname=socialnetwork", 'root', 'root', array(
+  $pdo = new PDO("mysql:host=localhost;port=49925;dbname=socialnetwork", 'azure', 'Iggibib!', array(
   PDO::ATTR_PERSISTENT => true
-));
+	));
+	global $pdo;
 } catch(PDOException $e) {
   echo $e->getMessage();
 }
+
 ?>
