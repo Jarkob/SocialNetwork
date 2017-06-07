@@ -7,8 +7,8 @@ require_once(realpath(dirname(__FILE__) . "/../config.php"));
 function renderLayoutWithContentFile($pdo)
 {
 	//loggt jeden Besucher in der Datenbank
-	//require_once(TEMPLATES_PATH . "/log.php");
-echo "ok";
+	require_once(TEMPLATES_PATH . "/log.php");
+
 	//prüft ob Besucher eingeloggt ist, wenn ja gibt es einige tolle Zusatzfunktionen
 	
 	$loggedin = getLoginStatus($pdo, session_id());
