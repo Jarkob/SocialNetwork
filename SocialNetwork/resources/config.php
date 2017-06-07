@@ -2,18 +2,18 @@
 //unnötiges Konfigurationsarray, welches nie benutzt wird, obwohl es benutzt werden sollte
 $config = array(
 	"db" => array(
-		"db1" => array(
+		"local" => array(
 			"dbname" => "socialnetwork",
 			"username" => "root",
 			"password" => "root",
 			"host" => "localhost"
 		),
-		"db2" => array(
+		"azure" => array(
 			"dbname" => "socialnetwork",
-			"username" => "root",
-			"password" => "root",
-			"host" => "192.168.178.20",
-			"port" => "8888"
+			"username" => "azure",
+			"password" => "Iggibib!",
+			"host" => "localhost",
+			"port" => "49925"
 		)
 	),
 	"urls" => array(
@@ -48,6 +48,7 @@ error_reporting(E_ALL|E_STRCT);
 //Datenbankverbindung
 //lokal: mysql:host=localhost;dbname=socialnetwork", "root", "root"
 //azure: "mysql:host=ka;dbname=ka", "root", "root"
+//$databaseType = 'azure';
 try {
   $pdo = new PDO("mysql:host=localhost;port=49925;dbname=socialnetwork", 'azure', 'Iggibib!', array(
   PDO::ATTR_PERSISTENT => true
