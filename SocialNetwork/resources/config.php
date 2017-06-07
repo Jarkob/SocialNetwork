@@ -50,7 +50,7 @@ error_reporting(E_ALL|E_STRCT);
 //azure: "mysql:host=ka;dbname=ka", "root", "root"
 //$databaseType = 'azure';
 try {
-  $pdo = new PDO("mysql:host=localhost;port=49925;dbname=socialnetwork", 'azure', 'Iggibib!', array(
+  $pdo = new PDO("mysql:host=localhost;dbname=socialnetwork", 'root', 'root', array(
   PDO::ATTR_PERSISTENT => true
 	));
 	global $pdo;
