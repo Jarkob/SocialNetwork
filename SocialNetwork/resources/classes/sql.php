@@ -24,7 +24,7 @@ class sql
 	public static function close()
 	{
 		//Verbindung schließen
-		  
+		self::$pdo = null;
 	}
 
 	public static function exe()
