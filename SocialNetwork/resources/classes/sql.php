@@ -2,10 +2,10 @@
 
 class sql
 {
-	  protected static $pdo;
+	protected static $pdo;
 
-	  public static function connect($host, $username, $password, $dbname=null)
-	  {
+	public static function connect($host, $username, $password, $dbname=null)
+	{
 		//Verbindung herstellen
 		try{
 			//wenn $database übergeben wird, wird zu der Datenbank eine Verbindung hergestellt
@@ -19,23 +19,23 @@ class sql
 		}catch(PDOException $e){
 			throw new Exception($e->getMessage());
 		}
-	  }
+	}
 
-	  public static function close()
-	  {
+	public static function close()
+	{
 		//Verbindung schließen
 		  
-	  }
+	}
 
-	  public static function exe()
-	  {
-			//queries ausführen
-	  }
+	public static function exe()
+	{
+		//queries ausführen
+	}
 
-	  public function lastInsertId()
-	  {
-			//lastInsertId prüfen
-	  }
+	public function lastInsertId()
+	{
+		//lastInsertId prüfen
+	}
 }
 
 ?>
