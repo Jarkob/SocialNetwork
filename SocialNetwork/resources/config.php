@@ -47,10 +47,10 @@ error_reporting(E_ALL|E_STRCT);
 
 //Datenbankverbindung
 //lokal: mysql:host=localhost;dbname=socialnetwork", "root", "root"
-//azure: "mysql:host=ka;dbname=ka", "root", "root"
+//azure: "mysql:host=localhost;port=49925;dbname=socialnetwork", "azure", "Iggibib!"
 //$databaseType = 'azure';
 try {
-  $pdo = new PDO("mysql:host=localhost;dbname=socialnetwork", 'root', 'root', array(
+  $pdo = new PDO("mysql:host=localhost;port=49925;dbname=socialnetwork", 'azure', 'Iggibib!', array(
   PDO::ATTR_PERSISTENT => true
 	));
 	global $pdo;
