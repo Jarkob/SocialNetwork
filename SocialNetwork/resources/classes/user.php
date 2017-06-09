@@ -1,5 +1,5 @@
 <?php
-/*
+
 class user
 {
 	//alle protected, falls es mal Rollen gibt
@@ -34,5 +34,5 @@ class user
 		printf($uservalues);
 	}
 }
-*/
+
 ?>
