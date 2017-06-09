@@ -62,6 +62,6 @@ try {
 }
 
 //fortschrittliche Alternative
-require_once(CLASSES_PATH . '/sql.php');
+//require_once(CLASSES_PATH . '/sql.php');
 //sql::connect("localhost;port=49925", "azure", "Iggibib!", "socialnetwork");
 ?>
