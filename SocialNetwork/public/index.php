@@ -7,3 +7,4 @@ require_once(LIBRARY_PATH . "/templateFunctions.php");
 //renderLayoutWithContentFile($pdo);
 
 ?>
+<p>hurra</p>
