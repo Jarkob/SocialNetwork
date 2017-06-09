@@ -63,5 +63,5 @@ try {
 
 //fortschrittliche Alternative
 require_once(CLASSES_PATH . '/sql.php');
-sql::connect("localhost;port=49925", "azure", "Iggibib!", "socialnetwork");
+//sql::connect("localhost;port=49925", "azure", "Iggibib!", "socialnetwork");
 ?>
