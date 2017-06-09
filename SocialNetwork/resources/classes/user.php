@@ -27,11 +27,28 @@ class user
 		return $this->gebdatum;
 	}
 
-	public function __construct($username)
+	public function __constructor()
 	{
+
+	}
+
+	public static function createNewUser($userdata)//userdata is an associative array with the userinformation
+	{
+		$sql = "INSERT INTO user 
+			(username, vorname, nachname, passwort) 
+			VALUES 
+			(:username, :vorname, :nachname, :passwort";
+		sql::exe($sql, $userdata);
+	}
+
+	public static function findUserByUserName($username)
+	{
+		$sql = "SELECT * FROM user
+			WHERE username = :username";
 		$params = {"username" => $username}
-		$uservalues = exe("SELECT * FROM user WHERE username = ?", $username);
-		printf($uservalues);
+
+		$user = sql::exe($sql, $params);
+		return $user;
 	}
 }
 
