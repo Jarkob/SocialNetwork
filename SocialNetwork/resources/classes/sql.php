@@ -1,5 +1,5 @@
 <?php
-
+/*
 class sql
 {
 	protected static $pdo;
@@ -123,5 +123,5 @@ class sql
 		return self::$pdo->lastInsertId();
 	}
 }
-
+*/
 ?>
