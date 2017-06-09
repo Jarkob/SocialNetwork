@@ -111,7 +111,7 @@ class sql
 			$result[] = $row;
 		}
 		// hier setzen wir $stmt auf null (nicht unbedingt notwendig)
-		$stmt = null;
+		$statement = null;
 		// fertig: ergebnis ($result) zurückgeben
 		return $result;
 	}

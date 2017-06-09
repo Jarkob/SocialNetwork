@@ -36,6 +36,9 @@ defined("LIBRARY_PATH")
 defined("TEMPLATES_PATH")
 	or define("TEMPLATES_PATH", realpath(dirname(__FILE__) . '/templates'));
 
+definde("CLASSES_PATH")
+	or define("CLASSES_PATH", realpath(dirname(__FILE__) . '/classes'));
+
 defined("SITE_NAME")
 	or define("SITE_NAME", "youwho");
 
@@ -58,4 +61,7 @@ try {
   echo $e->getMessage();
 }
 
+//fortschrittliche Alternative
+require_once(CLASSES_PATH . '/sql.php');
+sql::connect("localhost;port=49925", "azure", "Iggibib!", "socialnetwork");
 ?>
