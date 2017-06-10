@@ -2,11 +2,11 @@
 
 function renderPage()
 {
-	echo "<p>funktion erreicht</p>";
+	//hier kommt das skript an
 	require_once(VIEWS_PATH ."header.view.php");
 
 	$view = VIEWS_PATH;
-
+echo "nutten";
 	if(isset($_GET['page'])) {
 		switch($_GET['page']) {
 			case 'nutten':
