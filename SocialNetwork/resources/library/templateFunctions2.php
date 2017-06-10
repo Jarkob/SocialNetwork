@@ -2,6 +2,7 @@
 
 function renderPage()
 {
+	echo "<p>funktion erreicht</p>";
 	require_once(VIEWS_PATH ."header.view.php");
 
 	$view = VIEWS_PATH;
