@@ -2,7 +2,9 @@
 
 function renderPage()
 {
-	$view = TEMPLATES_PATH;
+	require_once(VIEWS_PATH ."header.view.php");
+
+	$view = VIEWS_PATH;
 
 	if(isset($_GET['page'])) {
 		switch($_GET['page']) {
@@ -16,6 +18,8 @@ function renderPage()
 	}
 
 	require_once($view);
+
+	require_once(VIEWS_PATH ."footer.view.php");
 }
 
 ?>
