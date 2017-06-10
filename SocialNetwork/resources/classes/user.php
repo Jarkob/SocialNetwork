@@ -27,9 +27,13 @@ class user
 		return $this->gebdatum;
 	}
 
-	public function __constructor()
+	public function __construct($username)
 	{
-
+		$user = findUserByUserName($username);
+		$this->username = $username;
+		$this->vorname = $user[0['vorname']];
+		$this->nachname = $user[0['nachname']];
+		$this->gebdatum = $user[0['gebdatum']];
 	}
 
 	public static function createNewUser($userdata)//userdata is an associative array with the userinformation
@@ -49,6 +53,22 @@ class user
 
 		$user = sql::exe($sql, $params);
 		return $user;
+	}
+
+	public function sendFriendrequest($empfaenger)
+	{
+		friendrequest::createNewFriendrequest($this->username, $empfaenger);
+	}
+
+	public function acceptFriendrequest(friendrequest $friendrequest)
+	{
+		friendship::createNewFriendship($friendrequest->getSender(), $friendrequest->getEmpfaenger());
+		$friendrequest->deleteFriendrequest();
+	}
+
+	public function declineFriendrequest(friendrequest $friendrequest)
+	{
+		$friendrequest->deleteFriendrequest();
 	}
 }
 
