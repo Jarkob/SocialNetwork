@@ -38,7 +38,7 @@ if(isset($_POST['newUserName'], $_POST['newPassword'],
 ?>
 <form action="?page=registration" method="post">
 	<p>
-		<label for="newUserName">Name</label>
+		<label for="newUserName">Benutzername</label>
 		<input id="newUserName" name="newUserName">
 	</p>
 	<p>
