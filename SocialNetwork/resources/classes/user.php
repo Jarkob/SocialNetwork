@@ -55,6 +55,15 @@ class user
 		return $user;
 	}
 
+	public static function findUserBySid($sid)
+	{
+		$sql = "SELECT * FROM user
+			WHERE sid = :sid";
+		$params = {"sid" => $sid}
+		$user = sql::exe($sql, $params);
+		return $user;
+	}
+
 	public function sendFriendrequest($empfaenger)
 	{
 		friendrequest::createNewFriendrequest($this->username, $empfaenger);
@@ -69,6 +78,19 @@ class user
 	public function declineFriendrequest(friendrequest $friendrequest)
 	{
 		$friendrequest->deleteFriendrequest();
+	}
+
+	public static function isLoggedIn($sid)
+	{
+		$sql = "SELECT * FROM user
+			WHERE sid = :sid";
+		$params = {"sid" => $sid}
+		$result = sql::exe($sql, $params);
+		if(sizeof($result) > 0) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }
 
