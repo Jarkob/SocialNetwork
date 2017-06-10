@@ -43,6 +43,7 @@ nav {
 	top: 0;
 	background-color: #000;
 	overflow: hidden;
+	text-align: center;
 }
 
 main {
@@ -54,7 +55,6 @@ main {
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
-	text-align: center;
 }
 
 .topmenu li {
