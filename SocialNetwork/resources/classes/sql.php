@@ -4,7 +4,7 @@ class sql
 {
 	protected static $pdo;
 
-	public static function connect($host, $username, $password, $dbname=null)
+	public static function connect($host, $username, $password, $dbname)
 	{
 		//Verbindung herstellen
 		try{

@@ -10,6 +10,6 @@ ini_set("error_reporting", "true");
 error_reporting(E_ALL|E_STRICT);
 
 require_once(CLASSES_PATH ."/sql.php");
-//sql::connect("localhost;port=49925", "azure", "Iggibib!", "socialnetwork");
+sql::connect("localhost;port=49925", "azure", "Iggibib!", "socialnetwork");
 
 ?>
