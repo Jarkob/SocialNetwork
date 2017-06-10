@@ -9,10 +9,7 @@ class sql
 		//Verbindung herstellen
 		try{
 			//wenn $database übergeben wird, wird zu der Datenbank eine Verbindung hergestellt
-			$database = ';dbname=';
-			if($database != null) {
-				$database += $dbname;
-			}
+			$database = ';dbname='. $dbname;
 			
 			self::$pdo = new PDO('mysql:host='. $host . $database, $username, $password);
 			return;
