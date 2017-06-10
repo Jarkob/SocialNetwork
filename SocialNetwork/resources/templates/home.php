@@ -55,8 +55,16 @@ if($loggedIn) {
 	$statement = $pdo->prepare($sql);
 	$statement->execute();
 	
+	$anyEntrys = false;
 	while($row = $statement->fetch()) {
 		renderEntry($pdo, $row['id']);
+		$anyEntrys = true;
+	}
+
+	if(!$anyEntrys) {
+		?>
+		<p>Tipp: Adde Freunde um ihre Beiträge zu sehen. Du kannst Freunde über die Suche in der Navigationsleiste finden.</p>
+		<?php
 	}
 
 	?>
