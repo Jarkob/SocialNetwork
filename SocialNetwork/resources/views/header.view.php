@@ -21,6 +21,7 @@
 			//LoginLogik muss noch implementiert werden
 			
 			require_once(CLASSES_PATH ."/login.php");
+			echo "nutten";
 			if(login::isLoggedin(session_id()))
 			{
 				?>
