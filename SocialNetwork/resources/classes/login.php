@@ -2,6 +2,7 @@
 
 class login
 {
+	/*
 	public static function loginUser($username, $password)
 	{
 		$sql = "SELECT * FROM user
@@ -30,6 +31,7 @@ class login
 			return false;
 		}
 	}
+	*/
 }
 
 ?>
