@@ -19,7 +19,7 @@
 			<?php
 			//hier kommt Logik
 			//LoginLogik muss noch implementiert werden
-			
+			echo "nutten eins";
 			require_once(CLASSES_PATH ."/login.php");
 			echo "nutten";
 			if(login::isLoggedin(session_id()))
