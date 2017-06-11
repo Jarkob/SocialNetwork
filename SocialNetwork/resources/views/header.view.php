@@ -19,19 +19,38 @@
 			<?php
 			//hier kommt Logik
 			//LoginLogik muss noch implementiert werden
-			/*
-			if(useriseingeloggt)
+			
+			require_once(CLASSES_PATH ."/login.php");
+			if(login::isLoggedin(session_id()))
 			{
-				zeige link zum profil
-				zeige link zu nachrichten
-				zeige link zu freundschaftsanfragen
-				zeigeg link zum ausloggen
-				sage hallo username
+				?>
+				<li>
+					<a href="#">Profil</a>
+				</li>
+				<li>
+					<a href="#">Nachrichten</a>
+				</li>
+				<li>
+					<a href="#">Freundschaftsanfragen</a>
+				</li>
+				<li>
+					<a href="#">Logout</a>
+				</li>
+				<li>
+					<p>Hallo username</p>
+				</li>
+				<?php
 			} else {
-				zeige link zum login
-				zeige link zur registrierung
+				?>
+				<li>
+					<a href="#">Login</a>
+				</li>
+				<li>
+					<a href="#">Registrieren</a>
+				</li>
+				<?php
 			}
-			*/
+			
 			?>
 		</ul>
 	</div>
