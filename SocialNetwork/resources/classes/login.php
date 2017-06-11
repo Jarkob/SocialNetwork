@@ -1,5 +1,5 @@
 <?php
-
+require_once(CLASSES_PATH ."/sql.php");
 class login
 {
 	
