@@ -80,17 +80,12 @@ class user
 		$friendrequest->deleteFriendrequest();
 	}
 
-	public static function isLoggedIn($sid)
+	public function changeSid()
 	{
-		$sql = "SELECT * FROM user
-			WHERE sid = :sid";
-		$params = {"sid" => $sid}
-		$result = sql::exe($sql, $params);
-		if(sizeof($result) > 0) {
-			return true;
-		} else {
-			return false;
-		}
+		$sql = "UPDATE user SET sid = :sid
+			WHERE username = :username";
+		$params = {"sid" => session_id(), "username" => $this->username}
+		sql::exe($sql, $params);
 	}
 }
 
