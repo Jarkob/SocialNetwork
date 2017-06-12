@@ -381,7 +381,7 @@ function getFriends(PDO $pdo, $userid)
 
 	$sql = "SELECT * FROM friendship WHERE freund1 = :userid";
 	$statement = $pdo->prepare($sql);
-	$statement->execute(array($":userid" => $userid));
+	$statement->execute(array(":userid" => $userid));
 
 	while($row = $statement->fetch()) {
 		$friends[] = $row['freund2'];
