@@ -243,9 +243,9 @@ function renderProfile(PDO $pdo, $id)
 			<?php
 		}
 
-		$sql = "SELECT * FROM interesse WHERE user_id = :username";
+		$sql = "SELECT * FROM interesse WHERE user_id = :user_id";
 		$statement = $pdo->prepare($sql);
-		$statement->execute(array(':username' => $id));
+		$statement->execute(array(':user_id' => $id));
 		while($row = $statement->fetch()) {
 			?>
 			<?= $row['bezeichnung']?>, 
@@ -256,7 +256,7 @@ function renderProfile(PDO $pdo, $id)
 		<h5>Freunde</h5>
 		<?php
 		
-		$friends = getFriends($pdo, $username);
+		$friends = getFriends($pdo, $id);
 		foreach($friends as $friend) {
 			?>
 			<p><?= $friend?></p>
