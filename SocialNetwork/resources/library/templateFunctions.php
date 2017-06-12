@@ -259,7 +259,7 @@ function renderProfile(PDO $pdo, $id)
 		$friends = getFriends($pdo, $id);
 		foreach($friends as $friend) {
 			?>
-			<p><a href="?page=profile&owner=<?= $friend]?>"></p>
+			<p><a href="?page=profile&owner=<?= $friend]?>"><?= $friend?></a></p>
 			<?php
 		}
 
