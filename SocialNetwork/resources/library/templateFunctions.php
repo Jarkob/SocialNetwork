@@ -253,13 +253,13 @@ function renderProfile(PDO $pdo, $id)
 		}
 		?>
 		</p>
-<h5>Freunde</h5>
+		<h5>Freunde</h5>
 		<?php
 		
 		$friends = getFriends($pdo, $username);
-		foreach($friend in $friends) {
+		foreach($friend as $friends) {
 			?>
-<p><?= $friend?></p>
+			<p><?= $friend?></p>
 			<?php
 		}
 
@@ -379,17 +379,17 @@ function getFriends(PDO $pdo, $userid)
 {
 	$friends = array();
 
-	$sql = "SELECT * FROM friendship WHERE freund1 = ?";
+	$sql = "SELECT * FROM friendship WHERE freund1 = :userid";
 	$statement = $pdo->prepare($sql);
-	$statement->execute(array($userid));
+	$statement->execute(array($":userid" => $userid));
 
 	while($row = $statement->fetch()) {
 		$friends[] = $row['freund2'];
 	}
 
-	$sql = "SELECT * FROM friendship WHERE freund2 = ?";
+	$sql = "SELECT * FROM friendship WHERE freund2 = :userid";
 	$statement = $pdo->prepare($sql);
-	$statement->execute(array($userid));
+	$statement->execute(array(":userid" => $userid));
 
 	while($row = $statement->fetch()) {
 		$friends[] = $row['freund1'];
