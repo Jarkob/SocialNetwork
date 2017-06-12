@@ -245,7 +245,7 @@ function renderProfile(PDO $pdo, $id)
 
 		$sql = "SELECT * FROM interesse WHERE user_id = :username";
 		$statement = $pdo->prepare($sql);
-		$statement->execute(array(':username' => $username));
+		$statement->execute(array(':username' => $id));
 		while($row = $statement->fetch()) {
 			?>
 			<?= $row['bezeichnung']?>, 
