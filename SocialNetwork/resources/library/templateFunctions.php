@@ -257,7 +257,7 @@ function renderProfile(PDO $pdo, $id)
 		<?php
 		
 		$friends = getFriends($pdo, $username);
-		foreach($friend as $friends) {
+		foreach($friends as $friend) {
 			?>
 			<p><?= $friend?></p>
 			<?php
