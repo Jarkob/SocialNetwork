@@ -1,11 +1,9 @@
 <?php
 session_start();
-echo "vor config";
+
 require_once(realpath(dirname(__FILE__) . "/../resources/config.php"));
-echo "vor tfunktionen";
 require_once(LIBRARY_PATH . "/templateFunctions.php");
-echo "nach tfunktionen";
 global $pdo;
-//renderLayoutWithContentFile($pdo);
+renderLayoutWithContentFile($pdo);
 
 ?>
