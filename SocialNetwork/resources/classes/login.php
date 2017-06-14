@@ -1,4 +1,5 @@
 <?php
+echo "in login.php";
 require_once(../../config2.php);
 require_once(CLASSES_PATH ."/sql.php");
 class login
