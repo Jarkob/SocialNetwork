@@ -1,3 +1,7 @@
+<?php
+echo CLASSES_PATH;
+echo "klappt";
+?>
 <!DOCTYPE html>
 <html>
 <head>
