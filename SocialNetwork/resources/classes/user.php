@@ -31,9 +31,9 @@ class user
 	{
 		$user = findUserByUserName($username);
 		$this->username = $username;
-		$this->vorname = $user[0['vorname']];
-		$this->nachname = $user[0['nachname']];
-		$this->gebdatum = $user[0['gebdatum']];
+		$this->vorname = $user[0]['vorname'];
+		$this->nachname = $user[0]['nachname'];
+		$this->gebdatum = $user[0]['gebdatum'];
 	}
 
 	public static function createNewUser($userdata)//userdata is an associative array with the userinformation
