@@ -13,7 +13,7 @@ class login
 			WHERE username = :username";
 		$params = {":username" => $username}
 		$result = sql::exe($sql, $params);
-		if(password_verify($password, $result[0['passwort']])) {
+		if(password_verify($password, $result[0]['passwort'])) {
 			require_once(CLASSES_PATH ."/user.php");
 			$user = new user($username);
 			$user->changeSid();
