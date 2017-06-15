@@ -30,7 +30,7 @@ class sql
 	public static function exe($sql, $params=null)
 	{
 		//queries ausführen
-		$statement = self::$pdo>prepare($sql);
+		$statement = self::$pdo->prepare($sql);
 		
 		//bind_para ist ein Platzhalter für z.b. Limit Sachen,
 		//die brauchen nämlich einen Integer es werden aber defaultmäßig
