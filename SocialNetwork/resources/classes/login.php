@@ -7,12 +7,12 @@ echo "requiren in der login.php funktioniert";
 
 class login
 {
-/*
+
 	public static function loginUser($username, $password)
 	{
 		$sql = "SELECT * FROM user
 			WHERE username = :username";
-		$params = {":username" => $username}
+		$params = array(":username" => $username);
 		$result = sql::exe($sql, $params);
 		if(password_verify($password, $result[0]['passwort'])) {
 			require_once(CLASSES_PATH ."/user.php");
@@ -28,7 +28,7 @@ class login
 	{
 		$sql = "SELECT * FROM user
 			WHERE sid = :sid";
-		$params = {":sid" => $sid}
+		$params = array(":sid" => $sid);
 		$result = sql::exe($sql, $params);
 		if(sizeof($result) > 0) {
 			return true;
@@ -36,7 +36,7 @@ class login
 			return false;
 		}
 	}
-*/
+
 }
 
 ?>

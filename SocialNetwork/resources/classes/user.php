@@ -1,5 +1,5 @@
 <?php
-//fehlerhaft
+
 class user
 {
 	//alle protected, falls es mal Rollen gibt
