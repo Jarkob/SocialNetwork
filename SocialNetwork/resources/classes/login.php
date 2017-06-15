@@ -2,7 +2,7 @@
 echo "in login.php";
 //Fehler ist in login.php
 
-require_once("/../config2.php");
+require_once("../config2.php");
 require_once(CLASSES_PATH ."/sql.php");
 echo "requiren in der login.php funktioniert";
 /*
