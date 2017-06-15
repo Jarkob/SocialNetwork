@@ -21,9 +21,8 @@ echo "klappt";
 				<a href="#">Suche</a>
 			</li>
 			<?php
-			echo "nutten eins";
 			require_once(CLASSES_PATH ."/login.php");
-			echo "nutten";
+
 			if(login::isLoggedin(session_id()))
 			{
 				?>
