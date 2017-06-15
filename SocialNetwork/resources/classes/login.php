@@ -26,6 +26,7 @@ class login
 
 	public static function isLoggedIn($sid)
 	{
+		echo "isLoggedIn funktionsaufruf erfolgreich";
 		$sql = "SELECT * FROM user
 			WHERE sid = :sid";
 		$params = array(":sid" => $sid);
