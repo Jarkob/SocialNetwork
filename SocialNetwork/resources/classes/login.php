@@ -1,11 +1,9 @@
 <?php
-echo "in login.php";
-//Fehler ist in login.php
 
 require_once(realpath(dirname(__FILE_) ."/../config2.php"));
 require_once(CLASSES_PATH ."/sql.php");
 echo "requiren in der login.php funktioniert";
-/*
+
 class login
 {
 	
@@ -39,5 +37,5 @@ class login
 	}
 
 }
-*/
+
 ?>
