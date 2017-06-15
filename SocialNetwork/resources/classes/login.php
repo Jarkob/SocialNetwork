@@ -26,12 +26,12 @@ class login
 
 	public static function isLoggedIn($sid)
 	{
-		echo "isLoggedIn funktionsaufruf erfolgreich";
 		$sql = "SELECT * FROM user
 			WHERE sid = :sid";
 		$params = array(":sid" => $sid);
 		$result = sql::exe($sql, $params);
 		if(sizeof($result) > 0) {
+			echo "result ist wahr";
 			return true;
 		} else {
 			return false;
