@@ -1,5 +1,5 @@
 <?php
-
+//fehlerhaft
 class user
 {
 	//alle protected, falls es mal Rollen gibt
@@ -41,7 +41,7 @@ class user
 		$sql = "INSERT INTO user 
 			(username, vorname, nachname, passwort) 
 			VALUES 
-			(:username, :vorname, :nachname, :passwort";
+			(:username, :vorname, :nachname, :passwort)";
 		sql::exe($sql, $userdata);
 	}
 
