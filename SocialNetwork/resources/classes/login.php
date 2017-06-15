@@ -7,7 +7,7 @@ echo "requiren in der login.php funktioniert";
 
 class login
 {
-	
+	/*
 	public static function loginUser($username, $password)
 	{
 		$sql = "SELECT * FROM user
@@ -36,7 +36,7 @@ class login
 			return false;
 		}
 	}
-
+	*/
 }
 
 ?>
