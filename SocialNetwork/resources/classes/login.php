@@ -29,7 +29,9 @@ class login
 		$sql = "SELECT * FROM user
 			WHERE sid = :sid";
 		$params = array(":sid" => $sid);
+		echo "vor initialisierung relsult";
 		$result = sql::exe($sql, $params);
+		echo "nach initialisierung result";
 		if(sizeof($result) > 0) {
 			echo "result ist wahr";
 			return true;
