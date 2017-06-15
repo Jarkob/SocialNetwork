@@ -2,7 +2,7 @@
 
 require_once(realpath(dirname(__FILE_) ."/../config2.php"));
 require_once(CLASSES_PATH ."/sql.php");
-require_once(CLASSES_PATH ."/user.php");
+//require_once(CLASSES_PATH ."/user.php");
 echo "requiren in der login.php funktioniert";
 /*
 class login
