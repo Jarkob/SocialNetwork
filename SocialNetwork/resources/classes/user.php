@@ -49,7 +49,7 @@ class user
 	{
 		$sql = "SELECT * FROM user
 			WHERE username = :username";
-		$params = (":username" => $username);
+		$params = array(":username" => $username);
 
 		$user = sql::exe($sql, $params);
 		return $user;
@@ -59,7 +59,7 @@ class user
 	{
 		$sql = "SELECT * FROM user
 			WHERE sid = :sid";
-		$params = (":sid" => $sid);
+		$params = array(":sid" => $sid);
 		$user = sql::exe($sql, $params);
 		return $user;
 	}
@@ -84,7 +84,7 @@ class user
 	{
 		$sql = "UPDATE user SET sid = :sid
 			WHERE username = :username";
-		$params = (":sid" => session_id(), ":username" => $this->username);
+		$params = array(":sid" => session_id(), ":username" => $this->username);
 		sql::exe($sql, $params);
 	}
 }
