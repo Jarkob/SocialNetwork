@@ -34,6 +34,7 @@ class login
 			echo "result ist wahr";
 			return true;
 		} else {
+			echo "result ist nicht wahr";
 			return false;
 		}
 	}
