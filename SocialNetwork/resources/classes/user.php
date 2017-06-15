@@ -49,7 +49,7 @@ class user
 	{
 		$sql = "SELECT * FROM user
 			WHERE username = :username";
-		$params = {"username" => $username}
+		$params = {":username" => $username}
 
 		$user = sql::exe($sql, $params);
 		return $user;
