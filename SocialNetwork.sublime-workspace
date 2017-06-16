@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"array_ke",
+				"array_key_exists"
+			],
+			[
 				"session",
 				"session_id"
 			],
@@ -133,7 +137,7 @@
 			"file": "SocialNetwork/resources/classes/login.php",
 			"settings":
 			{
-				"buffer_size": 829,
+				"buffer_size": 1068,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -142,7 +146,16 @@
 			"file": "SocialNetwork/resources/views/header.view.php",
 			"settings":
 			{
-				"buffer_size": 900,
+				"buffer_size": 919,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "SocialNetwork/resources/views/login.view.php",
+			"settings":
+			{
+				"buffer_size": 1200,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -169,7 +182,7 @@
 			"file": "SocialNetwork/resources/templates/login.php",
 			"settings":
 			{
-				"buffer_size": 1066,
+				"buffer_size": 1065,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -249,10 +262,10 @@
 	],
 	"file_history":
 	[
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/library/templateFunctions2.php",
 		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/classes/sql.php",
 		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/public/index2.php",
 		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/public/index.php",
-		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/library/templateFunctions2.php",
 		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/views/home.view.php",
 		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/templates/registration.php",
 		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/templates/newEntry.php",
@@ -443,10 +456,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 597.0,
+						"translation.y": 396.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -474,7 +487,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -483,15 +496,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 829,
+						"buffer_size": 1068,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								798,
-								798
+								706,
+								706
 							]
 						],
 						"settings":
@@ -503,7 +516,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -512,15 +525,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 900,
+						"buffer_size": 919,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								391,
-								391
+								243,
+								243
 							]
 						],
 						"settings":
@@ -529,20 +542,48 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 102.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "SocialNetwork/resources/views/login.view.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1200,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								684,
+								684
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
 					"type": "text"
 				}
 			]
 		},
 		{
-			"selected": 3,
+			"selected": 5,
 			"sheets":
 			[
 				{
-					"buffer": 4,
+					"buffer": 5,
 					"file": "SocialNetwork/resources/config.php",
 					"semi_transient": false,
 					"settings":
@@ -567,11 +608,11 @@
 						"translation.y": 252.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 6,
 					"file": "SocialNetwork/public/index.php",
 					"semi_transient": false,
 					"settings":
@@ -595,24 +636,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 7,
 					"file": "SocialNetwork/resources/templates/login.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1066,
+						"buffer_size": 1065,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								328,
-								328
+								608,
+								608
 							]
 						],
 						"settings":
@@ -624,11 +665,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 8,
 					"file": "SocialNetwork/resources/library/templateFunctions.php",
 					"semi_transient": false,
 					"settings":
@@ -650,14 +691,14 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2539.0,
+						"translation.y": 4347.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 9,
 					"file": "SocialNetwork/resources/templates/home.php",
 					"semi_transient": false,
 					"settings":
@@ -681,11 +722,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 10,
 					"file": "SocialNetwork/resources/templates/header.php",
 					"semi_transient": false,
 					"settings":
@@ -710,7 +751,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]

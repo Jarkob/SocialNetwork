@@ -7,7 +7,7 @@ if(login::isLoggedIn(session_id())) {
 	<p>Sie sind bereits eingeloggt.</p>
 <?php
 } else {
-	if(array_key_exists('username', $_POST) && array_key_exists('password', $_POST)) {
+	if((array_key_exists('username', $_POST)) && (array_key_exists('password', $_POST))) {
 		$username = $_POST['username'];
 		$password = $_POST['password'];
 
