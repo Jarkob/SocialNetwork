@@ -45,7 +45,7 @@ echo "klappt";
 			} else {
 				?>
 				<li>
-					<a href="#">Login</a>
+					<a href="?page=login">Login</a>
 				</li>
 				<li>
 					<a href="#">Registrieren</a>

@@ -22,7 +22,7 @@ if(login::isLoggedIn(session_id())) {
 		} else {
 		?>
 			<p>Ihre Logindaten waren nicht korrekt.</p>
-			<p><a href="#">Nochmal versuchen</a></p>
+			<p><a href="?page=login">Nochmal versuchen</a></p>
 		<?php	
 		}
 	} else {

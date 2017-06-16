@@ -9,7 +9,8 @@ function renderPage()
 
 	if(isset($_GET['page'])) {
 		switch($_GET['page']) {
-			case 'nutten':
+			case 'login':
+			$view = $view ."/login.view.php";
 				break;
 			default:
 				break;
