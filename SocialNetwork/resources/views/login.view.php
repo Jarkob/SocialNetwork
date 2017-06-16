@@ -10,7 +10,7 @@ if(login::isLoggedIn(session_id())) {
 	if((array_key_exists('username', $_POST)) && (array_key_exists('password', $_POST))) {
 		$username = $_POST['username'];
 		$password = $_POST['password'];
-		echo "array keys existierne";
+
 		if(login::loginUser($username, $password)) {
 		?>
 			<p>Sie sind nun eingeloggt.</p>
@@ -27,7 +27,7 @@ if(login::isLoggedIn(session_id())) {
 		}
 	} else {
 	?>
-		<form action="" method="post">
+		<form action="" method="POST">
 			<div>
 				<p><label for="username">Username</label></p>
 				<p><input id="username" name="username"></p>
