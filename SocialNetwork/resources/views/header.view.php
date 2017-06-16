@@ -15,7 +15,7 @@ echo "klappt";
 	<div class="clearfix">
 		<ul class="topmenu">
 			<li>
-				<a href="#">Startseite</a>
+				<a href="index2.php">Startseite</a>
 			</li>
 			<li>
 				<a href="#">Suche</a>
