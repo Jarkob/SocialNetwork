@@ -34,7 +34,7 @@ if(login::isLoggedIn(session_id())) {
 			</div>
 			<div>
 				<p><label for="password">Passwort</label></p>
-				<p><input id="password" name="username" type="password"></p>
+				<p><input id="password" name="password" type="password"></p>
 			</div>
 			<p><button>Anmelden</button></p>
 		</form>
