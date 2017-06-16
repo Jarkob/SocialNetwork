@@ -29,7 +29,7 @@ class user
 
 	public function __construct($username)
 	{
-		$user = findUserByUserName($username);
+		$user = user::findUserByUserName($username);
 		$this->username = $username;
 		$this->vorname = $user[0]['vorname'];
 		$this->nachname = $user[0]['nachname'];
