@@ -19,7 +19,6 @@ if ((array_key_exists('login', $_POST))
 		?>
 		<p>Ihre Logindaten waren leider inkorrekt</p>
 		<p><a href='?page=login'>Nochmal versuchen</a></p>
-
 		<?php
 	}
 } else {
