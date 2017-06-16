@@ -14,13 +14,7 @@ class login
 		$params = array(":username" => $username);
 		$result = sql::exe($sql, $params);
 		if(password_verify($password, $result[0]['passwort'])) {
-			require_once(CLASSES_PATH ."/user.php");
-			$userData = user::findUserByName($username);
-			$params = array("username" => $userData[0]["username"], 
-				"vorname" => $userData[0]["vorname"], 
-				"nachname" => $userData[0]["nachname"], 
-				"gebdatum" => $userData[0]["gebdatum"]);
-			$user = new user($params);
+			$user = new user($username);
 			$user->changeSid();
 			return true;
 		} else {
