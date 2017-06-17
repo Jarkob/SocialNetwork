@@ -27,6 +27,7 @@ class user
 		return $this->gebdatum;
 	}
 
+	// Erstellt user anhand des usernamens
 	public function __construct($username)
 	{
 		$user = user::findUserByUserName($username);
