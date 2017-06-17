@@ -6,7 +6,7 @@ require_once(CLASSES_PATH ."/logout.php");
 
 if(login::isLoggedIn(session_id())) {
 	$user = user::getUserBySid(session_id());
-	$user.changeSid('loggedOut');
+	$user->changeSid('loggedOut');
 ?>
 	<p>Sie wurden ausgeloggt.</p>
 	<script type="text/javascript">
