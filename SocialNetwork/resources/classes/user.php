@@ -51,7 +51,8 @@ class user
 			WHERE username = :username";
 		$params = array(":username" => $username);
 
-		$user = sql::exe($sql, $params);
+		$result = sql::exe($sql, $params);
+		$user = new user($result[0]['username']);
 		return $user;
 	}
 
