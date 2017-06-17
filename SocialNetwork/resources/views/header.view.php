@@ -32,7 +32,7 @@
 					<a href="#">Freundschaftsanfragen</a>
 				</li>
 				<li>
-					<a href="#">Logout</a>
+					<a href="?page=logout">Logout</a>
 				</li>
 				<li>
 					<p>Hallo username</p>

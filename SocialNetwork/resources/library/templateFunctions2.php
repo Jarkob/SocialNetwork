@@ -12,6 +12,8 @@ function renderPage()
 			case 'login':
 			$view = $view ."/login.view.php";
 				break;
+			case 'logout':
+			$view .= "/logout.view.php";
 			default:
 				break;
 		}
