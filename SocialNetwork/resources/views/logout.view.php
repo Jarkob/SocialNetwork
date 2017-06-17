@@ -8,7 +8,7 @@ if(login::isLoggedIn(session_id())) {
 	$userDaten = user::findUserBySid(session_id());
 	// Achtung: Diese Funktion gibt kein userobjekt zurück sondern nur ein array
 	$user = new user($userDaten[0]['username']);
-	$user->changeSid('loggedOut');
+	logout::logoutUser($user);
 ?>
 	<p>Sie wurden ausgeloggt.</p>
 	<script type="text/javascript">
