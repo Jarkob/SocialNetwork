@@ -10,10 +10,10 @@ function renderPage()
 	if(isset($_GET['page'])) {
 		switch($_GET['page']) {
 			case 'login':
-			$view = $view ."/login.view.php";
+			$view .= "/login.view.php";
 				break;
 			case 'logout':
-				$view = "/logout.view.php";
+				$view .= "/logout.view.php";
 				break;
 			default:
 				break;
