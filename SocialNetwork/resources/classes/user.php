@@ -79,14 +79,14 @@ class user
 	{
 		$friendrequest->deleteFriendrequest();
 	}
-/*
+
 	public function changeSid($newSid = session_id())
 	{
 		$sql = "UPDATE user SET sid = :sid
 			WHERE username = :username";
 		$params = array(":sid" => $newSid, ":username" => $this->username);
 		sql::exe($sql, $params);
-	}*/
+	}
 }
 
 ?>

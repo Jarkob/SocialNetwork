@@ -10,7 +10,7 @@ class logout
 	{
 		$sql = "UPDATE user SET sid = 'loggedout'
 			WHERE username = :username";
-		$params = array(":username" => $user.getUsername());
+		$params = array(":username" => $user->getUsername());
 		sql::exe($sql, $params);
 	}
 }
