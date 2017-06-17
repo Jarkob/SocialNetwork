@@ -45,24 +45,25 @@ class user
 		sql::exe($sql, $userdata);
 	}
 
+	// Gibt ein userdaten array zurück
 	public static function findUserByUserName($username)
 	{
 		$sql = "SELECT * FROM user
 			WHERE username = :username";
 		$params = array(":username" => $username);
 
-		$result = sql::exe($sql, $params);
-		$user = new user($result[0]['username']);
+		$user = sql::exe($sql, $params);
 		return $user;
 	}
 
+	// Gibt den usernamen zur sid zurück
 	public static function findUserBySid($sid)
 	{
 		$sql = "SELECT * FROM user
 			WHERE sid = :sid";
 		$params = array(":sid" => $sid);
 		$user = sql::exe($sql, $params);
-		return $user;
+		return $user[0]['username'];
 	}
 
 	public function sendFriendrequest($empfaenger)
