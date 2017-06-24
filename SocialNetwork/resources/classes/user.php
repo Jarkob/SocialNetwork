@@ -90,6 +90,20 @@ class user
 		$params = array(":sid" => session_id(), ":username" => $this->username);
 		sql::exe($sql, $params);
 	}
+
+	// Gibt einen array mit Freunden zurück
+	public function getFriends()
+	{
+		$sql = "SELECT * FROM friendship WHERE freund1 = :username OR freund2 = :username";
+		$params = array(":username" => $this->username);
+		$result = sql::exe($sql, $params);
+		$friends = array();
+		for($i = 0; $i < sizeof($result); $i++) {
+			$friends[] = new user($result[$i]['username']);
+		}
+
+		return $friends;
+	}
 }
 
 ?>

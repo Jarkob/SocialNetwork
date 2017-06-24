@@ -27,4 +27,20 @@ function renderPage()
 	require_once(VIEWS_PATH ."/footer.view.php");
 }
 
+
+function renderFriendsEntries()
+{
+	$username = user::findUserBySid();
+	$user = user::findUserByUserName($username);
+	$friends = $user->getFriends();
+
+	$sql = "SELECT * FROM entry WHERE autor = '" .$username;
+	foreach($friends as $friend) {
+		$sql .= "' OR autor = '". $friend->username;
+	}
+	$sql .= "' ORDER BY zeit DESC";
+
+	//weitermachen beim sammeln der einträge
+}
+
 ?>
