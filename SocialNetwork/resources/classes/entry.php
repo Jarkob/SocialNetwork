@@ -1,23 +1,39 @@
 <?php
 
+require_once(CLASSES_PATH ."/sql.php");
+
 class entry
 {
-	public static createNewEntry($autor, $content)
+	protected $author;
+	protected $content;
+	protected $id;
+
+	public entry($id, $author, $content)
 	{
-		$sql = "INSERT INTO entry
-			(content, autor)
-			VALUES(:content, :autor)";
-		$params = {"content" => $content, "autor" => $autor}
-		sql::exe($sql, $params);
+		$this->id = $id;
+		$this->author = $author;
+		$this->content = $content;
 	}
 
-	public static getEntryById($id)
+	public static function getEntries(user $user)
 	{
-		$sql = "SELECT * FROM entry
-			WHERE id = :id";
-		$params = {"id" => $id}
-		$entry = sql::exe($sql, $params);
-		return $entry;
+		
+	}
+	
+	public function renderEntry()
+	{
+		$sql = "SELECT * FROM entry WHERE id = :id";
+		$params = array(":id" => $this->id);
+		$result = sql::exe($sql, $params);
+		?>
+		<div class="entry">
+			<p><?= $result[0]['zeit']?></p>
+			<p><a href="?page=profile&owner=<?= $result[0]['username']?>><?= $result[0]['username']?></a></p>
+			<p>
+				<?= $result[0]['content']?>
+			</p>
+		</div>
+		<?php
 	}
 }
 

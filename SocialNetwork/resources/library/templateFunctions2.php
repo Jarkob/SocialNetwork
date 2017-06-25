@@ -28,7 +28,7 @@ function renderPage()
 }
 
 
-function renderFriendsEntries()
+function renderHome()
 {
 	$username = user::findUserBySid();
 	$user = user::findUserByUserName($username);
@@ -41,6 +41,16 @@ function renderFriendsEntries()
 	$sql .= "' ORDER BY zeit DESC";
 
 	//weitermachen beim sammeln der einträge
+	require_once(CLASSES_PATH ."/entry.php");
+	$result = sql::exe($sql);
+	$entries = array();
+	foreach($result as $entry) {
+		$entries[] = new entry($entry['id'], $entry['autor'], $entry['content']);
+	}
+
+	foreach($entries as $entry) {
+		$entry->renderEntry();
+	}
 }
 
 ?>

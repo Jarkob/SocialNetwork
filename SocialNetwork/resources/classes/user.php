@@ -98,7 +98,7 @@ class user
 		$params = array(":username" => $this->username);
 		$result = sql::exe($sql, $params);
 		$friends = array();
-		for($i = 0; $i < sizeof($result); $i++) {
+		for($i = 0; $i < count($result); $i++) {
 			$friends[] = new user($result[$i]['username']);
 		}
 
