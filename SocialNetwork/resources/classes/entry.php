@@ -8,7 +8,7 @@ class entry
 	protected $content;
 	protected $id;
 
-	public entry($id, $author, $content)
+	public function __construct($id, $author, $content)
 	{
 		$this->id = $id;
 		$this->author = $author;
