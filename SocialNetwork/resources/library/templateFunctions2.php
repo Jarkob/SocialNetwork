@@ -1,4 +1,7 @@
 <?php
+require_once(CLASSES_PATH ."/sql.php");
+require_once(CLASSES_PATH ."/user.php");
+require_once(CLASSES_PATH ."/entry.php");
 
 function renderPage()
 {
@@ -40,8 +43,6 @@ function renderHome()
 	}
 	$sql .= "' ORDER BY zeit DESC";
 
-	//weitermachen beim sammeln der einträge
-	require_once(CLASSES_PATH ."/entry.php");
 	$result = sql::exe($sql);
 	$entries = array();
 	foreach($result as $entry) {
