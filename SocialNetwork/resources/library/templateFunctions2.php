@@ -31,7 +31,7 @@ function renderPage()
 	require_once(VIEWS_PATH ."/footer.view.php");
 }
 
-
+/*
 function renderHome()
 {
 	$username = user::findUserBySid(session_id());
@@ -54,5 +54,5 @@ function renderHome()
 		$entry->renderEntry();
 	}
 }
-
+*/
 ?>
