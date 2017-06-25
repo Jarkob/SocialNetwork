@@ -34,6 +34,9 @@
 			}
 
 			?>
+			<li>
+				<a href="index2.php">Zur neuen Version</a>
+			</li>
 		</ul>
 	</div>
 </nav>

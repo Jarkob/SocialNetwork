@@ -50,6 +50,9 @@
 			}
 			
 			?>
+			<li>
+				<a href="index.php">Zur alten Version</a>
+			</li>
 		</ul>
 	</div>
 </nav>
