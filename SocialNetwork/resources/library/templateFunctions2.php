@@ -35,7 +35,7 @@ function renderPage()
 function renderHome()
 {
 	$username = user::findUserBySid(session_id());
-	$user = user::findUserByUserName($username);
+	$user = new user($username);
 	$friends = $user->getFriends();
 
 	$sql = "SELECT * FROM entry WHERE autor = '" .$username;
