@@ -34,7 +34,7 @@ function renderPage()
 
 function renderHome()
 {
-	$username = user::findUserBySid();
+	$username = user::findUserBySid(session_id());
 	$user = user::findUserByUserName($username);
 	$friends = $user->getFriends();
 
