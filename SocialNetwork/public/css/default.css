@@ -136,6 +136,6 @@ footer a {
 
 .entry {
 	padding: 15px;
-	border: 1px 0 1px 0 solid #000;
+	border-bottom: 1px solid #000;
 }
 
