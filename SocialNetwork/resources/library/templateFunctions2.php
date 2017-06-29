@@ -40,7 +40,7 @@ function renderHome()
 
 	$sql = "SELECT * FROM entry WHERE autor = '" .$username;
 	foreach($friends as $friend) {
-		$sql .= "' OR autor = '". $friend->getUsername();
+		$sql .= "' OR autor = '". $friend;
 	}
 	$sql .= "' ORDER BY zeit DESC LIMIT 10";
 	echo $sql;

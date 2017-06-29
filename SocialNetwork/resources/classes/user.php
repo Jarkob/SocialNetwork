@@ -91,7 +91,7 @@ class user
 		sql::exe($sql, $params);
 	}
 
-	// Gibt einen array mit Freunden zurück
+	// Gibt einen array mit Freundenamen zurück
 	public function getFriends()
 	{
 		$sql = "SELECT * FROM friendship WHERE freund1 = :username OR freund2 = :username";
@@ -100,7 +100,7 @@ class user
 		$friends = array();
 		
 		for($i = 0; $i < sizeof($result); $i++) {
-			$friends[] = new user($result[$i]['username']);
+			$friends[] = $result[$i]['username'];
 		}
 		//bis hierhin alles ok
 		return $friends;
