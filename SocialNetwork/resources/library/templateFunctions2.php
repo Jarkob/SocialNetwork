@@ -43,6 +43,7 @@ function renderHome()
 		$sql .= "' OR autor = '". $friend->getUsername();
 	}
 	$sql .= "' ORDER BY zeit DESC LIMIT 10";
+	echo $sql;
 
 	$result = sql::exe($sql);
 	$entries = array();
