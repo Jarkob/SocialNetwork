@@ -31,7 +31,7 @@ class entry
 				<i><?= $result[0]['zeit']?></i>
 			</p>
 			<p>
-				<a href="?page=profile&owner=<?= $result[0]['username']?>"><b><?= $result[0]['username']?></b></a>
+				<a href="?page=profile&owner=<?= $result[0]['autor']?>"><b><?= $result[0]['autor']?></b></a>
 			</p>
 			<p>
 				<?= $result[0]['content']?>
