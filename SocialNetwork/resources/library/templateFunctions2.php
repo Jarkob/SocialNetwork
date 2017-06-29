@@ -38,13 +38,6 @@ function renderHome()
 	$user = new user($username);
 	$friends = $user->getFriends();
 
-	$sql = "SELECT * FROM entry WHERE autor = '" .$username;
-	foreach($friends as $friend) {
-		$sql .= "' OR autor = '". $friend;
-	}
-	$sql .= "' ORDER BY zeit DESC LIMIT 10";
-
-	$result = sql::exe($sql);
 
 
 	// Einträge zählen
@@ -60,8 +53,18 @@ function renderHome()
 			$seite = 1;
 		}
 	}
+
 	$start = ($seite * $anzahlProSeite) - $anzahlProSeite;
 	$limit = $start + 10;
+
+	$sql = "SELECT * FROM entry WHERE autor = '" .$username;
+	foreach($friends as $friend) {
+		$sql .= "' OR autor = '". $friend;
+	}
+	$sql .= "' ORDER BY zeit DESC LIMIT ". $limit ." OFFSET ". $start;
+
+	$result = sql::exe($sql);
+
 
 
 
