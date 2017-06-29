@@ -42,7 +42,7 @@ function renderHome()
 	foreach($friends as $friend) {
 		$sql .= "' OR autor = '". $friend->getUsername();
 	}
-	$sql .= "' ORDER BY zeit DESC";
+	$sql .= "' ORDER BY zeit DESC LIMIT 10";
 
 	$result = sql::exe($sql);
 	$entries = array();
