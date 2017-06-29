@@ -100,7 +100,11 @@ class user
 		$friends = array();
 		
 		for($i = 0; $i < sizeof($result); $i++) {
-			$friends[] = $result[$i]['username'];
+			if($result[$i]['freund1'] == $this->username) {
+				$friends[] = $result[$i]['freund2'];
+			} else {
+				$friends[] = $result[$i]['freund1'];
+			}
 		}
 		//bis hierhin alles ok
 		return $friends;
