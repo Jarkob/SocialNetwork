@@ -13,8 +13,11 @@ function renderPage()
 
 	if(isset($_GET['page'])) {
 		switch($_GET['page']) {
+			case 'home':
+				$view .= "/home.view.php";
+				break;
 			case 'login':
-			$view .= "/login.view.php";
+				$view .= "/login.view.php";
 				break;
 			case 'logout':
 				$view .= "/logout.view.php";
