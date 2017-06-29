@@ -27,8 +27,12 @@ class entry
 		$result = sql::exe($sql, $params);
 		?>
 		<div class="entry">
-			<p><?= $result[0]['zeit']?></p>
-			<p><a href="?page=profile&owner=<?= $result[0]['username']?>"><?= $result[0]['username']?></a></p>
+			<p>
+				<i><?= $result[0]['zeit']?></i>
+			</p>
+			<p>
+				<a href="?page=profile&owner=<?= $result[0]['username']?>"><b><?= $result[0]['username']?></b></a>
+			</p>
 			<p>
 				<?= $result[0]['content']?>
 			</p>
