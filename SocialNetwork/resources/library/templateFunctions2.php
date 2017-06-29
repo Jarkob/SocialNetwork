@@ -46,12 +46,11 @@ function renderHome()
 
 	$result = sql::exe($sql);
 	$entries = array();
-	//hier vielleich auch noch 
-	/*
-	foreach($result as $entry) {
-		$entries[] = new entry($entry['id'], $entry['autor'], $entry['content']);
+	
+	for($i = 0; $i < sizeof($result); $i++) {
+		$entries[] = new entry($result[$i]['id'], $result[$i]['autor'], $result[$i]['content']);
 	}
-*/
+
 	foreach($entries as $entry) {
 		$entry->renderEntry();
 	}
