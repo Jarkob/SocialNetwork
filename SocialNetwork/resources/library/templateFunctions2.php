@@ -39,9 +39,16 @@ function renderHome()
 	$friends = $user->getFriends();
 
 
-
 	// Einträge zählen
-	$anzahlEintraege = sizeof($result);
+	$sql = "SELECT * FROM entry WHERE autor = '" .$username;
+	foreach($friends as $friend) {
+		$sql .= "' OR autor = '". $friend;
+	}
+	$sql .= "' ORDER BY zeit DESC";
+
+	$alleEintraege = sql::exe($sql);
+
+	$anzahlEintraege = sizeof($alleEintraege);
 	$anzahlProSeite = 10;
 	$anzahlSeiten = $anzahlEintraege / $anzahlProSeite;
 
