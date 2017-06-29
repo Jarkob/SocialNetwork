@@ -98,11 +98,11 @@ class user
 		$params = array(":username" => $this->username);
 		$result = sql::exe($sql, $params);
 		$friends = array();
-
+		echo "vor der dämlichen Schleife";
 		for($i = 0; $i < sizeof($result); $i++) {
 			$friends[] = new user($result[$i]['username']);
 		}
-
+		echo "nach der dämlichen Schleife";
 		return $friends;
 	}
 }
