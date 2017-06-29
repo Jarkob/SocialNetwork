@@ -65,7 +65,7 @@ function renderHome()
 	}
 
 	$start = ($seite * $anzahlProSeite) - $anzahlProSeite;
-	$limit = $start + 10;
+	$limit = /*$start + */10;
 
 	$sql = "SELECT * FROM entry WHERE autor = '" .$username;
 	foreach($friends as $friend) {
@@ -74,8 +74,6 @@ function renderHome()
 	$sql .= "' ORDER BY zeit DESC LIMIT ". $limit ." OFFSET ". $start;
 
 	$result = sql::exe($sql);
-
-
 
 
 	$entries = array();
