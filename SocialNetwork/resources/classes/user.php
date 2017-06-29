@@ -98,6 +98,7 @@ class user
 		$params = array(":username" => $this->username);
 		$result = sql::exe($sql, $params);
 		$friends = array();
+		//vielleich liegt der Fehler hier
 		foreach($result as $friend) {
 			$friends[] = new user($friend['username']);
 		}
