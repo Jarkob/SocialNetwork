@@ -37,6 +37,8 @@ function renderPage()
 
 function renderHome()
 {
+	require_once(VIEWS_PATH ."/newEntry.view.php");
+
 	$username = user::findUserBySid(session_id());
 	$user = new user($username);
 	$friends = $user->getFriends();
