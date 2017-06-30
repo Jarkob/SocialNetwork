@@ -3,33 +3,40 @@ require_once(realpath(dirname(__FILE__) ."/../config2.php"));
 require_once(CLASSES_PATH ."/sql.php");
 require_once(CLASSES_PATH ."/user.php");
 require_once(CLASSES_PATH ."/entry.php");
+require_once(CLASSES_PATH ."/login.php");
 
 function renderPage()
 {
 	//hier kommt das skript an
 	require_once(VIEWS_PATH ."/header.view.php");
 
-	$view = VIEWS_PATH;
+	if(login::isLoggedIn(session_id())) {
 
-	if(isset($_GET['page'])) {
-		switch($_GET['page']) {
-			case 'home':
-				$view .= "/home.view.php";
-				break;
-			case 'login':
-				$view .= "/login.view.php";
-				break;
-			case 'logout':
-				$view .= "/logout.view.php";
-				break;
-			default:
-				break;
+		$view = VIEWS_PATH;
+		if(isset($_GET['page'])) {
+			switch($_GET['page']) {
+				case 'home':
+					$view .= "/home.view.php";
+					break;
+				case 'login':
+					$view .= "/login.view.php";
+					break;
+				case 'logout':
+					$view .= "/logout.view.php";
+					break;
+				default:
+					break;
+			}
+		} else {
+			$view = $view . '/home.view.php';
 		}
+		require_once($view);
 	} else {
-		$view = $view . '/home.view.php';
+		?>
+		<p>Bitte loggen Sie sich zuerst ein.</p>
+		<p><a href="?page=login">Zum Login</a></p>
+		<?php
 	}
-
-	require_once($view);
 
 	require_once(VIEWS_PATH ."/footer.view.php");
 }
