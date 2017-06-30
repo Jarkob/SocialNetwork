@@ -10,7 +10,7 @@ function renderPage()
 	//hier kommt das skript an
 	require_once(VIEWS_PATH ."/header.view.php");
 
-	if(login::isLoggedIn(session_id())) {
+	//if(login::isLoggedIn(session_id())) {
 
 		$view = VIEWS_PATH;
 		if(isset($_GET['page'])) {
@@ -27,9 +27,10 @@ function renderPage()
 				default:
 					break;
 			}
-		} else {
-			$view = $view . '/home.view.php';
-		}
+		//} else {
+		//	$view = $view . '/home.view.php';
+		//}
+		// An dieser Stelle sinnlos
 		require_once($view);
 	} else {
 		?>
