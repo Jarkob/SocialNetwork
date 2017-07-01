@@ -8,6 +8,8 @@
 </div>
 
 <?php
+require_once(CLASSES_PATH ."/sql.php");
+require_once(CLASSES_PATH ."/user.php");
 
 if(array_key_exists('content', $_POST)) {
 
