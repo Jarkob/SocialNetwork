@@ -63,12 +63,6 @@ main {
 	padding: 16px;
 }
 
-.topmenu li p {
-	/*display: inline-block;*/
-	color: white;
-	text-align: center;
-}
-
 .topmenu li a {
 	display: inline-block;
 	color: white;

@@ -42,7 +42,7 @@
 					<?php
 					$username = user::findUserBySid(session_id());
 					?>
-					<p>Hallo, <?= $username?></p>
+					Hallo, <?= $username?>
 				</li>
 				<?php
 			} else {
