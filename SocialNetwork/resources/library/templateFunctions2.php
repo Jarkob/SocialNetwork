@@ -12,7 +12,7 @@ function renderPage()
 
 	// Neuer Versuch
 	$view = VIEWS_PATH;
-	if(isset($_GET('page'))) {
+	if(isset($_GET['page'])) {
 		if(login::loggedIn(session_id())) {
 			switch($_GET['page']) {
 				case 'home':
