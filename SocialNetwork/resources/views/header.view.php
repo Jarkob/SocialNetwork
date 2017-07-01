@@ -35,7 +35,10 @@
 					<a href="?page=logout">Logout</a>
 				</li>
 				<li>
-					<p>Hallo username</p>
+					<?php
+					$username = user::findUserBySid(session_id());
+					echo "Hallo ". $username;
+					?>
 				</li>
 				<?php
 			} else {

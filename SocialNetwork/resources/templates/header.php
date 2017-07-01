@@ -24,7 +24,9 @@
 				<li><a href="?page=messages">Nachrichten</a></li>
 				<li><a href="?page=manageFriendrequest">Freundschaftsanfragen</a></li>
 				<li><a href="?page=logout">Logout</a></li>
-				<li><a href="#">Hallo <?= $username?></a></li>
+				<li>
+					Hallo <?= $username?>
+				</li>
 				<?php
 			} else {
 				?>
