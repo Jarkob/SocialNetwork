@@ -16,7 +16,7 @@
 			<li>
 				<form action="?page=search&" method="get">
 					<input type="hidden" name="page" value="<?= $_GET["page"]?>">
-					<input name="suche">
+					<input name="search">
 					<button>Suchen</button>
 				</form>
 			</li>

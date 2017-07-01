@@ -18,6 +18,9 @@ function renderPage()
 				case 'home':
 					$view .= "/home.view.php";
 					break;
+				case 'search':
+					$view .= "/search.view.php";
+					break;
 				case 'logout':
 					$view .= "/logout.view.php";
 					break;
@@ -49,7 +52,7 @@ function renderPage()
 
 	} else {
 		if(login::isLoggedIn(session_id())) {
-			$view = $view . '/home.view.php';
+			$view .= '/home.view.php';
 			require_once($view);
 		} else {
 			?>
