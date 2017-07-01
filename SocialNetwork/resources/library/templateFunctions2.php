@@ -8,13 +8,12 @@ require_once(CLASSES_PATH ."/login.php");
 function renderPage()
 {
 	//hier kommt das skript an
-	echo "hier kommt das skript an";
 	require_once(VIEWS_PATH ."/header.view.php");
 
 	// Neuer Versuch
 	$view = VIEWS_PATH;
 	if(isset($_GET['page'])) {
-		if(login::loggedIn(session_id())) {
+		if(login::isLoggedIn(session_id())) {
 			switch($_GET['page']) {
 				case 'home':
 					$view .= "/home.view.php";
