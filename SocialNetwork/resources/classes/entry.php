@@ -9,6 +9,21 @@ class entry
 	protected $content;
 	protected $id;
 
+	public function getAuthor()
+	{
+		return $this->author;
+	}
+
+	public function getContent()
+	{
+		return $this->content;
+	}
+
+	public function getId()
+	{
+		return $this->id;
+	}
+
 	public function __construct($author, $content, $id=null)
 	{
 		if($id != null) {
@@ -23,11 +38,12 @@ class entry
 		
 	}
 
+	// Da ist 1 Wurm drin
 	public function createNewEntry()
 	{
 		if($this->id == null) {
 			$sql = "INSERT INTO entry (content, autor) VALUES (:content, :autor)";
-			$params = array(':content' => $this->content, ':autor' => $this->author);
+			$params = array(':content' => $this->getContent(), ':autor' => $this->getAuthor());
 
 			$sql::exe($sql, $params);
 		} else {
