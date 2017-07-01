@@ -41,7 +41,7 @@ function renderPage()
 					break;
 			}
 		}
-
+		echo $view;
 		require_once($view);
 
 	} else {
