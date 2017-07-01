@@ -64,7 +64,7 @@ main {
 }
 
 .topmenu li p {
-	display: inline-block;
+	/*display: inline-block;*/
 	color: white;
 	text-align: center;
 }
