@@ -47,6 +47,7 @@ class entry
 			$sql = "INSERT INTO entry (content, autor) VALUES (:content, :autor)";
 			$params = array(':content' => $this->getContent(), ':autor' => $this->getAuthor());
 			echo "nach initialisierung der parameter";
+			printf($params);
 			$sql::exe($sql, $params);
 			echo "nach sql query";
 		} else {
