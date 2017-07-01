@@ -19,6 +19,7 @@ function renderPage()
 					$view .= "/home.view.php";
 
 					if(isset($_GET['delete'])) {
+						echo "obere alternative kur z vorm dleeten";
 						$entry = entry::findEntryById($_GET['delete']);
 						if($entry->getAuthor == user::getUserBySid(session_id())) {
 							$entry->deleteEntry();
@@ -63,6 +64,7 @@ function renderPage()
 			$view .= '/home.view.php';
 
 			if(isset($_GET['delete'])) {
+				echo "kurz vorm dleeten";
 				$entry = entry::findEntryById($_GET['delete']);
 				if($entry->getAuthor == user::getUserBySid(session_id())) {
 					$entry->deleteEntry();
