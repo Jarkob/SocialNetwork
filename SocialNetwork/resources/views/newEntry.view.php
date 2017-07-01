@@ -9,10 +9,11 @@
 
 <?php
 //hier ist irgendwo der Wurm drin
+echo "vor dem requiren in der newentry.view.php";
 require_once(CLASSES_PATH ."/sql.php");
 require_once(CLASSES_PATH ."/user.php");
 require_once(CLASSES_PATH ."/entry.php");
-
+echo "requiren klappt";
 if(array_key_exists('content', $_POST)) {
 
 	$username = user::findUserBySid(session_id());
