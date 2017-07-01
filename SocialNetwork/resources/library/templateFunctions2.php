@@ -22,7 +22,7 @@ function renderPage()
 						echo "obere alternative kur z vorm dleeten";
 						$entry = entry::findEntryById($_GET['delete']);
 						echo "nach entryInitialisierung";
-						if($entry->getAuthor == user::getUserBySid(session_id())) {
+						if($entry->getAuthor() == user::getUserBySid(session_id())) {
 							echo "in if";
 							$entry->deleteEntry();
 							echo "nach löschung";
@@ -70,7 +70,7 @@ function renderPage()
 			if(isset($_GET['delete'])) {
 				echo "kurz vorm dleeten";
 				$entry = entry::findEntryById($_GET['delete']);
-				if($entry->getAuthor == user::getUserBySid(session_id())) {
+				if($entry->getAuthor() == user::getUserBySid(session_id())) {
 					$entry->deleteEntry();
 				}
 			}
