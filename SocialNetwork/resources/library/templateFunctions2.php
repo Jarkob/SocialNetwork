@@ -27,18 +27,18 @@ function renderPage()
 				default:
 					break;
 			}
-		//} else {
-		//	$view = $view . '/home.view.php';
-		//}
-		// An dieser Stelle sinnlos
+		} else {
+			$view = $view . '/home.view.php';
+		}
+		
 		require_once($view);
-	} else {
-		?>
+	//} else {
+	/*	?>
 		<p>Bitte loggen Sie sich zuerst ein.</p>
 		<p><a href="?page=login">Zum Login</a></p>
 		<?php
 	}
-
+	*/	
 	require_once(VIEWS_PATH ."/footer.view.php");
 }
 
