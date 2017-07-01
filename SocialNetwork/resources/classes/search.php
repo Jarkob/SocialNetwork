@@ -3,7 +3,7 @@ require_once(CLASSES_PATH ."/sql.php");
 
 class search
 {
-	public static function search($q)
+	public static function suchen($q)
 	{
 		$searchString = '%'. $_GET['search'] .'%';
 		$sql = "SELECT * FROM user WHERE username LIKE :searchString";

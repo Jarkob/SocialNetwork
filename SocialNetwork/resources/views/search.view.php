@@ -4,7 +4,7 @@ require_once(CLASSES_PATH ."/search.php");
 echo "requiren klappt";
 if(array_key_exists('search', $_GET)) {
 	echo "in der if";
-	$results = search::Search($_GET['search']);
+	$results = search::suchen($_GET['search']);
 	echo "nach der suche";
 	//zeige Suchergebnisse an
 	if(count($results) > 0) {
