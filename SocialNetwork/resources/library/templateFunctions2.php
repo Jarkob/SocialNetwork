@@ -25,13 +25,17 @@ function renderPage()
 					$view .= "/error.view.php";
 					break;
 			}
+			require_once($view);
+
 		} else {
 			switch($_GET['page']) {
 				case 'login':
 					$view .= "/login.view.php";
+					require_once($view);
 					break;
 				case 'registration':
 					$view .= "/registration.view.php";
+					require_once($view);
 					break;
 				default:
 					?>
@@ -41,8 +45,6 @@ function renderPage()
 					break;
 			}
 		}
-		echo $view;
-		require_once($view);
 
 	} else {
 		if(login::isLoggedIn(session_id())) {
