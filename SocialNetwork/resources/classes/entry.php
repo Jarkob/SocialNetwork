@@ -33,6 +33,16 @@ class entry
 		$this->content = $content;
 	}
 
+	// Gibt entry Objekt zurück
+	public static function findEntryById($id)
+	{
+		$sql = "SELECT * FROM entry WHERE id = :id";
+		$params = array(":id" => $id);
+		$result = sql::exe($sql, $params);
+		$entry = new entry($result[0]['autor'], $result[0]['content'], $result[0]['id']);
+		return $entry;
+	}
+
 	public static function getEntries(user $user)
 	{
 		
@@ -68,8 +78,24 @@ class entry
 			<p>
 				<?= $result[0]['content']?>
 			</p>
+			<p>
+				<?php
+				if($result[0]['autor'] == user::findUserBySid(session_id())) {
+					?>
+					<a href="?page=home%delete=<?= $result[0]['id']?>">Löschen</a>
+					<?php
+				}
+				?>
+			</p>
 		</div>
 		<?php
+	}
+
+	public function deleteEntry()
+	{
+		$sql = "DELETE FROM entry WHERE id = :id";
+		$params = array(":id" => $this->getId());
+		sql::exe($sql, $params);
 	}
 }
 

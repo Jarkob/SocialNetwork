@@ -17,6 +17,14 @@ function renderPage()
 			switch($_GET['page']) {
 				case 'home':
 					$view .= "/home.view.php";
+
+					if(isset($_GET['delete'])) {
+						$entry = entry::findEntryById($_GET['delete']);
+						if($entry->getAuthor == user::getUserBySid(session_id())) {
+							$entry->deleteEntry();
+						}
+					}
+
 					break;
 				case 'search':
 					$view .= "/search.view.php";
