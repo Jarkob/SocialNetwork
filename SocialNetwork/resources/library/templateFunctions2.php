@@ -22,7 +22,7 @@ function renderPage()
 						echo "obere alternative kur z vorm dleeten";
 						$entry = entry::findEntryById($_GET['delete']);
 						echo "nach entryInitialisierung";
-						if($entry->getAuthor() == user::getUserBySid(session_id())) {
+						if($entry->getAuthor() == user::findUserBySid(session_id())) {
 							echo "in if";
 							$entry->deleteEntry();
 							echo "nach löschung";
