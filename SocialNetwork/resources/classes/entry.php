@@ -44,16 +44,8 @@ class entry
 		if($this->getId() == null) {
 			$sql = "INSERT INTO entry (content, autor) VALUES (:content, :autor)";
 			$params = array(':content' => $this->getContent(), ':autor' => $this->getAuthor());
-			echo "nach initialisierung der parameter";
 
-			foreach($params as $param) {
-				echo $param;
-			}
-			echo $this->getAuthor();
-			echo $this->getContent();
-
-			$sql::exe($sql, $params);
-			echo "nach sql query";
+			sql::exe($sql, $params);// argh $sql
 		} else {
 			?>
 			<p>Der Eintrag existiert bereits.</p>
