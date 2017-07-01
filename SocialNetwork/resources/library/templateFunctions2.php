@@ -25,7 +25,7 @@ function renderPage()
 					$view .= "/error.view.php";
 					break;
 			}
-			echo $view;
+			
 			require_once($view);
 
 		} else {
