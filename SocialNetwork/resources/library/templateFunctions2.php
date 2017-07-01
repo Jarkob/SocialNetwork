@@ -17,6 +17,7 @@ function renderPage()
 			switch($_GET['page']) {
 				case 'home':
 					$view .= "/home.view.php";
+					break;
 				case 'logout':
 					$view .= "/logout.view.php";
 					break;
