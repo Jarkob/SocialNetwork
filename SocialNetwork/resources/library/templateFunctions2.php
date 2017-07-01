@@ -10,35 +10,53 @@ function renderPage()
 	//hier kommt das skript an
 	require_once(VIEWS_PATH ."/header.view.php");
 
-	//if(login::isLoggedIn(session_id())) {
-
-		$view = VIEWS_PATH;
-		if(isset($_GET['page'])) {
+	// Neuer Versuch
+	$view = VIEWS_PATH;
+	if(isset($_GET('page'))) {
+		if(login::loggedIn(session_id())) {
 			switch($_GET['page']) {
 				case 'home':
 					$view .= "/home.view.php";
-					break;
-				case 'login':
-					$view .= "/login.view.php";
-					break;
 				case 'logout':
 					$view .= "/logout.view.php";
 					break;
 				default:
+					$view .= "/error.view.php";
 					break;
 			}
 		} else {
-			$view = $view . '/home.view.php';
+			switch($_GET['page']) {
+				case 'login':
+					$view .= "/login.view.php";
+					break;
+				case 'registration':
+					$view .= "/registration.view.php";
+					break;
+				default:
+					?>
+					<p>Bitte loggen Sie sich zuerst ein.</p>
+					<p><a href="?page=login">Zum Login</a></p>
+					<?php
+					break;
+			}
 		}
-		
+
 		require_once($view);
-	//} else {
-	/*	?>
-		<p>Bitte loggen Sie sich zuerst ein.</p>
-		<p><a href="?page=login">Zum Login</a></p>
-		<?php
+
+	} else {
+		if(login::isLoggedIn(session_id())) {
+			$view = $view . '/home.view.php';
+			require_once($view);
+		} else {
+			?>
+			<p>Bitte loggen Sie sich zuerst ein.</p>
+			<p><a href="?page=login">Zum Login</a></p>
+			<?php
+		}
 	}
-	*/	
+
+
+		
 	require_once(VIEWS_PATH ."/footer.view.php");
 }
 
