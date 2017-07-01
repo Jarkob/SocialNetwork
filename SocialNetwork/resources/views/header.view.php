@@ -14,8 +14,10 @@
 				<a href="index2.php">Startseite</a>
 			</li>
 			<li>
-				<form action="?page=search&" method="get">
+				<form action="?page=search" method="get">
+					<!--
 					<input type="hidden" name="page" value="<?= $_GET["page"]?>">
+					-->
 					<input name="search">
 					<button>Suchen</button>
 				</form>
