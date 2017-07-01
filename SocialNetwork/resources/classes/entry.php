@@ -82,7 +82,7 @@ class entry
 				<?php
 				if($result[0]['autor'] == user::findUserBySid(session_id())) {
 					?>
-					<a href="?page=home%delete=<?= $result[0]['id']?>">Löschen</a>
+					<a href="?page=home&delete=<?= $result[0]['id']?>">Löschen</a>
 					<?php
 				}
 				?>
