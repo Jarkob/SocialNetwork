@@ -41,13 +41,17 @@ class entry
 	// Da ist 1 Wurm drin
 	public function createNewEntry()
 	{
-		echo "in der cne funktion";
 		if($this->getId() == null) {
-			echo "in der if abfrage";
 			$sql = "INSERT INTO entry (content, autor) VALUES (:content, :autor)";
 			$params = array(':content' => $this->getContent(), ':autor' => $this->getAuthor());
 			echo "nach initialisierung der parameter";
-			printf($params);
+
+			foreach($params as $param) {
+				echo $param;
+			}
+			echo $this->getAuthor();
+			echo $this->getContent();
+
 			$sql::exe($sql, $params);
 			echo "nach sql query";
 		} else {
