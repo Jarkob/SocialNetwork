@@ -8,6 +8,7 @@
 </div>
 
 <?php
+//hier ist irgendwo der Wurm drin
 require_once(CLASSES_PATH ."/sql.php");
 require_once(CLASSES_PATH ."/user.php");
 
