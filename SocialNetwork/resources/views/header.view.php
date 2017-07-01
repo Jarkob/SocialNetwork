@@ -14,7 +14,11 @@
 				<a href="index2.php">Startseite</a>
 			</li>
 			<li>
-				<a href="#">Suche</a>
+				<form action="?page=search&" method="get">
+					<input type="hidden" name="page" value="<?= $_GET["page"]?>">
+					<input name="suche">
+					<button>Suchen</button>
+				</form>
 			</li>
 			<?php
 			require_once(CLASSES_PATH ."/login.php");
@@ -37,8 +41,8 @@
 				<li>
 					<?php
 					$username = user::findUserBySid(session_id());
-					echo "Hallo ". $username;
 					?>
+					<p>Hallo, <?= $username?></p>
 				</li>
 				<?php
 			} else {
