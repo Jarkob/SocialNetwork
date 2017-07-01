@@ -111,7 +111,7 @@ function renderHome()
 	$entries = array();
 	
 	for($i = 0; $i < sizeof($result); $i++) {
-		$entries[] = new entry($result[$i]['id'], $result[$i]['autor'], $result[$i]['content']);
+		$entries[] = new entry($result[$i]['autor'], $result[$i]['content'], $result[$i]['id']);
 	}
 
 	foreach($entries as $entry) {
