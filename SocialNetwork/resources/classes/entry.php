@@ -1,6 +1,7 @@
 <?php
 
 require_once(CLASSES_PATH ."/sql.php");
+require_once(CLASSES_PATH ."/user.php");
 
 class entry
 {
@@ -8,9 +9,11 @@ class entry
 	protected $content;
 	protected $id;
 
-	public function __construct($id, $author, $content)
+	public function __construct($author, $content, $id=null)
 	{
-		$this->id = $id;
+		if($id != null) {
+			$this->id = $id;
+		}
 		$this->author = $author;
 		$this->content = $content;
 	}
@@ -18,6 +21,20 @@ class entry
 	public static function getEntries(user $user)
 	{
 		
+	}
+
+	public function createNewEntry()
+	{
+		if($this->id == null) {
+			$sql = "INSERT INTO entry (content, autor) VALUES (:content, :autor)";
+			$params = array(':content' => $this->content, ':autor' => $this->author);
+
+			$sql::exe($sql, $params);
+		} else {
+			?>
+			<p>Der Eintrag existiert bereits.</p>
+			<?php
+		}
 	}
 	
 	public function renderEntry()

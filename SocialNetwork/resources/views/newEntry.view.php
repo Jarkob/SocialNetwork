@@ -11,15 +11,14 @@
 //hier ist irgendwo der Wurm drin
 require_once(CLASSES_PATH ."/sql.php");
 require_once(CLASSES_PATH ."/user.php");
+require_once(CLASSES_PATH ."/entry.php");
 
 if(array_key_exists('content', $_POST)) {
 
 	$username = user::findUserBySid(session_id());
 
-	$sql = "INSERT INTO entry (content, autor) VALUES (:content, :autor)";
-	$params = array(':content' => $_POST['content'], ':autor' => $username);
-
-	$sql::exe($sql, $params);
+	$entry = new entry($username, $_POST['content']);
+	$entry->createNewEntry();
 }
 
 ?>
