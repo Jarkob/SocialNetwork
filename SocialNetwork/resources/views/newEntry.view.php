@@ -16,6 +16,7 @@ require_once(CLASSES_PATH ."/entry.php");
 if(array_key_exists('content', $_POST)) {
 	$username = user::findUserBySid(session_id());
 	$entry = new entry($username, $_POST['content']);
+	echo "entry objekt wurde erfolgreich erstellt";
 	$entry->createNewEntry();
 }
 
