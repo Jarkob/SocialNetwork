@@ -21,8 +21,11 @@ function renderPage()
 					if(isset($_GET['delete'])) {
 						echo "obere alternative kur z vorm dleeten";
 						$entry = entry::findEntryById($_GET['delete']);
+						echo "nach entryInitialisierung";
 						if($entry->getAuthor == user::getUserBySid(session_id())) {
+							echo "in if";
 							$entry->deleteEntry();
+							echo "nach löschung";
 						}
 					}
 
@@ -63,6 +66,7 @@ function renderPage()
 		if(login::isLoggedIn(session_id())) {
 			$view .= '/home.view.php';
 
+			// Möglicherweise ist diese Deletung obsolet
 			if(isset($_GET['delete'])) {
 				echo "kurz vorm dleeten";
 				$entry = entry::findEntryById($_GET['delete']);
