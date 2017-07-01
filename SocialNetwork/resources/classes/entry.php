@@ -38,7 +38,6 @@ class entry
 		
 	}
 
-	// Da ist 1 Wurm drin
 	public function createNewEntry()
 	{
 		if($this->getId() == null) {

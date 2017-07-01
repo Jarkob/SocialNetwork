@@ -58,13 +58,15 @@ main {
 
 .topmenu li {
 	float: left;
+	display: inline-block;
+	color: white;
+	padding: 16px;
 }
 
 .topmenu li a {
 	display: inline-block;
 	color: white;
 	text-align: center;
-	padding: 16px;
 	text-decoration: none;
 }
 
