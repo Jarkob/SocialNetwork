@@ -18,7 +18,7 @@ class profile
 		return $this->user;
 	}
 
-	public function __construct(user $user)
+	public function __construct($user)
 	{
 		$this->user = $user;
 	}
