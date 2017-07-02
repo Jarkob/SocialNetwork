@@ -1,9 +1,8 @@
 <?php
-echo "in der profilklasse";
 require_once(CLASSES_PATH ."/sql.php");
 require_once(CLASSES_PATH ."/user.php");
 require_once(CLASSES_PATH ."/friendship.php");
-echo "in profilklasse nach requiren";
+
 class profile
 {
 	protected $user;
@@ -22,7 +21,7 @@ class profile
 	{
 		$this->user = $user;
 	}
-/*
+
 	public function renderProfile()
 	{
 		$username = user::findUserBySid(session_id());
@@ -72,6 +71,6 @@ class profile
 			Geburtsdatum: <?= $this->getUser()->getGebdatum()?>
 		</p>
 		<?php
-	}*/
+	}
 }
 ?>
