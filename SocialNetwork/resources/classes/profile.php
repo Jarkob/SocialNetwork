@@ -22,7 +22,7 @@ class profile
 	{
 		$this->user = $user;
 	}
-
+/*
 	public function renderProfile()
 	{
 		$username = user::findUserBySid(session_id());
@@ -72,6 +72,6 @@ class profile
 			Geburtsdatum: <?= $this->getUser()->getGebdatum()?>
 		</p>
 		<?php
-	}
+	}*/
 }
 ?>
