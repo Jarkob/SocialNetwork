@@ -1,5 +1,6 @@
 <?php
 echo "in der profilklasse";
+require_once(CLASSES_PATH ."/sql.php");
 require_once(CLASSES_PATH ."/user.php");
 require_once(CLASSES_PATH ."/friendship.php");
 echo "in profilklasse nach requiren";
