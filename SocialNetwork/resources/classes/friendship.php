@@ -40,7 +40,7 @@ class friendship
 			WHERE id = :id";
 		$params = array("id" => $this->id);
 		sql::exe($sql, $params);
-		settype(&$this, 'null');
+		//settype(&$this, 'null');
 	}
 }
 
