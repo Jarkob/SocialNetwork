@@ -30,6 +30,9 @@ function renderPage()
 					}
 
 					break;
+				case 'profile':
+					$view .= "/profile.view.php";
+					break;
 				case 'search':
 					$view .= "/search.view.php";
 					break;

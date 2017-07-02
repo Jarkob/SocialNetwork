@@ -27,7 +27,7 @@
 			{
 				?>
 				<li>
-					<a href="#">Profil</a>
+					<a href="?page=profile">Profil</a>
 				</li>
 				<li>
 					<a href="#">Nachrichten</a>
