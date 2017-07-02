@@ -18,7 +18,7 @@ class profile
 		return $this->user;
 	}
 
-	public function __construct($user)
+	public function __construct(user $user)
 	{
 		$this->user = $user;
 	}
@@ -46,13 +46,13 @@ class profile
 			$result = sql::exe($sql, $params);
 			if(sizeof($result) != 0) {
 				?>
-				<p>Du bist mit <?= $id?> befreundet.</p>
-				<p><a href="?page=newHistory&freund=<?= $id?>">Sende eine Nachricht an <?= $id?></a></p>
+				<p>Du bist mit <?= $this->getUser()->getUsername()?> befreundet.</p>
+				<p><a href="?page=newHistory&freund=<?= $this->getUser()->getUsername()?>">Sende eine Nachricht an <?= $this->getUser()->getUsername()?></a></p>
 				<?php
 			} else {
 				?>
-				<p>Willst du <?= $id?> eine Freundschaftsanfrage senden?</p>
-				<p>Dann klicke <a href="?page=sendFriendrequest&id=<?= $id?>">hier</a></p>
+				<p>Willst du <?= $this->getUser()->getUsername()?> eine Freundschaftsanfrage senden?</p>
+				<p>Dann klicke <a href="?page=sendFriendrequest&id=<?= $this->getUser()->getUsername()?>">hier</a></p>
 				<?php
 			}
 		}
