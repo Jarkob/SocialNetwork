@@ -1,6 +1,7 @@
 <?php
 echo "in der profile.view";
 require_once(CLASSES_PATH ."/user.php");
+echo "nach requiren von user.php";
 require_once(CLASSES_PATH ."/profile.php");
 echo "nach dem requiren";
 if(isset($_GET['owner'])) {
@@ -10,7 +11,7 @@ if(isset($_GET['owner'])) {
 }
 echo "der owner ist ". $owner;
 
-$profile = new profile(user::findUserByUsername($owner));
+$profile = new profile(new user($owner));
 echo "nach profilinitialisierung";
 $profile->renderProfile();
 echo "nach profilladen";

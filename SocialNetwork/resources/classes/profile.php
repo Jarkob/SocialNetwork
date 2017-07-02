@@ -1,7 +1,8 @@
 <?php
+echo "in der profilklasse";
 require_once(CLASSES_PATH ."/user.php");
 require_once(CLASSES_PATH ."/friendship.php");
-
+echo "in profilklasse nach requiren";
 class profile
 {
 	protected $user;
