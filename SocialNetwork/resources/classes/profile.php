@@ -39,20 +39,21 @@ class profile
 			</p>
 			<?php
 		} else {
+			$otherUsername = $this->getUser()->getUsername();
 			$sql = "SELECT * FROM friendship WHERE 
 			(freund1 = :username || freund2 = :username) && 
 			(freund1 = :otherUser || freund2 = :otherUser)";
-			$params = array(':username' => $username, ':otherUser' => $this->getUser()->getUsername());
+			$params = array(':username' => $username, ':otherUser' => $otherUsername);
 			$result = sql::exe($sql, $params);
 			if(sizeof($result) != 0) {
 				?>
 				<p>Du bist mit <?= $this->getUser()->getUsername()?> befreundet.</p>
-				<p><a href="?page=newHistory&freund=<?= $this->getUser()->getUsername()?>">Sende eine Nachricht an <?= $this->getUser()->getUsername()?></a></p>
+				<p><a href="?page=newHistory&freund=<?= $otherUsername?>">Sende eine Nachricht an <?= $otherUsername?></a></p>
 				<?php
 			} else {
 				?>
-				<p>Willst du <?= $this->getUser()->getUsername()?> eine Freundschaftsanfrage senden?</p>
-				<p>Dann klicke <a href="?page=sendFriendrequest&id=<?= $this->getUser()->getUsername()?>">hier</a></p>
+				<p>Willst du <?= $otherUsername?> eine Freundschaftsanfrage senden?</p>
+				<p>Dann klicke <a href="?page=sendFriendrequest&id=<?= $otherUsername?>">hier</a></p>
 				<?php
 			}
 		}
