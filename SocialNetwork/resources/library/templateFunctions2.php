@@ -35,6 +35,9 @@ function renderPage()
 				case 'search':
 					$view .= "/search.view.php";
 					break;
+				case 'sendFriendrequest':
+					$view .= "/sendFriendrequest.view.php";
+					break;
 				case 'logout':
 					$view .= "/logout.view.php";
 					break;
