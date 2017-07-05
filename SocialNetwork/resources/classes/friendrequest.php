@@ -44,7 +44,7 @@ class friendrequest
 			WHERE sender_friendrequest = :sender AND empfaenger_friendrequest = :empfaenger";
 		$params = array(":sender" => $sender, ":empfaenger" => $empfaenger);
 		$result = sql::exe($sql, $params);
-		if(sizeof($result) > 0) {
+		if(sizeof($result) !== 0) {
 			return true;
 		} else {
 			return false;
@@ -68,7 +68,7 @@ class friendrequest
 		} else if($empfaenger == null) {
 			$sql = "SELECT * FROM friendrequest WHERE sender_friendrequest = :sender";
 			$params = array(":sender" => $sender);
-		} else if($empfaenger != null && $sender != null) {
+		} else if($empfaenger !== null && $sender !== null) {
 			$sql = "SELECT * FROM friendrequest
 				WHERE sender_friendrequest = :sender AND empfaenger_friendrequest = :empfaengerf";
 			$params = array(":sender" => $sender, ":empfaenger" => $empfaenger);
