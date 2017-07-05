@@ -12,7 +12,7 @@ if(sizeof($erhalteneFreundschaftsanfragen) != 0) {
 	foreach($erhalteneFreundschaftsanfragen as $erhalteneFreundschaftsanfrage) {
 		?>
 		<p>
-			Freundschaftsanfrage von <?= $erhalteneFreundschaftsanfrage['sender']?>
+			Freundschaftsanfrage von <?= $erhalteneFreundschaftsanfrage['sender_friendrequest']?>
 			<a href="?page=acceptFriendrequest&id=<?= $erhalteneFreundschaftsanfrage['id']?>">Akzeptieren</a>
 			<a href="?page=declineFriendrequest&id=<?= $erhalteneFreundschaftsanfrage['id']?>">Ablehnen</a>
 		</p>
@@ -27,7 +27,7 @@ if(sizeof($gesendeteFreundschaftsanfragen) != 0) {
 	foreach($gesendeteFreundschaftsanfragen as $gesendeteFreundschaftsanfrage) {
 		?>
 		<p>
-			Freundschaftsanfrage an <?= $gesendeteFreundschaftsanfrage['empfaenger']?>
+			Freundschaftsanfrage an <?= $gesendeteFreundschaftsanfrage['empfaenger_friendrequest']?>
 		</p>
 		<?php
 	}
