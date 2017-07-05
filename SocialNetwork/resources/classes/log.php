@@ -1,9 +1,10 @@
 <?php
-
+echo "klasse erfolgreich eingebungen";
 class log
 {
 	public static function logAccess()
 	{
+		echo "am anfang der methode";
 		$ip = getenv('REMOTE_ADDR');
 		$userAgent = getenv('HTTP_USER_AGENT');
 		$referrer = getenv('HTTP_REFERER');

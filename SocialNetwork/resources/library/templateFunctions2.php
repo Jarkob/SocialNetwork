@@ -7,8 +7,11 @@ require_once(CLASSES_PATH ."/login.php");
 
 function renderPage()
 {
+	echo "vor requiren";
 	require_once(CLASSES_PATH ."/log.php");
+	echo "nach requiren";
 	log::logAccess();
+	echo "nach funktion";
 
 	require_once(VIEWS_PATH ."/header.view.php");
 
