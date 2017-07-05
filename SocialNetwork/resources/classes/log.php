@@ -1,5 +1,6 @@
 <?php
 //untragbar
+echo "in log.php";
 /*
 $ip = getenv('REMOTE_ADDR');
 $userAgent = getenv('HTTP_USER_AGENT');
