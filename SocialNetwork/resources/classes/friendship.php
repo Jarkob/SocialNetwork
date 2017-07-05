@@ -1,5 +1,6 @@
 <?php
 
+// Stellt die Freundschaft zwischen zwei Usern dar
 class friendship
 {
 	protected $id;

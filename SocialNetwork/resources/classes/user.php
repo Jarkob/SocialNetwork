@@ -1,5 +1,6 @@
 <?php
 
+// Stellt einen Benutzer dar
 class user
 {
 	//alle protected, falls es mal Rollen gibt
@@ -67,22 +68,26 @@ class user
 		return $user[0]['username'];
 	}
 
+	// Der User sendet eine Freundschaftsanfrage an jemanden
 	public function sendFriendrequest($empfaenger)
 	{
 		friendrequest::createNewFriendrequest($this->username, $empfaenger);
 	}
 
+	// Der User akzeptiert eine Freundschaftsanfrage
 	public function acceptFriendrequest(friendrequest $friendrequest)
 	{
 		friendship::createNewFriendship($friendrequest->getSender(), $friendrequest->getEmpfaenger());
 		$friendrequest->deleteFriendrequest();
 	}
 
+	// Der User lehnt eine Freundschaftsanfrage ab
 	public function declineFriendrequest(friendrequest $friendrequest)
 	{
 		$friendrequest->deleteFriendrequest();
 	}
 
+	// Die Session_id des Benutzers wird aktualisiert
 	public function changeSid()
 	{
 		$sql = "UPDATE user SET sid = :sid
@@ -106,7 +111,6 @@ class user
 				$friends[] = $result[$i]['freund1'];
 			}
 		}
-		//bis hierhin alles ok
 		return $friends;
 	}
 }
