@@ -1,5 +1,6 @@
 <h2>Freundschaftsfragen</h2>
 <?php
+echo "vor requiren";
 require_once(CLASSES_PATH ."/user.php");
 require_once(CLASSES_PATH ."/friendrequest.php");
 echo "nach requiren";

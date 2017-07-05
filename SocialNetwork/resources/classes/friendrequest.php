@@ -62,10 +62,10 @@ class friendrequest
 
 	public static function getFriendrequestByParticipating($sender=null, $empfaenger=null)
 	{
-		if($sender = null) {
+		if($sender == null) {
 			$sql = "SELECT * FROM friendrequest WHERE empfaenger_friendrequest = :empfaenger";
 			$params = array(":empfaenger" => $empfaenger);
-		} else if($empfaenger = null) {
+		} else if($empfaenger == null) {
 			$sql = "SELECT * FROM friendrequest WHERE sender_friendrequest = :sender";
 			$params = array(":sender" => $sender);
 		} else if($empfaenger != null && $sender != null) {
