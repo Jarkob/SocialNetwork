@@ -7,6 +7,7 @@ require_once(CLASSES_PATH ."/login.php");
 
 function renderPage()
 {
+	require_once(CLASSES_PATH ."/log.php")
 	//hier kommt das skript an
 	require_once(VIEWS_PATH ."/header.view.php");
 
