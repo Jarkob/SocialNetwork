@@ -2,6 +2,7 @@
 <?php
 echo "vor requiren";
 require_once(CLASSES_PATH ."/user.php");
+echo "nach requiren von user";
 require_once(CLASSES_PATH ."/friendrequest.php");
 echo "nach requiren";
 $username = user::findUserBySid(session_id());

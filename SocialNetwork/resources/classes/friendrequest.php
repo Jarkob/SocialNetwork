@@ -1,5 +1,5 @@
 <?php
-
+echo "in friendrequest";
 class friendrequest
 {
 	protected $id;
