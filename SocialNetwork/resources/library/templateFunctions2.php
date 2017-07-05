@@ -38,6 +38,9 @@ function renderPage()
 				case 'sendFriendrequest':
 					$view .= "/sendFriendrequest.view.php";
 					break;
+				case 'friendrequests':
+					$view .= "/friendrequests.view.php";
+					break;
 				case 'logout':
 					$view .= "/logout.view.php";
 					break;

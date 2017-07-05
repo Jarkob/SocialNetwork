@@ -34,7 +34,7 @@
 					<a href="#">Nachrichten</a>
 				</li>
 				<li>
-					<a href="#">Freundschaftsanfragen</a>
+					<a href="?page=friendrequests">Freundschaftsanfragen</a>
 				</li>
 				<li>
 					<a href="?page=logout">Logout</a>

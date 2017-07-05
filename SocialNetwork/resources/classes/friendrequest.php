@@ -60,11 +60,23 @@ class friendrequest
 		return $result;
 	}
 
-	public static function getFriendrequestByParticipating($sender, $empfaenger)
+	public static function getFriendrequestByParticipating($sender=null, $empfaenger=null)
 	{
-		$sql = "SELECT * FROM friendrequest
-			WHERE sender_friendrequest = :sender AND empfaenger_friendrequest = :empfaengerf";
-		$params = array("sender" => $sender, "empfaenger" => $empfaenger);
+		if($sender = null) {
+			$sql = "SELECT * FROM friendrequest WHERE empfaenger_friendrequest = :empfaenger";
+			$params = array(":empfaenger" => $empfaenger);
+		} else if($empfaenger = null) {
+			$sql = "SELECT * FROM friendrequest WHERE sender_friendrequest = :sender";
+			$params = array(":sender" => $sender);
+		} else if($empfaenger != null && $sender != null) {
+			$sql = "SELECT * FROM friendrequest
+				WHERE sender_friendrequest = :sender AND empfaenger_friendrequest = :empfaengerf";
+			$params = array(":sender" => $sender, ":empfaenger" => $empfaenger);
+		} else {
+			echo "Alarm, Alarm";
+			return array("Alarm" => "Alarm");
+			break;
+		}
 		$result = sql::exe($sql, $params);
 		return $result;
 	}
