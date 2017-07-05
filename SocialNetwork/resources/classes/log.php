@@ -1,5 +1,6 @@
 <?php
 //untragbar
+/*
 $ip = getenv('REMOTE_ADDR');
 $userAgent = getenv('HTTP_USER_AGENT');
 $referrer = getenv('HTTP_REFERER');
