@@ -22,7 +22,7 @@ class friendrequest
 	{
 		$sql = "SELECT * FROM friendrequest
 			WHERE id = :id";
-		$params = array("id" => $id);
+		$params = array(":id" => $id);
 		$result = sql::exe($sql, $params);
 		$this->id = $id;
 		$this->sender = $result[0]['sender_friendrequest'];
@@ -34,7 +34,7 @@ class friendrequest
 		$sql = "INSERT INTO friendrequest
 			(sender_friendrequest, empfaenger_friendrequest)
 			VALUES (:sender, :empfaenger)";
-		$params = array("sender" => $sender, "empfaenger" => $empfaenger);
+		$params = array(":sender" => $sender, ":empfaenger" => $empfaenger);
 		sql::exe($sql, $params);
 	}
 
@@ -42,7 +42,7 @@ class friendrequest
 	{
 		$sql = "SELECT * FROM friendrequest
 			WHERE sender_friendrequest = :sender AND empfaenger_friendrequest = :empfaenger";
-		$params = array("sender" => $sender, "empfaenger" => $empfaenger);
+		$params = array(":sender" => $sender, ":empfaenger" => $empfaenger);
 		$result = sql::exe($sql, $params);
 		if(sizeof($result) > 0) {
 			return true;
@@ -55,7 +55,7 @@ class friendrequest
 	{
 		$sql = "SELECT * FROM friendrequest
 			WHERE id = :id";
-		$params = array("id" => $id);
+		$params = array(":id" => $id);
 		$result = sql::exe($sql, $params);
 		return $result;
 	}
@@ -85,7 +85,7 @@ class friendrequest
 	{
 		$sql = "DELETE FROM friendrequest
 			WHERE id = :id";
-		$params = array("id" => $this->id);
+		$params = array(":id" => $this->id);
 		sql::exe($sql, $params);
 	}
 }
