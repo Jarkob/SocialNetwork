@@ -22,13 +22,9 @@ function renderPage()
 					$view .= "/home.view.php";
 
 					if(isset($_GET['delete'])) {
-						echo "obere alternative kur z vorm dleeten";
 						$entry = entry::findEntryById($_GET['delete']);
-						echo "nach entryInitialisierung";
 						if($entry->getAuthor() == user::findUserBySid(session_id())) {
-							echo "in if";
 							$entry->deleteEntry();
-							echo "nach löschung";
 						}
 					}
 
