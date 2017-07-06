@@ -78,11 +78,8 @@ class user
 	// Der User akzeptiert eine Freundschaftsanfrage
 	public function acceptFriendrequest(friendrequest $friendrequest)
 	{
-		echo "in akzeptieren Funktion";
 		friendship::createNewFriendship($friendrequest->getSender(), $friendrequest->getEmpfaenger());
-		echo "nach neuer Freundschaft";
 		$friendrequest->deleteFriendrequest();
-		echo "nach Löschung Anfrage";
 	}
 
 	// Der User lehnt eine Freundschaftsanfrage ab

@@ -6,11 +6,8 @@ if(isset($_GET['id'])) {
 	$username = user::findUserBySid(session_id());
 	$user = new user($username);
 	$friendrequest = new friendrequest($_GET['id']);
-	// Bis hier ok
 	if($friendrequest->getEmpfaenger() == $username) {
-		echo "in if vor akzeptieren";
 		$user->acceptFriendrequest($friendrequest);
-		echo "in if nach akzeptieren";
 		?>
 		<p>Sie sind jetzt mit <?= $friendrequest->getSender()?> befreundet.</p>
 		<?php

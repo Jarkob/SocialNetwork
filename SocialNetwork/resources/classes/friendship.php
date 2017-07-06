@@ -14,7 +14,6 @@ class friendship
 
 	public static function createNewFriendship($freund1, $freund2)
 	{
-		echo "in createNewFriendship Funktion";
 		$sql = "INSERT INTO friendship
 			(freund1, freund2)
 			VALUES (:freund1, :freund2)";
