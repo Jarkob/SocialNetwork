@@ -1,3 +1,4 @@
+<div id="editEntry">
 <?php
 require_once(CLASSES_PATH ."/entry.php");
 
@@ -14,7 +15,7 @@ if(isset($_GET['id'])) {
 		<?php
 	} else {
 		?>
-		<form action="?page=editEntry.php&id=<?= $_GET['id']?>&" method="post" enctype="multipart/form-data">
+		<form action="?page=editEntry.php&id=<?= $_GET['id']?>" method="post" enctype="multipart/form-data">
 			<textarea name="content">
 				<?= $entry->getContent()?>
 			</textarea>
@@ -28,3 +29,4 @@ if(isset($_GET['id'])) {
 	<?php
 }
 ?>
+</div>
