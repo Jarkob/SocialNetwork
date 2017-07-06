@@ -4,9 +4,11 @@ require_once(CLASSES_PATH ."/entry.php");
 
 if(isset($_GET['id'])) {
 	$entry = entry::findEntryById($_GET['id']);
-
+	echo "vor if";
 	if(isset($_POST['content'])) {
+		echo "in if post existiert";
 		$entry->changeContent($_POST['content']);
+		echo "nach editieren";
 		?>
 		<p>Der Post wurde bearbeitet.</p>
 		<script type="text/javascript">
