@@ -1,8 +1,10 @@
 <div id="editEntry">
 <?php
+echo "vor requiren";
 require_once(CLASSES_PATH ."/entry.php");
-
+echo "nach requiren";
 if(isset($_GET['id'])) {
+	echo "vor entryini";
 	$entry = entry::findEntryById($_GET['id']);
 	echo "vor if";
 	if(isset($_POST['content'])) {
