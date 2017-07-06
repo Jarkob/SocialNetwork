@@ -9,7 +9,7 @@ class friendship
 
 	public function __construct($id)
 	{
-		
+
 	}
 
 	public static function createNewFriendship($freund1, $freund2)
@@ -17,7 +17,7 @@ class friendship
 		$sql = "INSERT INTO friendship
 			(freund1, freund2)
 			VALUES (:freund1, :freund2)";
-		$params = array("freund1" => $freund1, "freund2" => $freund2);
+		$params = array(":freund1" => $freund1, ":freund2" => $freund2);
 		sql::exe($sql, $params);
 	}
 
@@ -26,7 +26,7 @@ class friendship
 		$sql = "SELECT * FROM friendship
 			WHERE (freund1 = :freund1 AND freund2 = :freund2)
 			OR (freund1 = :freund2 AND freund2 = :freund1)";
-		$params = array("freund1" => $freund1, "freund2" => $freund2);
+		$params = array(":freund1" => $freund1, ":freund2" => $freund2);
 		$result = sql::exe($sql, $params);//tricky, könnte falsch sein
 		if(sizeof($result) > 0) {
 			return true;
@@ -39,7 +39,7 @@ class friendship
 	{
 		$sql = "DELETE FROM friendship
 			WHERE id = :id";
-		$params = array("id" => $this->id);
+		$params = array(":id" => $this->id);
 		sql::exe($sql, $params);
 		//settype(&$this, 'null');
 	}
