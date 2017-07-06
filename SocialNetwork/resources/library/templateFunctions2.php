@@ -28,14 +28,13 @@ function renderPage()
 						if($entry->getAuthor() == $username) {
 							$entry->deleteEntry();
 						}
-					}
-					if(isset($_GET['like'])) {
+					} else if(isset($_GET['like'])) {
 						$entry = entry::findEntryById($_GET['like']);
 						if(!$entry->hasUserLiked($username)) {
 							$user->likeEntry($_GET['like']);
 						}
 					} else if(isset($_GET['dislike'])) {
-						$entry = entry::findEntryById($_GET['dislkike']);
+						$entry = entry::findEntryById($_GET['dislike']);
 						if($entry->hasUserLiked($username)) {
 							$user->dislikeEntry();
 						}
