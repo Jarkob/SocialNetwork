@@ -102,15 +102,28 @@ class entry
 				<span>
 					<?= $this->getLikes()?> Leuten gefällt das
 				</span>
+				|
 				<span>
-					<a href="page=home&like=<?= $this->id?>">Gefällt mir</a>
+					<?php
+					if($this->hasUserLiked(user::findUserBySid(session_id()))) {
+						?>
+						<a href="?page=home&dislike=<?= $this->id?>">Gefällt mir nicht mehr</a>
+						<?php
+					} else {
+						?>
+						<a href="?page=home&like=<?= $this->id?>">Gefällt mir</a>
+						<?php
+					}
+						?>
 				</span>
 				<?php
 				if($result[0]['autor'] == user::findUserBySid(session_id())) {
 					?>
+					|
 					<span>
 						<a href="?page=editEntry&id=<?= $this->id?>">Bearbeiten</a>
 					</span>
+					|
 					<span>
 						<a href="?page=home&delete=<?= $result[0]['id']?>">Löschen</a>
 					</span>

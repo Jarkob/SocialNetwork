@@ -20,11 +20,24 @@ function renderPage()
 			switch($_GET['page']) {
 				case 'home':
 					$view .= "/home.view.php";
+					$username = user::findUserBySid(session_id());
+					$user = new user($username);
 
 					if(isset($_GET['delete'])) {
 						$entry = entry::findEntryById($_GET['delete']);
-						if($entry->getAuthor() == user::findUserBySid(session_id())) {
+						if($entry->getAuthor() == $username) {
 							$entry->deleteEntry();
+						}
+					}
+					if(isset($_GET['like'])) {
+						$entry = entry::findEntryById($_GET['like']);
+						if(!$entry->hasUserLiked($username)) {
+							$user->likeEntry($_GET['like']);
+						}
+					} else if(isset($_GET['dislike'])) {
+						$entry = entry::findEntryById($_GET['dislkike']);
+						if($entry->hasUserLiked($username)) {
+							$user->dislikeEntry();
 						}
 					}
 

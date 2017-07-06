@@ -114,6 +114,20 @@ class user
 		}
 		return $friends;
 	}
+
+	public function likeEntry($entryid)
+	{
+		$sql = "INSERT INTO gefaelltMir (autor_user, gefallender_entry) VALUES (:autor_user, :gefallender_entry)";
+		$params = array(":autor_user" => $this->username, ":gefallender_entry" => $entryid);
+		sql::exe($sql, $params);
+	}
+
+	public function dislikeEntry($entryid)
+	{
+		$sql = "DELETE FROM gefaelltMir WHERE autor_user = :autor_user AND gefallender_entry = :gefallender_entry";
+		$params = array(":autor_user" => $this->username, ":gefallender_entry" => $entryid);
+		sql::exe($sql, $params);
+	}
 }
 
 ?>
