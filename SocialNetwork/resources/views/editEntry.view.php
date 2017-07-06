@@ -2,7 +2,7 @@
 require_once(CLASSES_PATH ."/entry.php");
 
 if(isset($_GET['id'])) {
-	$entry = new entry($_GET['id']);
+	$entry = entry::findEntryById($_GET['id']);
 
 	if(isset($_POST['content'])) {
 		$entry->changeContent($_POST['content']);
