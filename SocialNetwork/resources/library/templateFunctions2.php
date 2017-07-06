@@ -36,7 +36,7 @@ function renderPage()
 					} else if(isset($_GET['dislike'])) {
 						$entry = entry::findEntryById($_GET['dislike']);
 						if($entry->hasUserLiked($username)) {
-							$user->dislikeEntry();
+							$user->dislikeEntry($_GET['dislike']);
 						}
 					}
 
