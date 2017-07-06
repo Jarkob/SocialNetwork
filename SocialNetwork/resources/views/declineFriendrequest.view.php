@@ -8,13 +8,15 @@ if(isset($_GET['id'])) {
 
 	$friendrequest = new friendrequest($_GET['id']);
 	if($friendrequest->getEmpfaenger() == $username) {
+		echo "vor declineFriendrequest";
 		$user->declineFriendrequest($friendrequest);
+		echo "nach declineFriendrequest";
 		?>
 		<p>Sie haben die Freundschaftsanfrage von <?= $friendrequest->getSender()?> abgelehnt.</p>
 		<?php
 	} else {
 		?>
-		<p>Sie können keine Freundschaftsanfragen aktzeptieren, die nicht an Sie gesendet wurden.</p>
+		<p>Sie können keine Freundschaftsanfragen ablehnen, die nicht an Sie gesendet wurden.</p>
 		<?php
 	}
 } else {
