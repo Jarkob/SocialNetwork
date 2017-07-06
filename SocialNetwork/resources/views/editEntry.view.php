@@ -1,21 +1,17 @@
 <div id="editEntry">
 <?php
-echo "vor requiren";
 require_once(CLASSES_PATH ."/entry.php");
-echo "nach requiren";
+
 if(isset($_GET['id'])) {
-	echo "vor entryini";
 	$entry = entry::findEntryById($_GET['id']);
-	echo "vor if";
+
 	if(isset($_POST['content'])) {
-		echo "in if post existiert";
 		$entry->changeContent($_POST['content']);
-		echo "nach editieren";
 		?>
 		<p>Der Post wurde bearbeitet.</p>
 		<script type="text/javascript">
-				document.location.href = "index2.php";
-			</script>
+			document.location.href = "index2.php";
+		</script>
 		<?php
 	} else {
 		?>
