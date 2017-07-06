@@ -41,6 +41,12 @@ function renderPage()
 				case 'friendrequests':
 					$view .= "/friendrequests.view.php";
 					break;
+				case 'acceptFriendrequest':
+					$view .= "/acceptFriendrequest.view.php";
+					break;
+				case 'declineFriendrequest':
+					$view .= "/declineFriendrequest.view.php";
+					break;
 				case 'logout':
 					$view .= "/logout.view.php";
 					break;
