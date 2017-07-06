@@ -1,4 +1,5 @@
 <?php
+require_once(CLASSES_PATH ."/friendship.php");
 
 // Stellt einen Benutzer dar
 class user
