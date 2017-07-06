@@ -59,6 +59,9 @@ function renderPage()
 				case 'declineFriendrequest':
 					$view .= "/declineFriendrequest.view.php";
 					break;
+				case 'editEntry':
+					$view .= "/editEntry.view.php";
+					break;
 				case 'logout':
 					$view .= "/logout.view.php";
 					break;

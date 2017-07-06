@@ -19,6 +19,14 @@ class entry
 		return $this->content;
 	}
 
+	public function changeContent($newContent)
+	{
+		$this->content = $newContent;
+		$sql = "UPDATE entry SET content = :newContent WHERE id = :id";
+		$params = array(":newContent" => $newContent, ":id" => $this->id);
+		sql::exe($sql, $params);
+	}
+
 	public function getId()
 	{
 		return $this->id;
