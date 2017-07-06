@@ -48,6 +48,26 @@ class entry
 		
 	}
 
+	public function getLikes()
+	{
+		$sql = "SELECT * FROM gefaelltMir WHERE gefallender_entry = :entryid";
+		$params = array(":entryid" => $this->id);
+		$result = sql::exe($sql, $params);
+		return sizeof($result);
+	}
+
+	public function hasUserLiked($username)
+	{
+		$sql = "SELECT * FROM gefaelltMir WHERE autor_user = :autor_user AND gefallender_entry = :gefallender_entry";
+		$params = array(":autor_user" => $username, ":gefallender_entry" => $this->id);
+		$result = sql::exe($sql, $params);
+		if(sizeof($result) != 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	public function createNewEntry()
 	{
 		if($this->getId() == null) {
@@ -79,10 +99,21 @@ class entry
 				<?= $result[0]['content']?>
 			</p>
 			<p>
+				<span>
+					<?= $this->getLikes()?> Leuten gefällt das
+				</span>
+				<span>
+					<a href="page=home&like=<?= $this->id?>">Gefällt mir</a>
+				</span>
 				<?php
 				if($result[0]['autor'] == user::findUserBySid(session_id())) {
 					?>
-					<a href="?page=home&delete=<?= $result[0]['id']?>">Löschen</a>
+					<span>
+						<a href="?page=editEntry&id=<?= $this->id?>">Bearbeiten</a>
+					</span>
+					<span>
+						<a href="?page=home&delete=<?= $result[0]['id']?>">Löschen</a>
+					</span>
 					<?php
 				}
 				?>
