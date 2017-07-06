@@ -1,17 +1,16 @@
 <?php
-echo "vor requiren";
 require_once(CLASSES_PATH ."/user.php");
 require_once(CLASSES_PATH ."/friendrequest.php");
-echo "nach requiren";
+
 if(isset($_GET['id'])) {
-	echo "in if";
 	$username = user::findUserBySid(session_id());
 	$user = new user($username);
-	echo "nach userinitialisierung";
 	$friendrequest = new friendrequest($_GET['id']);
-	echo "nach Freundschaftsanfragen initialisierung";
+	// Bis hier ok
 	if($friendrequest->getEmpfaenger() == $username) {
+		echo "in if vor akzeptieren";
 		$user->acceptFriendrequest($friendrequest);
+		echo "in if nach akzeptieren";
 		?>
 		<p>Sie sind jetzt mit <?= $friendrequest->getSender()?> befreundet.</p>
 		<?php

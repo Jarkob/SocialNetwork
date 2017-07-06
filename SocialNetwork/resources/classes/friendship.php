@@ -7,9 +7,9 @@ class friendship
 	protected $freund1;
 	protected $freund2;
 
-	public function __construct()
+	public function __construct($id)
 	{
-
+		
 	}
 
 	public static function createNewFriendship($freund1, $freund2)
