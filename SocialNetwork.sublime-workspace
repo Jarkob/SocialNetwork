@@ -4,6 +4,34 @@
 		"selected_items":
 		[
 			[
+				"empfae",
+				"empfaenger_id"
+			],
+			[
+				"teilne",
+				"teilnehmer1"
+			],
+			[
+				"teilneh",
+				"teilnehmer2"
+			],
+			[
+				"teil",
+				"teilnehmer"
+			],
+			[
+				"friend",
+				"friendrequests"
+			],
+			[
+				"gese",
+				"gesendeteFreundschaftsanfragen"
+			],
+			[
+				"erhal",
+				"erhalteneFreundschaftsanfragen"
+			],
+			[
 				"array_ke",
 				"array_key_exists"
 			],
@@ -72,16 +100,8 @@
 				"interessen"
 			],
 			[
-				"teil",
-				"teilnehmer1"
-			],
-			[
 				"teilnehme",
 				"teilnehmer1"
-			],
-			[
-				"teilne",
-				"teilnehmer2"
 			],
 			[
 				"contentfile",
@@ -119,34 +139,52 @@
 			"file": "SocialNetwork/resources/classes/user.php",
 			"settings":
 			{
-				"buffer_size": 2865,
+				"buffer_size": 3450,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "SocialNetwork/resources/views/header.view.php",
+			"file": "SocialNetwork/resources/classes/message.php",
 			"settings":
 			{
-				"buffer_size": 1277,
+				"buffer_size": 1214,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "SocialNetwork/resources/classes/friendship.php",
+			"file": "SocialNetwork/resources/views/histories.view.php",
 			"settings":
 			{
-				"buffer_size": 1033,
+				"buffer_size": 257,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "SocialNetwork/resources/classes/sql.php",
+			"file": "SocialNetwork/public/js/functions.js",
 			"settings":
 			{
-				"buffer_size": 3820,
+				"buffer_size": 500,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "SocialNetwork/resources/classes/history.php",
+			"settings":
+			{
+				"buffer_size": 1361,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "SocialNetwork/resources/templates/newMessage.php",
+			"settings":
+			{
+				"buffer_size": 1296,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -155,16 +193,7 @@
 			"file": "SocialNetwork/resources/library/templateFunctions2.php",
 			"settings":
 			{
-				"buffer_size": 3614,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "SocialNetwork/resources/views/profile.view.php",
-			"settings":
-			{
-				"buffer_size": 273,
+				"buffer_size": 4392,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -182,7 +211,8 @@
 			"file": "SocialNetwork/public/css/default.css",
 			"settings":
 			{
-				"buffer_size": 1589,
+				"buffer_size": 1610,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		}
@@ -226,6 +256,7 @@
 		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/public/img/content",
 		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/public/img/content/profile",
 		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/public/img/layout",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/public/js",
 		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources",
 		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/classes",
 		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/library",
@@ -234,14 +265,30 @@
 	],
 	"file_history":
 	[
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/public/js/functions.js",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/classes/history.php",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/templates/editProfile.php",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/classes/entry.php",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/views/editEntry.view.php",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/classes/friendrequest.php",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/classes/friendship.php",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/views/friendrequests.view.php",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/views/declineFriendrequest.view.php",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/views/acceptFriendrequest.view.php",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/views/header.view.php",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/templates/manageFriendrequest.php",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/views/sendFriendrequest.view.php",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/views/sendFriendrequest.php",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/views/profile.view.php",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/classes/log.php",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/classes/sql.php",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/databaseStructure.sql",
+		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/templates/log.php",
 		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/classes/profile.php",
 		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/classes/logout.php",
 		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/views/login.view.php",
 		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/templates/profile.php",
-		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/views/header.view.php",
-		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/classes/friendship.php",
 		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/classes/search.php",
-		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/classes/entry.php",
 		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/views/search.view.php",
 		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/templates/search.php",
 		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/public/css/default.css",
@@ -261,21 +308,15 @@
 		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/classes/user.php",
 		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/config.php",
 		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/library/templateFunctions2.php",
-		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/classes/sql.php",
 		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/templates/registration.php",
 		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/templates/newEntry.php",
-		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/classes/friendrequest.php",
 		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/templates/footer.php",
 		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/views/footer.view.php",
-		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/templates/log.php",
 		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/templates/messageHistory.php",
 		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/templates/newMessage.php",
 		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/templates/newHistory.php",
 		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/templates/messages.php",
-		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/databaseStructure.sql",
-		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/templates/editProfile.php",
 		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/templates/sendFriendrequest.php",
-		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/templates/manageFriendrequest.php",
 		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/templates/declineFriendrequest.php",
 		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/templates/acceptFriendrequest.php",
 		"/Applications/MAMP/htdocs/projects/SocialNetwork/SocialNetwork/resources/templates/like.php",
@@ -351,17 +392,7 @@
 		"/Applications/MAMP/htdocs/projects/Blog/Blog/resources/templates/error.php",
 		"/Applications/MAMP/htdocs/projects/Blog/Blog/resources/templates/footer.php",
 		"/Applications/MAMP/htdocs/projects/Blog/Blog/resources/library/templateFunctions.php",
-		"/Applications/MAMP/htdocs/projects/Blog/Blog/public_html/css/default.css",
-		"/Applications/MAMP/htdocs/projects/Blog/Blog/public_html/index.php",
-		"/Applications/MAMP/htdocs/projects/Blog/Blog/resources/templates/entry.php",
-		"/Applications/MAMP/htdocs/projects/Blog/Blog/resources/templates/impressum.php",
-		"/Applications/MAMP/htdocs/projects/Blog/Blog/resources/config.php",
-		"/Applications/MAMP/htdocs/projects/Blog/Blog/resources/entries/00003.html",
-		"/Applications/MAMP/htdocs/projects/Blog/Blog/resources/entries/00002.txt",
-		"/Applications/MAMP/htdocs/projects/Blog/Blog/resources/entries/00001.txt",
-		"/Applications/MAMP/htdocs/projects/Blog/Blog/public_html/css/rightPanel.css",
-		"/Applications/MAMP/htdocs/projects/Blog/Blog/resources/templates/templateFunctions.php",
-		"/Applications/MAMP/htdocs/projects/Blog/Blog/public_html/header.php"
+		"/Applications/MAMP/htdocs/projects/Blog/Blog/public_html/css/default.css"
 	],
 	"find":
 	{
@@ -379,6 +410,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			");\n",
 			"createnew",
 			"getuserna",
 			"getlog",
@@ -404,7 +436,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -413,15 +445,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2865,
+						"buffer_size": 3450,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2837,
-								2837
+								2294,
+								2295
 							]
 						],
 						"settings":
@@ -433,24 +465,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "SocialNetwork/resources/views/header.view.php",
+					"file": "SocialNetwork/resources/classes/message.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1277,
+						"buffer_size": 1214,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								340,
-								340
+								556,
+								556
 							]
 						],
 						"settings":
@@ -467,19 +499,110 @@
 				},
 				{
 					"buffer": 2,
-					"file": "SocialNetwork/resources/classes/friendship.php",
+					"file": "SocialNetwork/resources/views/histories.view.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1033,
+						"buffer_size": 257,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								165,
-								165
+								254,
+								254
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "SocialNetwork/public/js/functions.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 500,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								498,
+								498
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 4,
+					"file": "SocialNetwork/resources/classes/history.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1361,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								20,
+								20
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 27.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "SocialNetwork/resources/templates/newMessage.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1296,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
 							]
 						],
 						"settings":
@@ -495,55 +618,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "SocialNetwork/resources/classes/sql.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3820,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								142,
-								142
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 3,
-			"sheets":
-			[
-				{
-					"buffer": 4,
+					"buffer": 6,
 					"file": "SocialNetwork/resources/library/templateFunctions2.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3614,
+						"buffer_size": 4392,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								940,
-								940
+								1783,
+								1783
 							]
 						],
 						"settings":
@@ -555,39 +643,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "SocialNetwork/resources/views/profile.view.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 273,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								6,
-								6
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
+					"buffer": 7,
 					"file": "SocialNetwork/resources/library/templateFunctions.php",
 					"semi_transient": false,
 					"settings":
@@ -609,27 +669,27 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2949.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 8,
 					"file": "SocialNetwork/public/css/default.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1589,
+						"buffer_size": 1610,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1518,
+								1518
 							]
 						],
 						"settings":
@@ -638,10 +698,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 741.0,
+						"translation.y": 1377.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 7,
 					"type": "text"
 				}
 			]
@@ -723,7 +783,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 1,
+	"selected_group": 0,
 	"settings":
 	{
 	},
