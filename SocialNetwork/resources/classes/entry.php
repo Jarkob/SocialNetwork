@@ -162,10 +162,9 @@ class entry
 		// Achtung: Kommentarerstellung wird in der newContent.view.php gelöst
 		?>
 		<div class="newComment">
-			<h4>Kommentieren</h4>
 			<form action="index2.php?entry=<?= $this->getId()?>" method="post">
 				<textarea name="content"></textarea>
-				<button type="submit">Posten</button>
+				<button type="submit">Kommentieren</button>
 			</form>
 		</div>
 		<?php
