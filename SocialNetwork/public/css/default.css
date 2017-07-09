@@ -142,7 +142,7 @@ height: 10em;
 
 .entry {
 	margin: 15px;
-	border-bottom: 1px solid #000;
+	background-color: #ddd;
 }
 
 .comment {
