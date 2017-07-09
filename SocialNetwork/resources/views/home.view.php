@@ -4,6 +4,3 @@ require_once(LIBRARY_PATH ."/templateFunctions2.php");
 
 renderHome();
 ?>
-<div id="home">
-
-</div>
