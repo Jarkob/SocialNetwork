@@ -51,6 +51,27 @@ CREATE TABLE entry(
 );
 
 
+CREATE TABLE comment(
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    parent_id INT NOT NULL,
+    content TEXT NOT NULL,
+    autor VARCHAR(20) NOT NULL,
+    zeit TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT entry_id
+    FOREIGN KEY (parent_id)
+    REFERENCES socialnetwork.entry (id)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+
+    CONSTRAINT user_autor
+    FOREIGN KEY (autor)
+    REFERENCES socialnetwork.user (username)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+);
+
+
 CREATE TABLE friendrequest(
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	zeit TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
