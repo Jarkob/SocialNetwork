@@ -2,6 +2,7 @@
 
 require_once(CLASSES_PATH ."/sql.php");
 require_once(CLASSES_PATH ."/user.php");
+require_once(CLASSES_PATH ."/comment.php");
 
 class entry
 {
@@ -139,6 +140,33 @@ class entry
 				}
 				?>
 			</p>
+		</div>
+		<?php
+
+		// Hier müssen die zugehörigen Kommentare gerendert werden
+		$sql = "SELECT * FROM comment WHERE parent_id = :id";
+		$params = array(":id" => $this->getId());
+		$results = sql::exe($sql, $params);
+
+		$comments = array();
+		foreach($results as $result) {
+			$comments[] = comment::findCommentById($result['id']);
+		}
+
+		foreach($comments as $comment) {
+			$comment->renderComment();
+		}
+
+		// Das wird leider nichts
+		//require_once(VIEWS_PATH ."/newComment.view.php");
+		// Achtung: Kommentarerstellung wird in der newContent.view.php gelöst
+		?>
+		<div class="newComment">
+			<h4>Kommentieren</h4>
+			<form action="index2.php?entry=<?= $this->getId()?>" method="post">
+				<textarea name="content"></textarea>
+				<button type="submit">Posten</button>
+			</form>
 		</div>
 		<?php
 	}

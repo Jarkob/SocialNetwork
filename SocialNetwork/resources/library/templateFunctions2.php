@@ -121,7 +121,7 @@ function renderPage()
 
 function renderHome()
 {
-	require_once(VIEWS_PATH ."/newEntry.view.php");
+	require_once(VIEWS_PATH ."/newContent.view.php");
 
 	$username = user::findUserBySid(session_id());
 	$user = new user($username);
