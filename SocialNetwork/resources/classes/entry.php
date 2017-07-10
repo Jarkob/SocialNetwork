@@ -146,8 +146,8 @@ class entry
 		<?php
 
 		// Hier müssen die zugehörigen Kommentare gerendert werden
-		$allComments = getComments();
-		$comments = getComments(5);
+		$allComments = $this->getComments();
+		$comments = $this->getComments(5);
 
 		// Wenn es mehr als 5 Kommentare gibt, sollen diese eingeklappt sein
 		if(sizeof($allComments) > 5) {
