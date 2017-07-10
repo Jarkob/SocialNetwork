@@ -54,9 +54,9 @@ class comment extends entry
 			<p>
 				<i><?= $result['zeit']?></i>
 			</p>
-			<h5>
+			<h4>
 				<a href="?page=profile&owner=<?= $result[0]['autor']?>"><?= $result[0]['autor']?></a>
-			</h5>
+			</h4>
 			<p>
 				<?= $result[0]['content']?>
 			</p>

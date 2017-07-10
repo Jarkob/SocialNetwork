@@ -100,6 +100,20 @@ class profile
 		<p>
 			Geburtsdatum: <?= $this->getUser()->getGebdatum()?>
 		</p>
+		
+		<h4>Freunde</h4>
+		<ul>
+			<?php
+			$friends = $this->getUser()->getFriends();
+			foreach($friends as $friend) {
+				?>
+				<li>
+					<a href="?page=profile&owner=<?= $friend?>"><?= $friend?></a>
+				</li>
+				<?php
+			}
+			?>
+		</ul>
 		<?php
 		
 	}
