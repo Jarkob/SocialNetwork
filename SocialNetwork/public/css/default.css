@@ -134,12 +134,11 @@ footer a {
 #leftInformation {
 	float: left;
 	width: 25%;
-	height: 100%;
 }
 
 #ownEntries {
 	float: left;
-	width: auto;
+	width: 75%;
 }
 
 
