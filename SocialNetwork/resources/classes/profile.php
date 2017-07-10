@@ -141,14 +141,15 @@ class profile
 					}
 				}
 				echo "bis hier alles bene";
-/*
+
 				$start = ($seite * $anzahlProSeite) - $anzahlProSeite;
 				$limit = 10;
 
 				$sql = "SELECT * FROM entry WHERE autor = :username ORDER BY zeit DESC LIMIT :grenze OFFSET :start";
 				$params = array(":username" => $this->getUser(), ":grenze" => $limit, ":start" => $start);
 				$result = sql($sql, $params);
-
+				echo "bis hier auch";
+/*
 				$entries = array();
 	
 				for($i = 0; $i < sizeof($result); $i++) {
