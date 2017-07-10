@@ -146,7 +146,6 @@ class profile
 				$sql = "SELECT * FROM entry WHERE autor = :username ORDER BY zeit DESC LIMIT ". $limit ." OFFSET ". $start;
 				$params = array(":username" => $this->getUser()->getUsername());
 				$result = sql::exe($sql, $params);//argh
-				echo "bis hierhin alles roger";
 
 				$entries = array();
 	
