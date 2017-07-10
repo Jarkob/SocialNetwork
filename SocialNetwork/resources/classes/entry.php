@@ -144,14 +144,7 @@ class entry
 		<?php
 
 		// Hier müssen die zugehörigen Kommentare gerendert werden
-		$sql = "SELECT * FROM comment WHERE parent_id = :id";
-		$params = array(":id" => $this->getId());
-		$results = sql::exe($sql, $params);
-
-		$comments = array();
-		foreach($results as $result) {
-			$comments[] = comment::findCommentById($result['id']);
-		}
+		$comments = getComments();
 
 		foreach($comments as $comment) {
 			$comment->renderComment();
@@ -168,6 +161,19 @@ class entry
 			</form>
 		</div>
 		<?php
+	}
+
+	public function getComments()
+	{
+		$sql = "SELECT * FROM comment WHERE parent_id = :id";
+		$params = array(":id" => $this->getId());
+		$results = sql::exe($sql, $params);
+
+		$comments = array();
+		foreach($results as $result) {
+			$comments[] = comment::findCommentById($result['id']);
+		}
+		return $comments;
 	}
 
 	public function deleteEntry()
