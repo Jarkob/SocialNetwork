@@ -141,10 +141,20 @@ class entry
 				?>
 			</p>
 		</div>
+
+		<div id="<?= $this->getId()?>" class="commentSection">
 		<?php
 
 		// Hier müssen die zugehörigen Kommentare gerendert werden
-		$comments = getComments();
+		$allComments = getComments();
+		$comments = getComments(5);
+
+		// Wenn es mehr als 5 Kommentare gibt, sollen diese eingeklappt sein
+		if(sizeof($allComments) > 5) {
+			?>
+			<a href="#" class="moreComments" onclick="showMoreComments(<?= $this->getId()?>)">Mehr Kommentare anzeigen</a>
+			<?php
+		}
 
 		foreach($comments as $comment) {
 			$comment->renderComment();
@@ -154,6 +164,7 @@ class entry
 		//require_once(VIEWS_PATH ."/newComment.view.php");
 		// Achtung: Kommentarerstellung wird in der newContent.view.php gelöst
 		?>
+		</div>
 		<div class="newComment">
 			<form action="index2.php?entry=<?= $this->getId()?>" method="post">
 				<textarea name="content"></textarea>
@@ -163,17 +174,21 @@ class entry
 		<?php
 	}
 
-	public function getComments()
+	public function getComments($limit=null)
 	{
-		$sql = "SELECT * FROM comment WHERE parent_id = :id";
-		$params = array(":id" => $this->getId());
-		$results = sql::exe($sql, $params);
+		if($limit == null) {
+			$sql = "SELECT * FROM comment WHERE parent_id = :id";
+			$params = array(":id" => $this->getId());
+			$results = sql::exe($sql, $params);
 
-		$comments = array();
-		foreach($results as $result) {
-			$comments[] = comment::findCommentById($result['id']);
+			$comments = array();
+			foreach($results as $result) {
+				$comments[] = comment::findCommentById($result['id']);
+			}
+			return $comments;
+		} else {
+
 		}
-		return $comments;
 	}
 
 	public function deleteEntry()
