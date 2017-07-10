@@ -196,3 +196,19 @@ CREATE TABLE gefaelltMir(
     ON DELETE NO ACTION
     ON UPDATE CASCADE
 );
+
+
+CREATE TABLE notification(
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    user VARCHAR(20) NOT NULL,
+    type VARCHAR(45) NOT NULL,
+    typeid INT NOT NULL,
+    seen VARCHAR(20) DEFAULT 'false',
+
+    CONSTRAINT notification_user
+    FOREIGN KEY (user)
+    REFERENCES socialnetwork.user (username)
+    ON DELETE NO ACTION
+    ON UPDATE CASCADE
+);
+
