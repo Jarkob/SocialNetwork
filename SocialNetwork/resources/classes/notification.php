@@ -5,7 +5,7 @@ class notification
 	protected $id;
 	protected $username;
 
-	// Kann für Nachrichten, oder Freundschaftsanfragen sein, erstmal nur Freundschaftsanfragen
+	// Kann für Nachrichten, oder Kommentare, oder Freundschaftsanfragen sein, erstmal nur Freundschaftsanfragen
 	protected $type;
 	protected $typeId;
 	protected $seen;
