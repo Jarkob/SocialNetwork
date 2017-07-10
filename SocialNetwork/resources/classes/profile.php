@@ -90,19 +90,18 @@ class profile
 			<?php
 		}
 		?>
-
-		<p>
-			Vorname: <?= $this->getUser()->getVorname()?>
-		</p>
-		<p>
-			Nachname: <?= $this->getUser()->getNachname()?>
-		</p>
-		<p>
-			Geburtsdatum: <?= $this->getUser()->getGebdatum()?>
-		</p>
-		
 		<div class="clearfix">
-			<div id="friendList">
+			<div id="leftInformation">
+				<p>
+					Vorname: <?= $this->getUser()->getVorname()?>
+				</p>
+				<p>
+					Nachname: <?= $this->getUser()->getNachname()?>
+				</p>
+				<p>
+					Geburtsdatum: <?= $this->getUser()->getGebdatum()?>
+				</p>
+			
 				<?php
 				$friends = $this->getUser()->getFriends();
 				?>
