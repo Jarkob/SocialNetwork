@@ -5,7 +5,7 @@
 <footer>
 	<ul>
 		<li>
-			<a href="#">Impressum</a>
+			<a href="?page=impressum">Impressum</a>
 		</li>
 	</ul>
 </footer>
