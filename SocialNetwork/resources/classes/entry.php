@@ -102,7 +102,8 @@ class entry
 				<i><?= $result[0]['zeit']?></i>
 			</p>
 			<h4>
-			<?php
+				<a href="?page=profile&owner=<?= $result[0]['autor']?>">
+				<?php
 				if(file_exists("img/content/profile/". $result[0]['autor'] .".jpg")) {
 					?>
 					<img id="profileIcon" title="<?= $row['autor']?>" src="img/content/profile/<?= $result[0]['autor']?>.jpg" style="width: 20px;">
@@ -118,7 +119,7 @@ class entry
 				}
 				?>
 
-				<a href="?page=profile&owner=<?= $result[0]['autor']?>"><?= $result[0]['autor']?></a>
+				<?= $result[0]['autor']?></a>
 			</h4>
 			<p>
 				<?= $result[0]['content']?>
