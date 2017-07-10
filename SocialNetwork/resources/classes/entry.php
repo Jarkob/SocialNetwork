@@ -179,19 +179,20 @@ class entry
 
 	public function getComments($limit=null)
 	{
-		if($limit == null) {
-			$sql = "SELECT * FROM comment WHERE parent_id = :id";
-			$params = array(":id" => $this->getId());
-			$results = sql::exe($sql, $params);
+		$sql = "SELECT * FROM comment WHERE parent_id = :id";
 
-			$comments = array();
-			foreach($results as $result) {
-				$comments[] = comment::findCommentById($result['id']);
-			}
-			return $comments;
-		} else {
-
+		if($limit != null) {
+			$sql .= " LIMIT ". $limit;
 		}
+		
+		$params = array(":id" => $this->getId());
+		$results = sql::exe($sql, $params);
+
+		$comments = array();
+		foreach($results as $result) {
+			$comments[] = comment::findCommentById($result['id']);
+		}
+		return $comments;	
 	}
 
 	public function deleteEntry()
