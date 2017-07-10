@@ -65,6 +65,9 @@ function renderPage()
 				case 'logout':
 					$view .= "/logout.view.php";
 					break;
+				case 'impressum':
+					$view .= "/impressum.view.php";
+					break;
 				default:
 					$view .= "/error.view.php";
 					break;
