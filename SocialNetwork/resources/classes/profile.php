@@ -140,17 +140,15 @@ class profile
 						$seite = 1;
 					}
 				}
-				echo "bis hier alles bene";
 
 				$start = ($seite * $anzahlProSeite) - $anzahlProSeite;
 				$limit = 10;
 
 				$sql = "SELECT * FROM entry WHERE autor = :username ORDER BY zeit DESC LIMIT ". $limit ." OFFSET ". $start;
-				$params = array(":username" => $this->getUser()->getUsername()/*, ":grenze" => $limit, ":start" => $start*/);
-				echo "vorm sqln";
+				$params = array(":username" => $this->getUser()->getUsername());
 				$result = sql::exe($sql, $params);//argh
-				echo "debuggt";
-/*
+				echo "bis hierhin alles roger";
+
 				$entries = array();
 	
 				for($i = 0; $i < sizeof($result); $i++) {
@@ -180,8 +178,6 @@ class profile
 					}
 					?>
 				</ul>
-				*/
-				?>
 			</div>
 		</div>
 		<?php
