@@ -145,8 +145,8 @@ class profile
 				$start = ($seite * $anzahlProSeite) - $anzahlProSeite;
 				$limit = 10;
 
-				$sql = "SELECT * FROM entry WHERE autor = :username ORDER BY zeit DESC LIMIT :grenze OFFSET :start";
-				$params = array(":username" => $this->getUser()->getUsername(), ":grenze" => $limit, ":start" => $start);
+				$sql = "SELECT * FROM entry WHERE autor = :username ORDER BY zeit DESC LIMIT ". $limit ." OFFSET ". $start;
+				$params = array(":username" => $this->getUser()->getUsername()/*, ":grenze" => $limit, ":start" => $start*/);
 				echo "vorm sqln";
 				$result = sql::exe($sql, $params);//argh
 				echo "debuggt";
