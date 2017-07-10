@@ -174,6 +174,7 @@ class entry
 				<button type="submit">Kommentieren</button>
 			</form>
 		</div>
+		<hr>
 		<?php
 	}
 
@@ -184,7 +185,7 @@ class entry
 		if($limit != null) {
 			$sql .= " LIMIT ". $limit;
 		}
-		
+
 		$params = array(":id" => $this->getId());
 		$results = sql::exe($sql, $params);
 
