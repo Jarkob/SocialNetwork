@@ -125,12 +125,20 @@ footer a {
 }
 
 
+/* Profilkram */
 #profilePicture {
 	max-width: 100%;
     height: auto;
 }
 
+#friendList {
+	float: left;
+	width: 25%;
+}
 
+
+
+/* Entrykram */
 #newEntry {
 	margin: 15px;
 }

@@ -101,24 +101,81 @@ class profile
 			Geburtsdatum: <?= $this->getUser()->getGebdatum()?>
 		</p>
 		
-
-		<?php
-		$friends = $this->getUser()->getFriends();
-		?>
-		<h4>Freunde(<?= sizeof($friends)?>)</h4>
-		<ul>
-			<?php
-			foreach($friends as $friend) {
-				?>
-				<li>
-					<a href="?page=profile&owner=<?= $friend?>"><?= $friend?></a>
-				</li>
+		<div class="clearfix">
+			<div id="friendList">
 				<?php
-			}
-			?>
-		</ul>
+				$friends = $this->getUser()->getFriends();
+				?>
+				<h4>Freunde(<?= sizeof($friends)?>)</h4>
+				<ul>
+					<?php
+					foreach($friends as $friend) {
+						?>
+						<li>
+							<a href="?page=profile&owner=<?= $friend?>"><?= $friend?></a>
+						</li>
+						<?php
+					}
+					?>
+				</ul>
+			</div>
+			<div id="ownEntries">
+				<?php
+				$sql = "SELECT * FROM entry WHERE autor = :username ORDER BY zeit DESC";
+				$params = array(":username" => $this->getUser()->getUsername());
+				$alleEintraege = sql::exe($sql, $params);
+				$anzahlEintraege = sizeof($alleEintraege);
+				$anzahlProSeite = 10;
+				$anzahlSeiten = $anzahlEintraege / $anzahlProSeite;
+
+				if(empty($_GET['nr'])) {
+					$seite = 1;
+				} else {
+					$seite = $_GET['nr'];
+					if($seite > $anzahlSeiten) {
+						$seite = 1;
+					}
+				}
+
+				$start = ($seite * $anzahlProSeite) - $anzahlProSeite;
+				$limit = /*$start + */10;
+
+				$sql = "SELECT * FROM entry WHERE autor = :username ORDER BY zeit DESC LIMIT :grenze OFFSET :start";
+				$params = array(":username" => $this->getUser(), ":grenze" => $limit, ":start" => $start);
+				$result = sql($sql, $params);
+
+				$entries = array();
+	
+				for($i = 0; $i < sizeof($result); $i++) {
+					$entries[] = new entry($result[$i]['autor'], $result[$i]['content'], $result[$i]['id']);
+				}
+
+				foreach($entries as $entry) {
+					$entry->renderEntry();
+				}
+				?>
+				<ul id="seiten">
+					<?php
+					for($i = 1; $i <= $anzahlSeiten; $i++) {
+						if($seite == $i) {
+							?>
+							<li>
+								<a href="?page=home&nr=<?= $i?>"><b>Seite <?= $i?></b></a>
+							</li>
+							<?php
+						} else {
+							?>
+							<li>
+								<a href="?page=home&nr=<?= $i?>">Seite <?= $i?></a>
+							</li>
+							<?php
+						}
+					}
+					?>
+				</ul>
+			</div>
+		</div>
 		<?php
-		
 	}
 }
 ?>
