@@ -150,11 +150,14 @@ class entry
 		$comments = $this->getComments(5);
 
 		// Wenn es mehr als 5 Kommentare gibt, sollen diese eingeklappt sein
+		// Klappt noch nicht
+		/*
 		if(sizeof($allComments) > 5) {
 			?>
 			<a href="#" class="moreComments" onclick="showMoreComments(<?= $this->getId()?>)">Mehr Kommentare anzeigen</a>
 			<?php
 		}
+		*/
 
 		foreach($comments as $comment) {
 			$comment->renderComment();
