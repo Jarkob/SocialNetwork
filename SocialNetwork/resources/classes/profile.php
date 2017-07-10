@@ -101,10 +101,13 @@ class profile
 			Geburtsdatum: <?= $this->getUser()->getGebdatum()?>
 		</p>
 		
-		<h4>Freunde</h4>
+
+		<?php
+		$friends = $this->getUser()->getFriends();
+		?>
+		<h4>Freunde(<?= sizeof($friends)?>)</h4>
 		<ul>
 			<?php
-			$friends = $this->getUser()->getFriends();
 			foreach($friends as $friend) {
 				?>
 				<li>
