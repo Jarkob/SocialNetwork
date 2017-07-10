@@ -132,6 +132,8 @@ footer a {
 }
 
 #friendList {
+	display: block;
+	float: left;
 	width: 25%;
 }
 
