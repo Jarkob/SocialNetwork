@@ -101,9 +101,25 @@ class entry
 			<p>
 				<i><?= $result[0]['zeit']?></i>
 			</p>
-			<p>
-				<a href="?page=profile&owner=<?= $result[0]['autor']?>"><b><?= $result[0]['autor']?></b></a>
-			</p>
+			<h4>
+			<?php
+				if(file_exists("img/content/profile/". $result[0]['autor'] .".jpg")) {
+					?>
+					<img id="profileIcon" title="<?= $row['autor']?>" src="img/content/profile/<?= $result[0]['autor']?>.jpg" style="width: 20px;">
+					<?php
+				} else if(file_exists("img/content/profile/". $result[0]['autor'] .".png")) {
+					?>
+					<img id="profileIcon" title="<?= $result[0]['autor']?>" src="img/content/profile/<?= $result[0]['autor']?>.png" style="width: 20px;">
+					<?php
+				} else {
+					?>
+					<img id="profileIcon" title="<?= $result[0]['autor']?>" src="img/content/profile/default.png" style="width: 20px;">
+					<?php
+				}
+				?>
+
+				<a href="?page=profile&owner=<?= $result[0]['autor']?>"><?= $result[0]['autor']?></a>
+			</h4>
 			<p>
 				<?= $result[0]['content']?>
 			</p>
