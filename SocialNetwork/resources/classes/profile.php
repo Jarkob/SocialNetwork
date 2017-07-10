@@ -126,6 +126,9 @@ class profile
 				$params = array(":username" => $this->getUser()->getUsername());
 				$alleEintraege = sql::exe($sql, $params);
 				$anzahlEintraege = sizeof($alleEintraege);
+				?>
+				<h4>Beiträge(<?= $anzahlEintraege?>)</h4>
+				<?php
 				$anzahlProSeite = 10;
 				$anzahlSeiten = $anzahlEintraege / $anzahlProSeite;
 
