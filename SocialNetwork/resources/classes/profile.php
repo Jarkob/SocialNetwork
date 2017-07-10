@@ -72,6 +72,24 @@ class profile
 		<h3>
 			Profil von <?= $this->getUser()->getUsername()?>
 		</h3>
+
+		<?php
+		// Profilbild laden
+		if(file_exists("img/content/profile/". $otherUsername .".jpg")) {
+			?>
+			<img id="profilePicture" title="Profilbild" src="img/content/profile/<?= $otherUsername?>.jpg" style="width: 300px">
+			<?php
+		} else if(file_exists("img/content/profile/". $otherUsername .".png")) {
+			?>
+			<img id="profilePicture" title="Profilbild" src="img/content/profile/<?= $otherUsername?>.jpg" style="width: 300px">
+			<?php
+		} else {
+			?>
+			<img id="profilePicture" title="Profilbild" src="img/content/profile/default.png" style="width: 300px">
+			<?php
+		}
+		?>
+
 		<p>
 			Vorname: <?= $this->getUser()->getVorname()?>
 		</p>

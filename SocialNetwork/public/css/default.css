@@ -152,3 +152,7 @@ height: 10em;
 .newComment {
 	margin: 15px;
 }
+
+.newComment textarea {
+	width: 60%;
+}
