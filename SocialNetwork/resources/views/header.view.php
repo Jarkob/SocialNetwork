@@ -37,6 +37,21 @@
 					<a href="?page=friendrequests">Freundschaftsanfragen</a>
 				</li>
 				<li>
+					<a href="?page=notifications" id="notificationsIcon">Benachrichtigungen
+					<?php
+					$username = user::findUserBySid(session_id());
+					$user = new user($username);
+					if(sizeof($user->getNotifications()) != 0) {
+						?>
+						<span style="color: #f00">
+							<?= sizeof($user->getNotifications())?>
+						</span>
+						<?php
+					}
+					?>
+					</a>
+				</li>
+				<li>
 					<a href="?page=logout">Logout</a>
 				</li>
 				<li>

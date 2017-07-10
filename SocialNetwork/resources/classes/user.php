@@ -1,5 +1,7 @@
 <?php
 require_once(CLASSES_PATH ."/friendship.php");
+require_once(CLASSES_PATH ."/friendrequest.php");
+require_once(CLASSES_PATH ."/notification.php");
 
 // Stellt einen Benutzer dar
 class user
@@ -73,6 +75,11 @@ class user
 	public function sendFriendrequest($empfaenger)
 	{
 		friendrequest::createNewFriendrequest($this->username, $empfaenger);
+		// Hier muss noch eine Benachrichtigung erstellt werden
+		$result = friendrequest::getFriendrequestByParticipating($this->getUsername(), $empfaenger);
+		$friendrequestId = $result[0]['id'];
+		$notification = new notification($empfaenger, "friendrequest", $friendrequestId);
+		$notification->createNewNotification();
 	}
 
 	// Der User akzeptiert eine Freundschaftsanfrage
@@ -113,6 +120,15 @@ class user
 			}
 		}
 		return $friends;
+	}
+
+	public function getNotifications()
+	{
+		$sql = "SELECT * FROM notification WHERE user = :user";
+		$params = array(":user" => $this->getUsername());
+		$results = sql::exe($sql, $params);
+
+		return $results;
 	}
 
 	public function likeEntry($entryid)

@@ -51,5 +51,31 @@ class notification
 		$result = $results[0];
 		$notification; //muss fertig gemacht werden und zurückgegeben
 	}
+
+	public function renderNotification()
+	{
+		switch($this->getType) {
+			case "friendrequest":
+				?>
+				<p>
+					<a href="?page=friendrequests">Neue Freundschaftsanfrage</a>
+				</p>
+				<?php
+				break;
+			case "comment":
+				break;
+			case "message":
+				break;
+			default:
+				break;
+		}
+	}
+
+	public function createNewNotification()
+	{
+		$sql = "INSERT INTO notification (user, type, typeid) VALUES (:user, :type, :typeid)";
+		$params = array(":user" => $this->getUsername(), ":type" => $this->getType(), ":typeid" => $this->getTypeId());
+		sql::exe($sql, $params);
+	}
 }
 ?>
