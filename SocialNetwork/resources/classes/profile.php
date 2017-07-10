@@ -121,6 +121,7 @@ class profile
 			</div>
 			<div id="ownEntries">
 				<?php
+				/*
 				$sql = "SELECT * FROM entry WHERE autor = :username ORDER BY zeit DESC";
 				$params = array(":username" => $this->getUser()->getUsername());
 				$alleEintraege = sql::exe($sql, $params);
@@ -138,7 +139,7 @@ class profile
 				}
 
 				$start = ($seite * $anzahlProSeite) - $anzahlProSeite;
-				$limit = /*$start + */10;
+				$limit = 10;
 
 				$sql = "SELECT * FROM entry WHERE autor = :username ORDER BY zeit DESC LIMIT :grenze OFFSET :start";
 				$params = array(":username" => $this->getUser(), ":grenze" => $limit, ":start" => $start);
@@ -173,6 +174,8 @@ class profile
 					}
 					?>
 				</ul>
+				*/
+				?>
 			</div>
 		</div>
 		<?php
