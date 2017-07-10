@@ -160,13 +160,13 @@ class profile
 						if($seite == $i) {
 							?>
 							<li>
-								<a href="?page=home&nr=<?= $i?>"><b>Seite <?= $i?></b></a>
+								<a href="?page=profile&owner=<?= $this->getUser()->getUsername()?>&nr=<?= $i?>"><b>Seite <?= $i?></b></a>
 							</li>
 							<?php
 						} else {
 							?>
 							<li>
-								<a href="?page=home&nr=<?= $i?>">Seite <?= $i?></a>
+								<a href="?page=profile&owner=<?=$this->getUser()->getUsername()?>&nr=<?= $i?>">Seite <?= $i?></a>
 							</li>
 							<?php
 						}
