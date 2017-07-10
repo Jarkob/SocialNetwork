@@ -74,14 +74,15 @@ class profile
 		</h3>
 
 		<?php
+
 		// Profilbild laden
 		if(file_exists("img/content/profile/". $this->getUser()->getUsername() .".jpg")) {
 			?>
-			<img id="profilePicture" title="Profilbild" src="img/content/profile/<?= $otherUsername?>.jpg" style="width: 300px">
+			<img id="profilePicture" title="Profilbild" src="img/content/profile/<?= $this->getUser()->getUsername()?>.jpg" style="width: 300px">
 			<?php
 		} else if(file_exists("img/content/profile/". $this->getUser()->getUsername() .".png")) {
 			?>
-			<img id="profilePicture" title="Profilbild" src="img/content/profile/<?= $otherUsername?>.jpg" style="width: 300px">
+			<img id="profilePicture" title="Profilbild" src="img/content/profile/<?= $this->getUser()->getUsername()?>.jpg" style="width: 300px">
 			<?php
 		} else {
 			?>
@@ -100,6 +101,7 @@ class profile
 			Geburtsdatum: <?= $this->getUser()->getGebdatum()?>
 		</p>
 		<?php
+		
 	}
 }
 ?>
