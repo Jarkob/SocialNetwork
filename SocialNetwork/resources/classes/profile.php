@@ -75,7 +75,7 @@ class profile
 
 		<?php
 		// Profilbild laden
-		if(file_exists("img/content/profile/". $otherUsername .".jpg")) {
+		if(file_exists("img/content/profile/". $this->getUser()->getUsername() .".jpg")) {
 			?>
 			<img id="profilePicture" title="Profilbild" src="img/content/profile/<?= $otherUsername?>.jpg" style="width: 300px">
 			<?php
