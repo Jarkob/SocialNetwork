@@ -132,7 +132,7 @@ footer a {
 }
 
 #friendList {
-	display: block;
+	display: inline-block;
 	float: left;
 	width: 25%;
 }
