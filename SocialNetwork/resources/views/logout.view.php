@@ -13,7 +13,7 @@ if(login::isLoggedIn(session_id())) {
 ?>
 	<p>Sie wurden ausgeloggt.</p>
 	<script type="text/javascript">
-		document.location.href = "index2.php";
+		document.location.href = "index.php";
 	</script>
 <?php
 } else {

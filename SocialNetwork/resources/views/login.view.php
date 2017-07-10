@@ -15,7 +15,7 @@ if(login::isLoggedIn(session_id())) {
 		?>
 			<p>Sie sind nun eingeloggt.</p>
 			<script type="text/javascript">
-				document.location.href = "index2.php";
+				document.location.href = "index.php";
 			</script>
 			<p><a href="index2.php">Zurück zur Startseite</a></p>
 		<?php

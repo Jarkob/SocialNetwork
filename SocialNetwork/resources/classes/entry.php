@@ -186,7 +186,7 @@ class entry
 		?>
 		</div>
 		<div class="newComment">
-			<form action="index2.php?entry=<?= $this->getId()?>" method="post">
+			<form action="index.php?entry=<?= $this->getId()?>" method="post">
 				<textarea name="content"></textarea>
 				<button type="submit">Kommentieren</button>
 			</form>

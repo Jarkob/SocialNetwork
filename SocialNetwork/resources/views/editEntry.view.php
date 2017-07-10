@@ -10,7 +10,7 @@ if(isset($_GET['id'])) {
 		?>
 		<p>Der Post wurde bearbeitet.</p>
 		<script type="text/javascript">
-			document.location.href = "index2.php";
+			document.location.href = "index.php";
 		</script>
 		<?php
 	} else {

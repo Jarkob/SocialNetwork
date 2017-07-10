@@ -4,7 +4,7 @@
 
 <div id="newEntry">
 	<h3>Neuer Post</h3>
-	<form action="index2.php" method="post">
+	<form action="index.php" method="post">
 		<textarea name="content"></textarea>
 		<button type="submit">Posten</button>
 	</form>

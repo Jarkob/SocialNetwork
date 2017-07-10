@@ -12,10 +12,10 @@
 	<div class="clearfix">
 		<ul class="topmenu">
 			<li>
-				<a href="index2.php">Startseite</a>
+				<a href="index.php">Startseite</a>
 			</li>
 			<li>
-				<form action="index2.php?page=search&" method="get">
+				<form action="index.php?page=search&" method="get">
 					<input type="hidden" name="page" value="search">
 					<input name="search">
 					<button>Suchen</button>
@@ -58,9 +58,6 @@
 			}
 			
 			?>
-			<li>
-				<a href="index.php">Zur alten Version</a>
-			</li>
 		</ul>
 	</div>
 </nav>
