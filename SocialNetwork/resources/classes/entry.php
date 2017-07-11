@@ -99,7 +99,16 @@ class entry
 		?>
 		<div class="entry">
 			<p>
-				<i><?= $result[0]['zeit']?></i>
+				<i>
+				<?php
+				$time = $result[0]['zeit'];
+
+				$sql = "SELECT CURRENT_TIMESTAMP";
+				$actualtime = sql::exe($sql);
+				echo $time ."<br>";
+				echo $actualtime;
+				?>
+				</i>
 			</p>
 			<h4>
 				<a href="?page=profile&owner=<?= $result[0]['autor']?>">
