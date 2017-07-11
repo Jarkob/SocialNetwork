@@ -109,6 +109,7 @@ class entry
 
 				$betweenTime = $time->diff($actualTime);
 				$difference = $betweenTime->format("s");
+				echo $difference;
 
 				if($difference < 60) {
 					echo "Vor weniger als einer Minute";
