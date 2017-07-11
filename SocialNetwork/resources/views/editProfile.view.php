@@ -4,9 +4,6 @@ require_once(CLASSES_PATH ."/user.php");
 require_once(CLASSES_PATH ."/profile.php");
 
 $username = user::findUserBySid(session_id());
-$user = new user($username);
-
-$profile = new profile($user);
 
 if(isset($_POST['vorname'], $_POST['nachname'], $_POST['gebdatum'], $_POST['geschlecht'], $_POST['bezstatus'])) {
 	$sql = "UPDATE user SET 
@@ -25,10 +22,11 @@ if(isset($_POST['vorname'], $_POST['nachname'], $_POST['gebdatum'], $_POST['gesc
 		":username" => $username
 		);
 	
-	echo "vor sql";
 	sql::exe($sql, $params);
-	echo "nach sql";
 }
+
+$user = new user($username);
+$profile = new profile($user);
 
 ?>
 <form action="?page=editProfile" method="post">
