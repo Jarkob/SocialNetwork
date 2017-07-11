@@ -104,8 +104,8 @@ class entry
 				$time = new DateTime($result[0]['zeit']);
 
 				$sql = "SELECT CURRENT_TIMESTAMP";
-				$result = sql::exe($sql);
-				$actualTime = new DateTime($result[0]['CURRENT_TIMESTAMP']);
+				$timeresult = sql::exe($sql);
+				$actualTime = new DateTime($timeresult[0]['CURRENT_TIMESTAMP']);
 
 				$betweenTime = $time->diff($actualTime);
 
@@ -129,7 +129,7 @@ class entry
 				// Andersherum
 				$difference = $betweenTime->format("%d");
 				if($difference > 2) {
-					echo $time->format("d F > H:i");
+					echo $time->format("d F Y H:i");
 				} else if($difference == 2) {
 					echo "Vorgestern";
 				} else if($difference == 1) {
