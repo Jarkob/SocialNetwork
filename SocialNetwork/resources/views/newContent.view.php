@@ -23,18 +23,13 @@ $username = user::findUserBySid(session_id());
 if(array_key_exists('content', $_POST) && !array_key_exists('entry', $_GET)) {
 	$entry = new entry($username, $_POST['content']);
 	$entry->createNewEntry();
-	$contentId = sql::lastInsertId();
-	echo "<h1>". $contentId ."</h1>";
+	$contentId = $entry->getId();
 } elseif(array_key_exists('content', $_POST) && array_key_exists('entry', $_GET)) {
 	$comment = new comment($username, $_POST['content'], $_GET['entry']);
 	$comment->createNewComment();
-	$contentId = sql::lastInsertId();
-	echo "<h1>". $contentId ."</h1>";
+	$contentId = $comment->getId();
 }
 
-?>
-<?php
-/*
 if(isset($_POST['picture'])) {
 	if(isset($_FILES['picture']['name'])) {
 
@@ -69,7 +64,7 @@ if(isset($_POST['picture'])) {
 		}
 		 
 		//Pfad zum Upload
-		$new_path = $upload_folder.$username.'.'.$extension;
+		$new_path = $upload_folder.$contentId.'.'.$extension;
 		 
 		//Neuer Dateiname falls die Datei bereits existiert
 		if(file_exists($new_path)) { //Falls Datei existiert, lösche die alte Datei
@@ -80,5 +75,5 @@ if(isset($_POST['picture'])) {
 		move_uploaded_file($_FILES['picture']['tmp_name'], $new_path);
 	}
 }
-*/
+
 ?>
