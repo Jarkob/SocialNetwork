@@ -4,9 +4,9 @@ USE socialnetwork;
 
 CREATE TABLE user(
 	username VARCHAR(20) NOT NULL PRIMARY KEY,
-	vorname VARCHAR(50) NOT NULL,
-	nachname VARCHAR(50) NOT NULL,
-	gebdatum DATE NOT NULL,
+	vorname VARCHAR(50),
+	nachname VARCHAR(50),
+	gebdatum DATE,
 	passwort VARCHAR(100) NOT NULL,
 	sid VARCHAR(100) DEFAULT "sessionid" NOT NULL,
     geschlecht VARCHAR(20),

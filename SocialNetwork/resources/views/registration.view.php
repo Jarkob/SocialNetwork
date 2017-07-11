@@ -39,11 +39,11 @@ if(isset($_POST['newUserName'], $_POST['newPassword'], $_POST['repeatNewPassword
 	</p>
 	<p>
 		<label for="newPassword">Passwort</label>
-		<input id="newPassword" name="newPassword">
+		<input id="newPassword" type="password" name="newPassword">
 	</p>
 	<p>
 		<label for="repeatNewPassword">Passwort wiederholen</label>
-		<input id="repeatNewPassword" name="repeatNewPassword">
+		<input id="repeatNewPassword" type="password" name="repeatNewPassword">
 	</p>
 	<p>
 		<button type="submit">Registrieren</button>
