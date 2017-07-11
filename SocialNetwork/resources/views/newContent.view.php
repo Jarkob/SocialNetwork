@@ -6,7 +6,7 @@
 	<h3>Neuer Post</h3>
 	<form action="index.php" method="post">
 		<textarea name="content"></textarea>
-		<input class="contentPicture" type="file" name="picture">
+		<input type="file" name="picture">
 		<button type="submit">Posten</button>
 	</form>
 </div>
@@ -27,7 +27,7 @@ if(array_key_exists('content', $_POST) && !array_key_exists('entry', $_GET)) {
 } elseif(array_key_exists('content', $_POST) && array_key_exists('entry', $_GET)) {
 	$comment = new comment($username, $_POST['content'], $_GET['entry']);
 	$comment->createNewComment();
-	$contentId = $comment->getId();
+	//$contentId = $comment->getId();
 }
 
 //if(isset($_POST['picture'])) {
@@ -74,6 +74,8 @@ if(array_key_exists('content', $_POST) && !array_key_exists('entry', $_GET)) {
 		//Alles okay, verschiebe Datei an neuen Pfad
 		move_uploaded_file($_FILES['picture']['tmp_name'], $new_path);
 		echo "Bild wurde hochgeladen";
+	} else {
+		echo "<h1>Kein Bild angekommen</h1>";
 	}
 //}
 
