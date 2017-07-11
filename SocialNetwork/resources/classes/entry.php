@@ -90,7 +90,7 @@ class entry
 
 			sql::exe($sql, $params);// argh $sql
 			// es muss noch die id an das Objekt zurückgegeben werden
-			//$this->setId(sql::lastInsertId());
+			$this->setId(sql::lastInsertId());
 		} else {
 			?>
 			<p>Der Eintrag existiert bereits.</p>

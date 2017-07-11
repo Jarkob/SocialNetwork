@@ -36,6 +36,8 @@ class comment extends entry
 			$sql = "INSERT INTO comment (parent_id, content, autor) VALUES (:parent_id, :content, :autor)";
 			$params = array(":parent_id" => $this->getParentId(), ":content" => $this->getContent(), ":autor" => $this->getAuthor());
 			sql::exe($sql, $params);
+
+			$this->setId(sql::lastInsertId());
 		} else {
 			?>
 			<p>Der Eintrag existiert bereits.</p>
