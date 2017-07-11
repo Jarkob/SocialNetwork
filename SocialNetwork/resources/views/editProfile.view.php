@@ -14,7 +14,7 @@ if(isset($_POST['vorname'], $_POST['nachname'], $_POST['gebdatum'], $_POST['gesc
 		":gebdatum" => $_POST['gebdatum'],
 		":geschlecht" => $_POST['geschlecht'],
 		":bezstatus" => $_POST['bezstatus'],
-		":username" => $username;
+		":username" => $username
 		);
 	sql::exe($sql, $params);
 }
