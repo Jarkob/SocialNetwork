@@ -108,7 +108,8 @@ class entry
 				echo $time ."<br>";
 				
 				foreach($actualtime as $element) {
-					echo $element['CURRENT_TIMESTAMP'];
+					echo $element['CURRENT_TIMESTAMP'] ."<br>";
+					echo $element['estd'];
 				}
 				?>
 				</i>
