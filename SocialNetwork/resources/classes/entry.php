@@ -112,7 +112,7 @@ class entry
 				// Andersherum
 				$difference = $betweenTime->format("%d");
 				if($difference > 2) {
-					echo $time->format("D. F Y H:i");
+					echo $time->format("j. F Y, H:i");
 				} else if($difference == 2) {
 					echo "Vorgestern";
 				} else if($difference == 1) {
