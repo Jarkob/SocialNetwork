@@ -115,10 +115,11 @@ class entry
 					echo date("d. F Y, H:i", $element['CURRENT_TIMESTAMP']) ."<br>";
 				}
 
-				use \DateTime;
+				//use \DateTime;
 				$x = new DateTime($time);
-				echo $x ."<br>";
-				echo $x->format("d. F Y, H:i");
+				echo "x klappt";
+				//echo $x ."<br>";
+				//echo $x->format("d. F Y, H:i");
 				?>
 				</i>
 			</p>
