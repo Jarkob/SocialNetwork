@@ -15,7 +15,13 @@ foreach($results as $result) {
 	$notifications[] = notification::findNotificationById($result['id']);
 }
 
-foreach($notifications as $notification) {
-	$notification->renderNotification();
+if(sizeof($notifications) != 0) {
+	foreach($notifications as $notification) {
+		$notification->renderNotification();
+	}
+} else {
+	?>
+	<p>Sie haben derzeit keine Benachrichtigungen.</p>
+	<?php
 }
 ?>

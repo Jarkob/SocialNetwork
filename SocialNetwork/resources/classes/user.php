@@ -87,12 +87,24 @@ class user
 	{
 		friendship::createNewFriendship($friendrequest->getSender(), $friendrequest->getEmpfaenger());
 		$friendrequest->deleteFriendrequest();
+
+		// Zugehörige Benachrichtung löschen
+		if(notification::checkNotificationByTypeAndTypeId("friendrequest", $friendrequest->getId())) {
+			$notification = notification::findNotificationByTypeAndTypeId("friendrequest", $friendrequest->getId());
+			$notification->deleteNotification();
+		}
 	}
 
 	// Der User lehnt eine Freundschaftsanfrage ab
 	public function declineFriendrequest(friendrequest $friendrequest)
 	{
 		$friendrequest->deleteFriendrequest();
+
+		// Zugehörige Benachrichtigung löschen
+		if(notification::checkNotificationByTypeAndTypeId("friendrequest", $friendrequest->getId())) {
+			$notification = notification::findNotificationByTypeAndTypeId("friendrequest", $friendrequest->getId());
+			$notification->deleteNotification();
+		}
 	}
 
 	// Die Session_id des Benutzers wird aktualisiert
