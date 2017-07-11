@@ -107,6 +107,7 @@ class entry
 				$actualtime = sql::exe($sql);
 				echo $time ."<br>";
 				echo $actualtime;
+				printf($actualtime);
 				?>
 				</i>
 			</p>

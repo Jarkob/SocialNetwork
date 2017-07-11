@@ -1,4 +1,5 @@
 <?php
+require_once(CLASSES_PATH ."/sql.php");
 require_once(CLASSES_PATH ."/user.php");
 require_once(CLASSES_PATH ."/profile.php");
 
@@ -6,9 +7,14 @@ $username = user::findUserBySid(session_id());
 $user = new user($username);
 
 $profile = new profile($user);
-
+echo "nach profilinitialisierung";
 if(isset($_POST['vorname'], $_POST['nachname'], $_POST['gebdatum'], $_POST['geschlecht'], $_POST['bezstatus'])) {
-	$sql = "UPDATE user SET vorname = :vorname, nachname = :nachname, gebdatum = :gebdatum, geschlecht = :geschlecht, bezstatus = :bezstatus WHERE username = :username";
+	$sql = "UPDATE user SET vorname = :vorname, 
+		nachname = :nachname, 
+		gebdatum = :gebdatum, 
+		geschlecht = :geschlecht, 
+		bezstatus = :bezstatus 
+		WHERE username = :username";
 	$params = array(":vorname" => $_POST['vorname'],
 		":nachname" => $_POST['nachname'],
 		":gebdatum" => $_POST['gebdatum'],
@@ -16,6 +22,7 @@ if(isset($_POST['vorname'], $_POST['nachname'], $_POST['gebdatum'], $_POST['gesc
 		":bezstatus" => $_POST['bezstatus'],
 		":username" => $username
 		);
+	echo "vor sql";
 	sql::exe($sql, $params);
 }
 
