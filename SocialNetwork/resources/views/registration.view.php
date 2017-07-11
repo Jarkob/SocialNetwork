@@ -2,6 +2,7 @@
 
 // Wenn die Parameter gesetzt sind wird der Registrierungsprozess gestartet, ansonsten wird das Formular angezeigt
 if(isset($_POST['newUserName'], $_POST['newPassword'], $_POST['repeatNewPassword'])) {
+	require_once(CLASSES_PATH ."/sql.php");
 	require_once(CLASSES_PATH ."/user.php");
 
 	// Validitätsprüfung
@@ -9,7 +10,7 @@ if(isset($_POST['newUserName'], $_POST['newPassword'], $_POST['repeatNewPassword
 	$user = user::findUserByUserName($username);
 	if(sizeof($user) != 0) {
 		?>
-		<p>Der gewünschte username ist bereits vergeben.</p>
+		<p>Der gewünschte Benutzername ist bereits vergeben.</p>
 		<?php
 	} else {
 		if($_POST['newPassword'] != $_POST['repeatNewPassword']) {
