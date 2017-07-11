@@ -68,6 +68,9 @@ function renderPage()
 				case 'impressum':
 					$view .= "/impressum.view.php";
 					break;
+				case 'notifications':
+					$view .= "/notifications.view.php";
+					break;
 				default:
 					$view .= "/error.view.php";
 					break;
