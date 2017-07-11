@@ -112,8 +112,12 @@ class entry
 				foreach($actualtime as $element) {
 					echo $element['CURRENT_TIMESTAMP'] ."<br>";
 					//echo $element['estd'];
-					echo date("d. F Y, H:i", $element['CURRENT_TIMESTAMP']);
+					echo date("d. F Y, H:i", $element['CURRENT_TIMESTAMP']) ."<br>";
 				}
+
+				$x = new DateTime($time);
+				echo $x ."<br>";
+				echo $x->format("d. F Y, H:i");
 				?>
 				</i>
 			</p>
