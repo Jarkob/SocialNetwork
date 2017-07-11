@@ -23,6 +23,7 @@
 			</li>
 			<?php
 			require_once(CLASSES_PATH ."/login.php");
+			require_once(CLASSES_PATH ."/user.php");
 
 			if(login::isLoggedin(session_id()))
 			{
@@ -41,10 +42,11 @@
 					<?php
 					$username = user::findUserBySid(session_id());
 					$user = new user($username);
-					if(sizeof($user->getNotifications()) != 0) {
+					$anzahlBenachrichtigungen = $user->getNotifications();
+					if(sizeof($anzahlBenachrichtigungen != 0)) {
 						?>
 						<span style="color: #f00">
-							<?= sizeof($user->getNotifications())?>
+							<?= sizeof($anzahlBenachrichtigungen)?>
 						</span>
 						<?php
 					}
@@ -55,9 +57,6 @@
 					<a href="?page=logout">Logout</a>
 				</li>
 				<li>
-					<?php
-					$username = user::findUserBySid(session_id());
-					?>
 					Hallo, <?= $username?>
 				</li>
 				<?php
