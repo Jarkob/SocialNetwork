@@ -108,15 +108,15 @@ class entry
 				$actualTime = new DateTime($result[0]['CURRENT_TIMESTAMP']);
 
 				$betweenTime = $time->diff($actualTime);
-				$difference = $betweenTime->format("s");
+				$difference = $betweenTime->format("%s");
 				echo $difference;
 
 				if($difference < 60) {
 					echo "Vor weniger als einer Minute";
 				} else if($difference < 3600) {
-					echo "Vor ". $difference->format("i") ." Minuten";
+					echo "Vor ". $difference->format("%i") ." Minuten";
 				} else if($difference < 86400) {
-					echo "Vor ". $difference->format("h") ." Stunden";
+					echo "Vor ". $difference->format("%h") ." Stunden";
 				} else if($difference < 172800) {
 					echo "Gestern";
 				} else {
