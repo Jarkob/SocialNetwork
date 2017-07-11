@@ -108,6 +108,8 @@ class entry
 				$actualTime = new DateTime($result[0]['CURRENT_TIMESTAMP']);
 
 				$betweenTime = $time->diff($actualTime);
+
+				/*
 				$difference = $betweenTime->format("%s");
 				echo $difference;
 
@@ -121,6 +123,29 @@ class entry
 					echo "Gestern";
 				} else {
 					echo $time->format("d F Y H:i");
+				}
+				*/
+
+				// Andersherum
+				$difference = $betweenTime->format("%d");
+				if($difference > 2) {
+					echo $time->format("d F > H:i");
+				} else if($difference == 2) {
+					echo "Vorgestern";
+				} else if($difference == 1) {
+					echo "Gestern";
+				} else {
+					$difference = $betweenTime->format("%h");
+					if($difference >= 1) {
+						echo "Vor ". $difference ." Stunden";
+					} else {
+						$difference = $betweenTime->format("%i");
+						if($difference >= 1) {
+							echo "Vor ". $difference ." Minuten";
+						} else {
+							echo "Vor wenigen Sekunden";
+						}
+					}
 				}
 				?>
 				</i>
