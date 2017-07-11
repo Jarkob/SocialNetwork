@@ -164,8 +164,9 @@ class entry
 			<?php
 			// Hier müssen Bilder geladen werden
 			$picturePath = "img/content/posts/". $result[0]['autor'] ."/". $result[0]['id'];
-			$extension = pathinfo($picturePath);
-			$picturePath .= $extension;
+			$extension = pathinfo($picturePath, PATHINFO_EXTENSION);
+			echo $extension;
+			$picturePath .= ".". $extension;
 			if(file_exists($picturePath)) {
 				?>
 				<img class="contentPicture" title="Weg mit dem Cursor!" src="<?= $picturePath?>" style="width: 300px">
