@@ -101,6 +101,12 @@ class profile
 				<p>
 					Geburtsdatum: <?= $this->getUser()->getGebdatum()?>
 				</p>
+				<p>
+					Geschlecht: <?= $this->getUser()->getGeschlecht()?>
+				</p>
+				<p>
+					Beziehungsstatus: <?= $this->getUser()->getBezstatus()?>
+				</p>
 			
 				<?php
 				$friends = $this->getUser()->getFriends();
