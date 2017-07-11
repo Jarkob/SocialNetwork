@@ -109,27 +109,10 @@ class entry
 
 				$betweenTime = $time->diff($actualTime);
 
-				/*
-				$difference = $betweenTime->format("%s");
-				echo $difference;
-
-				if($difference < 60) {
-					echo "Vor weniger als einer Minute";
-				} else if($difference < 3600) {
-					echo "Vor ". $difference->format("%i") ." Minuten";
-				} else if($difference < 86400) {
-					echo "Vor ". $difference->format("%h") ." Stunden";
-				} else if($difference < 172800) {
-					echo "Gestern";
-				} else {
-					echo $time->format("d F Y H:i");
-				}
-				*/
-
 				// Andersherum
 				$difference = $betweenTime->format("%d");
 				if($difference > 2) {
-					echo $time->format("d F Y H:i");
+					echo $time->format("D. F Y H:i");
 				} else if($difference == 2) {
 					echo "Vorgestern";
 				} else if($difference == 1) {
