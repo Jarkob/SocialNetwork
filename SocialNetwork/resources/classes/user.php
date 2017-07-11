@@ -76,14 +76,10 @@ class user
 	{
 		friendrequest::createNewFriendrequest($this->username, $empfaenger);
 		// Hier muss noch eine Benachrichtigung erstellt werden
-		echo "vor Abfrage der frid";
 		$result = friendrequest::getFriendrequestByParticipating($this->getUsername(), $empfaenger);
 		$friendrequestId = $result[0]['id'];
-		echo "Nach Abfrage der frid";
 		$notification = new notification($empfaenger, "friendrequest", $friendrequestId);
-		echo "nach initialisierung";
 		$notification->createNewNotification();
-		echo "nach datenbankisierung";
 	}
 
 	// Der User akzeptiert eine Freundschaftsanfrage

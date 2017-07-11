@@ -61,7 +61,7 @@ class notification
 
 	public function renderNotification()
 	{
-		switch($this->getType) {
+		switch($this->getType()) {
 			case "friendrequest":
 				?>
 				<p>

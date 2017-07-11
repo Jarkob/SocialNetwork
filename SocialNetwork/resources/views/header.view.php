@@ -43,7 +43,7 @@
 					$username = user::findUserBySid(session_id());
 					$user = new user($username);
 					$anzahlBenachrichtigungen = $user->getNotifications();
-					if(sizeof($anzahlBenachrichtigungen != 0)) {
+					if(sizeof($anzahlBenachrichtigungen) != 0) {
 						?>
 						<span style="color: #f00">
 							<?= sizeof($anzahlBenachrichtigungen)?>
