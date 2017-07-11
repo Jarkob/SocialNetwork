@@ -4,7 +4,7 @@
 
 <div id="newEntry">
 	<h3>Neuer Post</h3>
-	<form action="index.php" method="post">
+	<form action="index.php" method="post" enctype="multipart/form-data>
 		<textarea name="content"></textarea>
 		<input type="file" name="picture">
 		<button type="submit">Posten</button>
