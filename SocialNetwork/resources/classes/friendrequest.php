@@ -70,7 +70,7 @@ class friendrequest
 			$params = array(":sender" => $sender);
 		} else if($empfaenger != null && $sender != null) {
 			$sql = "SELECT * FROM friendrequest
-				WHERE sender_friendrequest = :sender AND empfaenger_friendrequest = :empfaengerf";
+				WHERE sender_friendrequest = :sender AND empfaenger_friendrequest = :empfaenger";
 			$params = array(":sender" => $sender, ":empfaenger" => $empfaenger);
 		} else {
 			echo "Alarm, Alarm";
