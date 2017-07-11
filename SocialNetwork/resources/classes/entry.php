@@ -163,7 +163,7 @@ class entry
 
 			<?php
 			// Hier müssen Bilder geladen werden
-			$picturePath = "img/content/posts/". $result[0]['id'];
+			$picturePath = "img/content/posts/". $result[0]['autor'] ."/". $result[0]['id'];
 			$extension = pathinfo($picturePath);
 			$picturePath .= $extension;
 			if(file_exists($picturePath)) {
