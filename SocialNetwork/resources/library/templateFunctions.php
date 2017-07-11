@@ -177,8 +177,16 @@ function renderHome()
 		$entries[] = new entry($result[$i]['autor'], $result[$i]['content'], $result[$i]['id']);
 	}
 
-	foreach($entries as $entry) {
-		$entry->renderEntry();
+	if(sizeof($entries) != 0) {
+		foreach($entries as $entry) {
+			$entry->renderEntry();
+		}
+	} else {
+		?>
+		<p>
+			Tipp: Wenn Sie noch keine Freunde haben, suchen Sie über die Suche in der Navigationsleiste nach anderen Benutzern.
+		</p>
+		<?php
 	}
 
 	?>
