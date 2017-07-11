@@ -118,8 +118,8 @@ class entry
 				//use \DateTime;
 				$x = new DateTime($time);
 
-				echo $x ."<br>";
-				echo $x->format("d. F Y, H:i");
+				//echo $x ."<br>";
+				echo $x->format("d F Y H:i");
 				?>
 				</i>
 			</p>
