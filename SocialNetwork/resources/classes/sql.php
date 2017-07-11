@@ -91,6 +91,7 @@ class sql
 			// jetzt werfen wir den fehler nach "draußen"
 			// ! achtung: in den parametern $para könnten benutzerdaten wie zB passwörter enthalten sein!
 			// daher sollte der hier erstellte und nach draußßen geworfene error-string nicht ausgegeben werden!
+			echo $error;
 			throw new Exception($error);
 		}
 		// beim ausführen (->execute) trat kein fehler auf.

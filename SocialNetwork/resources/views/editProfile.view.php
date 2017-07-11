@@ -9,13 +9,15 @@ $user = new user($username);
 $profile = new profile($user);
 
 if(isset($_POST['vorname'], $_POST['nachname'], $_POST['gebdatum'], $_POST['geschlecht'], $_POST['bezstatus'])) {
-	$sql = "UPDATE user SET vorname = :vorname, 
+	$sql = "UPDATE user SET 
+		vorname = :vorname, 
 		nachname = :nachname, 
 		gebdatum = :gebdatum, 
 		geschlecht = :geschlecht, 
 		bezstatus = :bezstatus 
 		WHERE username = :username";
-	$params = array(":vorname" => $_POST['vorname'],
+	$params = array(
+		":vorname" => $_POST['vorname'],
 		":nachname" => $_POST['nachname'],
 		":gebdatum" => $_POST['gebdatum'],
 		":geschlecht" => $_POST['geschlecht'],
