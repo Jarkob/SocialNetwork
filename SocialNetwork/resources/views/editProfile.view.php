@@ -7,7 +7,7 @@ $username = user::findUserBySid(session_id());
 $user = new user($username);
 
 $profile = new profile($user);
-echo "nach profilinitialisierung";
+
 if(isset($_POST['vorname'], $_POST['nachname'], $_POST['gebdatum'], $_POST['geschlecht'], $_POST['bezstatus'])) {
 	$sql = "UPDATE user SET vorname = :vorname, 
 		nachname = :nachname, 
@@ -24,6 +24,7 @@ if(isset($_POST['vorname'], $_POST['nachname'], $_POST['gebdatum'], $_POST['gesc
 		);
 	echo "vor sql";
 	sql::exe($sql, $params);
+	echo "nach sql";
 }
 
 ?>
