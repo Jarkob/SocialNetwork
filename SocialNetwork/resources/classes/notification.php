@@ -15,6 +15,11 @@ class notification
 		return $this->id;
 	}
 
+	public function setId($id)
+	{
+		$this->id = $id;
+	}
+
 	public function getUsername()
 	{
 		return $this->username;
@@ -49,7 +54,9 @@ class notification
 		$params = array(":id" => $id);
 		$results = sql::exe($sql, $params);
 		$result = $results[0];
-		$notification; //muss fertig gemacht werden und zurückgegeben
+		$notification = new notification($result['user'], $result['type'], $result['typeid']);
+		$notification->setId($id);
+		return $notification;
 	}
 
 	public function renderNotification()
