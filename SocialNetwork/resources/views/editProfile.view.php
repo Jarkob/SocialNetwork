@@ -22,7 +22,7 @@ if(isset($_POST['vorname'], $_POST['nachname'], $_POST['gebdatum'], $_POST['gesc
 <form action="?page=editProfile" method="post">
 	<p>
 		<label for="vorname">Vorname</label>
-		<input id="vorname" name="vorname" value="<?= $user->getVorname()?>">
+		<input id="vorname" name="vorname" value="<?= $profile->getUser()->getVorname()?>">
 	</p>
 	<p>
 		<label for="nachname">Nachname</label>
