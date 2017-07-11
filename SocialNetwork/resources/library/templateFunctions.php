@@ -62,6 +62,9 @@ function renderPage()
 				case 'editEntry':
 					$view .= "/editEntry.view.php";
 					break;
+				case 'editProfile':
+					$view .= "/editProfile.view.php";
+					break;
 				case 'logout':
 					$view .= "/logout.view.php";
 					break;

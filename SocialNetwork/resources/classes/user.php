@@ -31,6 +31,18 @@ class user
 		return $this->gebdatum;
 	}
 
+	protected $geschlecht;
+	public function getGeschlecht()
+	{
+		return $this->geschlecht;
+	}
+
+	protected $bezstatus;
+	public function getBezstatus()
+	{
+		return $this->bezstatus;
+	}
+
 	// Erstellt user anhand des usernamens
 	public function __construct($username)
 	{
@@ -39,6 +51,8 @@ class user
 		$this->vorname = $user[0]['vorname'];
 		$this->nachname = $user[0]['nachname'];
 		$this->gebdatum = $user[0]['gebdatum'];
+		$this->geschlecht = $user[0]['geschlecht'];
+		$this->bezstatus = $user[0]['bezstatus'];
 	}
 
 	public static function createNewUser($userdata)//userdata is an associative array with the userinformation
