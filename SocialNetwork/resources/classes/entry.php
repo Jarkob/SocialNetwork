@@ -101,25 +101,26 @@ class entry
 			<p>
 				<i>
 				<?php
-				$time = $result[0]['zeit'];
+				$time = new DateTime($result[0]['zeit']);
 
 				$sql = "SELECT CURRENT_TIMESTAMP";
-				$actualtime = sql::exe($sql);
-				echo $time ."<br>";
+				$result = sql::exe($sql);
+				$actualTime = new DateTime($result[0]['CURRENT_TIMESTAMP']);
 
-				echo date("d. F Y, H:i", $time);
+				$betweenTime = $time->diff($actualTime);
+				$difference = $betweenTime->format("s");
 
-				foreach($actualtime as $element) {
-					echo $element['CURRENT_TIMESTAMP'] ."<br>";
-					//echo $element['estd'];
-					echo date("d. F Y, H:i", $element['CURRENT_TIMESTAMP']) ."<br>";
+				if($difference < 60) {
+					echo "Vor weniger als einer Minute";
+				} else if($difference < 3600) {
+					echo "Vor ". $difference->format("i") ." Minuten";
+				} else if($difference < 86400) {
+					echo "Vor ". $difference->format("h") ." Stunden";
+				} else if($difference < 172800) {
+					echo "Gestern";
+				} else {
+					echo $time->format("d F Y H:i");
 				}
-
-				//use \DateTime;
-				$x = new DateTime($time);
-
-				//echo $x ."<br>";
-				echo $x->format("d F Y H:i");
 				?>
 				</i>
 			</p>
