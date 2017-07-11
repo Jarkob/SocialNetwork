@@ -167,6 +167,7 @@ class entry
 			$extension = pathinfo($picturePath, PATHINFO_EXTENSION);
 			echo $extension;
 			$picturePath .= ".". $extension;
+			echo $picturePath;
 			if(file_exists($picturePath)) {
 				?>
 				<img class="contentPicture" title="Weg mit dem Cursor!" src="<?= $picturePath?>" style="width: 300px">
