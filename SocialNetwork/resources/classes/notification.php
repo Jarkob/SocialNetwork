@@ -1,5 +1,6 @@
 <?php
 
+// Benachrichtigungsklasse
 class notification
 {
 	protected $id;

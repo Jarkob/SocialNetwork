@@ -1,5 +1,6 @@
 <?php
 
+// Stellt Freundschaftsanfragen dar
 class friendrequest
 {
 	protected $id;
@@ -29,6 +30,7 @@ class friendrequest
 		$this->empfaenger = $result[0]['empfaenger_friendrequest'];
 	}
 
+	// Erstellt eine neue Freundschaftsanfrage in der Datenbank anhand der Benutzernamen des Senders und des Empfängers
 	public static function createNewFriendrequest($sender, $empfaenger)
 	{
 		$sql = "INSERT INTO friendrequest
@@ -38,6 +40,7 @@ class friendrequest
 		sql::exe($sql, $params);
 	}
 
+	// Prüft, ob in der Datenbank bereits eine Freundschaftsanfrage von Sender an Empfänger existiert und gibt das Ergebnis als Boolean zurück.
 	public static function checkFriendrequest($sender, $empfaenger)
 	{
 		$sql = "SELECT * FROM friendrequest
@@ -51,6 +54,7 @@ class friendrequest
 		}
 	}
 
+	// Gibt die Rohdaten aus der Datenbank zu einem friendrequest Datensatz anhand der id zurück.
 	public static function getFriendrequestById($id)
 	{
 		$sql = "SELECT * FROM friendrequest
@@ -60,6 +64,8 @@ class friendrequest
 		return $result;
 	}
 
+	// Gibt die Rohdaten aus der Datenbank zu einem friendrequest Datensatz zurück.
+	// Die optionalen Parameter dabei sind der Sender und der Empfänger.
 	public static function getFriendrequestByParticipating($sender=null, $empfaenger=null)
 	{
 		if($sender == null) {
@@ -81,6 +87,7 @@ class friendrequest
 		return $result;
 	}
 
+	// Löscht einen friendrequest Datensatz anhand eines friendrequest Objekts.
 	public function deleteFriendrequest()
 	{
 		$sql = "DELETE FROM friendrequest

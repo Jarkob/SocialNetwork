@@ -66,7 +66,7 @@
 					<a href="?page=login">Login</a>
 				</li>
 				<li>
-					<a href="#">Registrieren</a>
+					<a href="?page=registration">Registrieren</a>
 				</li>
 				<?php
 			}
