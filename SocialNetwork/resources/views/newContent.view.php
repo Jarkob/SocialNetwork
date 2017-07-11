@@ -32,7 +32,7 @@ if(array_key_exists('content', $_POST) && !array_key_exists('entry', $_GET)) {
 
 if(isset($_POST['picture'])) {
 	if(isset($_FILES['picture']['name'])) {
-
+		echo "<h1>beide ifs geschafft</h1>";
 		$upload_folder = 'img/content/posts/'. $username .'/'; //Das Upload-Verzeichnis
 		if(!file_exists($upload_folder)) {
 			mkdir($upload_folder);
@@ -73,6 +73,7 @@ if(isset($_POST['picture'])) {
 		 
 		//Alles okay, verschiebe Datei an neuen Pfad
 		move_uploaded_file($_FILES['picture']['tmp_name'], $new_path);
+		echo "Bild wurde hochgeladen";
 	}
 }
 
