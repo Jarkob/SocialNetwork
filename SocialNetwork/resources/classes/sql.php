@@ -118,7 +118,7 @@ class sql
 	}
 
 
-	public function lastInsertId()
+	public static function lastInsertId()
 	{
 		//lastInsertId prüfen
 		return self::$pdo->lastInsertId();

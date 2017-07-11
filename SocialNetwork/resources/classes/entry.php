@@ -33,6 +33,11 @@ class entry
 		return $this->id;
 	}
 
+	public function setId($id)
+	{
+		$this->id = $id;
+	}
+
 	public function __construct($author, $content, $id=null)
 	{
 		if($id != null) {
@@ -84,6 +89,8 @@ class entry
 			$params = array(':content' => $this->getContent(), ':autor' => $this->getAuthor());
 
 			sql::exe($sql, $params);// argh $sql
+			// es muss noch die id an das Objekt zurückgegeben werden
+			//$this->setId(sql::lastInsertId());
 		} else {
 			?>
 			<p>Der Eintrag existiert bereits.</p>
