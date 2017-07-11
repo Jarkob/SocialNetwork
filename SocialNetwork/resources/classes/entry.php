@@ -106,10 +106,13 @@ class entry
 				$sql = "SELECT CURRENT_TIMESTAMP";
 				$actualtime = sql::exe($sql);
 				echo $time ."<br>";
-				
+
+				echo date("d. F Y, H:i", $time);
+
 				foreach($actualtime as $element) {
 					echo $element['CURRENT_TIMESTAMP'] ."<br>";
-					echo $element['estd'];
+					//echo $element['estd'];
+					echo date("d. F Y, H:i", $element['CURRENT_TIMESTAMP']);
 				}
 				?>
 				</i>
