@@ -22,6 +22,7 @@ if(isset($_POST['vorname'], $_POST['nachname'], $_POST['gebdatum'], $_POST['gesc
 		":bezstatus" => $_POST['bezstatus'],
 		":username" => $username
 		);
+	printf($params);
 	echo "vor sql";
 	sql::exe($sql, $params);
 	echo "nach sql";

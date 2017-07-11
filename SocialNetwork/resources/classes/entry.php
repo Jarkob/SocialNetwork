@@ -106,7 +106,7 @@ class entry
 				$sql = "SELECT CURRENT_TIMESTAMP";
 				$actualtime = sql::exe($sql);
 				echo $time ."<br>";
-				echo $actualtime[0] ."<br>";
+				echo $actualtime ."<br>";
 				printf($actualtime[0]);
 				?>
 				</i>
