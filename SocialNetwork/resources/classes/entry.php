@@ -285,6 +285,28 @@ class entry
 		$sql = "DELETE FROM entry WHERE id = :id";
 		$params = array(":id" => $this->getId());
 		sql::exe($sql, $params);
+
+		$picturePath = "img/content/posts/". $this->author ."/". $this->getId();
+		
+		$pictureExists = false;
+
+		if(file_exists($picturePath . ".jpg")) {
+			$picturePath .= ".jpg";
+			$pictureExists = true;
+		} else if(file_exists($picturePath . ".png")) {
+			$picturePath .= ".png";
+			$pictureExists = true;
+		} else if(file_exists($picturePath . ".jpeg")) {
+			$picturePath .= ".jpeg";
+			$pictureExists = true;
+		} else if(file_exists($picturePath . ".gif")) {
+			$picturePath .= ".gif";
+			$pictureExists = true;
+		}
+
+		if($pictureExists) {
+			unlink($picturePath);
+		}
 	}
 }
 
