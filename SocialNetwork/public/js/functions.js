@@ -52,5 +52,13 @@ function showMoreComments(id)
 
 function showLikes(id)
 {
-	document.getElementById("showLikes"+ id).innerHTML = "Hallo Welt ich bin ein Mensch";
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		if(this.readyState == 4 && this.status == 200) {
+			document.getElementById("showLikes"+ id).innerHTML = this.responseText;
+		}
+	};
+
+	xhttp.open("GET", "getLikes.php?id="+ id, true);
+	xhttp.send();
 }
