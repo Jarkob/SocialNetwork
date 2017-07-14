@@ -48,3 +48,9 @@ function showMoreComments(id)
 	xhttp.open("GET", "", true);
 	xhttp.send();
 }
+
+
+function showLikes(id)
+{
+	
+}
