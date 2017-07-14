@@ -8,15 +8,13 @@ require_once(CLASSES_PATH ."/sql.php");
 $results = sql::exe($sql, $params);
 
 echo "<ul>";
-/*
+
 foreach($results as $result) {
-	?>
-	<li>
-		<?= $result['autor_user']?> gefällt das
-	</li>
-	<?php
+	echo "<li>";
+	echo $result['autor_user']. " gefällt das";
+	echo "</li>"
 }
-*/
+
 echo "</ul>";
 
 ?>
