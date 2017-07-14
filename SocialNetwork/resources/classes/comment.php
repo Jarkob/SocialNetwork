@@ -45,6 +45,26 @@ class comment extends entry
 		}
 	}
 
+	public function getLikes()
+	{
+		$sql = "SELECT * FROM comment_gefaelltMir WHERE gefallender_comment = :commentid";
+		$params = array(":commentid" => $this->id);
+		$result = sql::exe($sql, $params);
+		return sizeof($result);
+	}
+
+	public function hasUserLiked($username)
+	{
+		$sql = "SELECT * FROM comment_gefaelltMir WHERE autor_user = :autor_user AND gefallender_comment = :gefallender_comment";
+		$params = array(":autor_user" => $username, ":gefallender_comment" => $this->id);
+		$result = sql::exe($sql, $params);
+		if(sizeof($result) != 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	// In den Rendermethoden von Comment und entry geht noch einiges schief
 	public function renderComment()
 	{
@@ -64,8 +84,32 @@ class comment extends entry
 			</p>
 			<p>
 				<span>
-					<a href="?page=home&deleteComment=<?= $result[0]['id']?>">Löschen</a>
+					<?= $this->getLikes()?> Leuten gefällt das
 				</span>
+				|
+				<span>
+					<?php
+					if($this->hasUserLiked(user::findUserBySid(session_id()))) {
+						?>
+						<a href="?page=home&dislikeComment=<?= $this->getId()?>">Gefällt mir nicht mehr</a>
+						<?php
+					} else {
+						?>
+						<a href="?page=home&likeComment=<?= $this->getId()?>">Gefällt mir</a>
+						<?php
+					}
+					?>
+				</span>
+				<?php
+				if($this->author == user::findUserBySid(session_id())) {
+					?>
+					|
+					<span>
+						<a href="?page=home&deleteComment=<?= $result[0]['id']?>">Löschen</a>
+					</span>
+					<?php
+				}
+				?>
 			</p>
 		</div>
 		<?php

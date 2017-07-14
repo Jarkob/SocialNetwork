@@ -200,11 +200,11 @@ class entry
 					<?php
 					if($this->hasUserLiked(user::findUserBySid(session_id()))) {
 						?>
-						<a href="?page=home&dislike=<?= $this->id?>">Gefällt mir nicht mehr</a>
+						<a href="?page=home&dislikeEntry=<?= $this->id?>">Gefällt mir nicht mehr</a>
 						<?php
 					} else {
 						?>
-						<a href="?page=home&like=<?= $this->id?>">Gefällt mir</a>
+						<a href="?page=home&likeEntry=<?= $this->id?>">Gefällt mir</a>
 						<?php
 					}
 						?>

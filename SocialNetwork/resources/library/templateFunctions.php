@@ -33,15 +33,25 @@ function renderPage()
 						if($comment->getAuthor() == $username) {
 							$comment->deleteComment();
 						}
-					} else if(isset($_GET['like'])) {
-						$entry = entry::findEntryById($_GET['like']);
+					} else if(isset($_GET['likeEntry'])) {
+						$entry = entry::findEntryById($_GET['likeEntry']);
 						if(!$entry->hasUserLiked($username)) {
 							$user->likeEntry($_GET['like']);
 						}
-					} else if(isset($_GET['dislike'])) {
-						$entry = entry::findEntryById($_GET['dislike']);
+					} else if(isset($_GET['likeComment'])) {
+						$comment = comment::findCommentById($_GET['likeComment']);
+						if(!$comment->hasUserLiked($username)) {
+							$user->likeComment($_GET['likeComment']);
+						}
+					} else if(isset($_GET['dislikeEntry'])) {
+						$entry = entry::findEntryById($_GET['dislikeEntry']);
 						if($entry->hasUserLiked($username)) {
-							$user->dislikeEntry($_GET['dislike']);
+							$user->dislikeEntry($_GET['dislikeEntry']);
+						}
+					} else if(isset($_GET['dislikeComment'])) {
+						$comment = comment::findCommentById($_GET['dislikeComment']);
+						if($comment->hasUserLiked($username)) {
+							$user->dislikeComment($_GET['dislikeComment']);
 						}
 					}
 
