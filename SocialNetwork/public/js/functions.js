@@ -56,6 +56,7 @@ function showLikes(id)
 	xhttp.onreadystatechange = function() {
 		if(this.readyState == 4 && this.status == 200) {
 			document.getElementById("showLikes"+ id).innerHTML = this.responseText;
+			alert(this.responseText);
 		}
 	};
 
