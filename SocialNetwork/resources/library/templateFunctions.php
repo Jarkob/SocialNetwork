@@ -36,7 +36,7 @@ function renderPage()
 					} else if(isset($_GET['likeEntry'])) {
 						$entry = entry::findEntryById($_GET['likeEntry']);
 						if(!$entry->hasUserLiked($username)) {
-							$user->likeEntry($_GET['like']);
+							$user->likeEntry($_GET['likeEntry']);
 						}
 					} else if(isset($_GET['likeComment'])) {
 						$comment = comment::findCommentById($_GET['likeComment']);
