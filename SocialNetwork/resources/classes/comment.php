@@ -119,6 +119,7 @@ class comment extends entry
 	{
 		$sql = "DELETE FROM comment WHERE id = :id";
 		$params = array(":id" => $this->getId());
+		sql::exe($sql, $params);
 	}
 }
 ?>
