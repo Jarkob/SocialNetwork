@@ -105,7 +105,7 @@ class entry
 		$result = sql::exe($sql, $params);
 		?>
 		<div class="entry">
-			<p>
+			<p class="time">
 				<i>
 				<?php
 				$time = new DateTime($result[0]['zeit']);

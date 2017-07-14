@@ -73,8 +73,10 @@ class comment extends entry
 		$result = sql::exe($sql, $params);
 		?>
 		<div class="comment">
-			<p>
-				<i><?= $result['zeit']?></i>
+			<p class="time">
+				<i>
+					<?= $result[0]['zeit']?>
+				</i>
 			</p>
 			<h4>
 				<a href="?page=profile&owner=<?= $result[0]['autor']?>"><?= $result[0]['autor']?></a>
