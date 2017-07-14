@@ -62,6 +62,11 @@ class comment extends entry
 			<p>
 				<?= $result[0]['content']?>
 			</p>
+			<p>
+				<span>
+					<a href="?page=home&deleteComment=<?= $result[0]['id']?>">Löschen</a>
+				</span>
+			</p>
 		</div>
 		<?php
 	}

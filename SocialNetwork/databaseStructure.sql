@@ -177,7 +177,7 @@ CREATE TABLE access_log(
 );
 
 
-CREATE TABLE gefaelltMir(
+CREATE TABLE entry_gefaelltMir(
 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     autor_user VARCHAR(20) NOT NULL,
     gefallender_entry INT NOT NULL,
@@ -193,6 +193,25 @@ CREATE TABLE gefaelltMir(
     CONSTRAINT gefallender_entry
     FOREIGN KEY (gefallender_entry)
     REFERENCES socialnetwork.entry (id)
+    ON DELETE NO ACTION
+    ON UPDATE CASCADE
+);
+
+
+CREATE TABLE comment_gefaelltMir(
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    autor_user VARCHAR(20) NOT NULL,
+    gefallender_comment INT NOT NULL,
+
+    CONSTRAINT comment_autor_user
+    FOREIGN KEY (autor_user)
+    REFERENCES socialnetwork.user (username)
+    ON DELETE NO ACTION
+    ON UPDATE CASCADE,
+
+    CONSTRAINT gefallender_comment
+    FOREIGN KEY (gefallender_comment)
+    REFERENCES socialnetwork.comment (id)
     ON DELETE NO ACTION
     ON UPDATE CASCADE
 );

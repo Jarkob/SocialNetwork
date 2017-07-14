@@ -218,7 +218,7 @@ class entry
 					</span>
 					|
 					<span>
-						<a href="?page=home&delete=<?= $result[0]['id']?>">Löschen</a>
+						<a href="?page=home&deleteEntry=<?= $result[0]['id']?>">Löschen</a>
 					</span>
 					<?php
 				}

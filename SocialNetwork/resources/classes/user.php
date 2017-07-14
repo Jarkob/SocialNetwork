@@ -157,17 +157,31 @@ class user
 		return $results;
 	}
 
-	public function likeEntry($entryid)
+	public function likeEntry($entryId)
 	{
-		$sql = "INSERT INTO gefaelltMir (autor_user, gefallender_entry) VALUES (:autor_user, :gefallender_entry)";
-		$params = array(":autor_user" => $this->username, ":gefallender_entry" => $entryid);
+		$sql = "INSERT INTO entry_gefaelltMir (autor_user, gefallender_entry) VALUES (:autor_user, :gefallender_entry)";
+		$params = array(":autor_user" => $this->username, ":gefallender_entry" => $entryId);
 		sql::exe($sql, $params);
 	}
 
-	public function dislikeEntry($entryid)
+	public function dislikeEntry($entryId)
 	{
-		$sql = "DELETE FROM gefaelltMir WHERE autor_user = :autor_user AND gefallender_entry = :gefallender_entry";
-		$params = array(":autor_user" => $this->username, ":gefallender_entry" => $entryid);
+		$sql = "DELETE FROM entry_gefaelltMir WHERE autor_user = :autor_user AND gefallender_entry = :gefallender_entry";
+		$params = array(":autor_user" => $this->username, ":gefallender_entry" => $entryId);
+		sql::exe($sql, $params);
+	}
+
+	public function likeComment($commentId)
+	{
+		$sql = "INSERT INTO comment_gefaelltMir (autor_user, gefallender_comment) VALUES (:autor_user, :gefallender_comment)";
+		$params = array(":autor_user" => $this->username, ":gefallender_comment" => $commentId);
+		sql::exe($sql, $params);
+	}
+
+	public function dislikeComment($commentId)
+	{
+		$sql = "DELETE FROM comment_gefaelltMir WHERE autor_user = :autor_user AND gefallender_comment = :gefallender_comment";
+		$params = array(":autor_user" => $this->username, ":gefallender_comment" => $commentId);
 		sql::exe($sql, $params);
 	}
 }

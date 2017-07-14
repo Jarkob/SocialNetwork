@@ -23,10 +23,15 @@ function renderPage()
 					$username = user::findUserBySid(session_id());
 					$user = new user($username);
 
-					if(isset($_GET['delete'])) {
-						$entry = entry::findEntryById($_GET['delete']);
+					if(isset($_GET['deleteEntry'])) {
+						$entry = entry::findEntryById($_GET['deleteEntry']);
 						if($entry->getAuthor() == $username) {
 							$entry->deleteEntry();
+						}
+					} else if(isset($_GET['deleteComment'])) {
+						$comment = comment::findCommentById($_GET['deleteComment']);
+						if($comment->getAuthor() == $username) {
+							$comment->deleteComment();
 						}
 					} else if(isset($_GET['like'])) {
 						$entry = entry::findEntryById($_GET['like']);
