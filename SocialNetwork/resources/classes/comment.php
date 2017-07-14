@@ -117,7 +117,7 @@ class comment extends entry
 
 	public function deleteComment()
 	{
-		$sql = "DELETE FROM entry WHERE id = :id";
+		$sql = "DELETE FROM comment WHERE id = :id";
 		$params = array(":id" => $this->getId());
 	}
 }
