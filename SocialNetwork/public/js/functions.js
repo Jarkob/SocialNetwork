@@ -52,5 +52,5 @@ function showMoreComments(id)
 
 function showLikes(id)
 {
-	
+	document.getElementById("showLikes"+ id).innerHTML = "Hallo Welt ich bin ein Mensch";
 }

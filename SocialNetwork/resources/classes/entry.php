@@ -192,7 +192,7 @@ class entry
 				<?= $result[0]['content']?>
 			</p>
 			<p>
-				<span>
+				<span id="showLikes<?= $this->getId()?>" onclick="showLikes(<?= $this->getId()?>)">
 					<?= $this->getLikes()?> Leuten gefällt das
 				</span>
 				|
