@@ -64,7 +64,7 @@ class entry
 
 	public function getLikes()
 	{
-		$sql = "SELECT * FROM gefaelltMir WHERE gefallender_entry = :entryid";
+		$sql = "SELECT * FROM entry_gefaelltMir WHERE gefallender_entry = :entryid";
 		$params = array(":entryid" => $this->id);
 		$result = sql::exe($sql, $params);
 		return sizeof($result);
@@ -72,7 +72,7 @@ class entry
 
 	public function hasUserLiked($username)
 	{
-		$sql = "SELECT * FROM gefaelltMir WHERE autor_user = :autor_user AND gefallender_entry = :gefallender_entry";
+		$sql = "SELECT * FROM entry_gefaelltMir WHERE autor_user = :autor_user AND gefallender_entry = :gefallender_entry";
 		$params = array(":autor_user" => $username, ":gefallender_entry" => $this->id);
 		$result = sql::exe($sql, $params);
 		if(sizeof($result) != 0) {
