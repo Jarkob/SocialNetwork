@@ -18,5 +18,5 @@ foreach($results as $result) {
 }
 */
 echo "</ul>";
-*/
+
 ?>
