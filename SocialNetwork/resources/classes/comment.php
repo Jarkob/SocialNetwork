@@ -75,7 +75,37 @@ class comment extends entry
 		<div class="comment">
 			<p class="time">
 				<i>
-					<?= $result[0]['zeit']?>
+					<?php
+					$time = new DateTime($result[0]['zeit']);
+
+					$sql = "SELECT CURRENT_TIMESTAMP";
+					$timeresult = sql::exe($sql);
+					$actualTime = new DateTime($timeresult[0]['CURRENT_TIMESTAMP']);
+
+					$betweenTime = $time->diff($actualTime);
+
+					// Andersherum
+					$difference = $betweenTime->format("%d");
+					if($difference > 2) {
+						echo $time->format("j. F Y, H:i");
+					} else if($difference == 2) {
+						echo "Vorgestern";
+					} else if($difference == 1) {
+						echo "Gestern";
+					} else {
+						$difference = $betweenTime->format("%h");
+						if($difference >= 1) {
+							echo "Vor ". $difference ." Stunden";
+						} else {
+							$difference = $betweenTime->format("%i");
+							if($difference >= 1) {
+								echo "Vor ". $difference ." Minuten";
+							} else {
+								echo "Vor wenigen Sekunden";
+							}
+						}
+					}
+					?>
 				</i>
 			</p>
 			<h4>
