@@ -8,6 +8,7 @@ require_once(CLASSES_PATH ."/sql.php");
 $results = sql::exe($sql, $params);
 
 echo "<ul>";
+/*
 foreach($results as $result) {
 	?>
 	<li>
@@ -15,6 +16,7 @@ foreach($results as $result) {
 	</li>
 	<?php
 }
+*/
 echo "</ul>";
 */
 ?>
