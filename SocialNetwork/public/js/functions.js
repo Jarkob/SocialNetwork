@@ -59,6 +59,6 @@ function showLikes(id)
 		}
 	};
 
-	xhttp.open("GET", "getLikes.php?id="+ id, true);
+	xhttp.open("GET", "ajax/getLikes.php?id="+ id, true);
 	xhttp.send();
 }
