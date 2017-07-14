@@ -12,7 +12,7 @@ echo "<ul>";
 foreach($results as $result) {
 	echo "<li>";
 	echo $result['autor_user']. " gefällt das";
-	echo "</li>"
+	echo "</li>";
 }
 
 echo "</ul>";
