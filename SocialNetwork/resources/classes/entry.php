@@ -286,6 +286,12 @@ class entry
 		$params = array(":id" => $this->getId());
 		sql::exe($sql, $params);
 
+		// Kommentare löschen, falls vorhanden
+		$sql = "DELETE FROM comment WHERE parent_id = :id";
+		$params = array("id" => $this->getId());
+		sql::exe($sql, $params);
+
+		// Bild löschen, falls vorhanden
 		$picturePath = "img/content/posts/". $this->author ."/". $this->getId();
 		
 		$pictureExists = false;

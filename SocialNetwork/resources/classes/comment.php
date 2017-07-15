@@ -23,7 +23,6 @@ class comment extends entry
 	// Gibt comment Objekt zurück
 	public static function findCommentById($id)
 	{
-		echo "<h1>".$id."</h1>";
 		$sql = "SELECT * FROM comment WHERE id = :id";
 		$params = array(":id" => $id);
 		$result = sql::exe($sql, $params);
