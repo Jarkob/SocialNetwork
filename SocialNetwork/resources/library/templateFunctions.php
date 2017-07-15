@@ -89,6 +89,15 @@ function renderPage()
 				case 'notifications':
 					$view .= "/notifications.view.php";
 					break;
+				case 'histories':
+					$view .= "/histories.view.php";
+					break;
+				case 'newHistory':
+					$view .= "/newHistory.view.php";
+					break;
+				case 'chat':
+					$view .= "/chat.view.php";
+					break;
 				default:
 					$view .= "/error.view.php";
 					break;

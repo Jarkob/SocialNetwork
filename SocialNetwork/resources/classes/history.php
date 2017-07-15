@@ -47,5 +47,10 @@ class history
 		$params = array(":username" => $username);
 		return sql::exe($sql, $params);
 	}
+
+	public function getMessages()
+	{
+		
+	}
 }
 ?>

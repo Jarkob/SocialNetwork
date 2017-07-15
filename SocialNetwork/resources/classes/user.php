@@ -2,6 +2,7 @@
 require_once(CLASSES_PATH ."/friendship.php");
 require_once(CLASSES_PATH ."/friendrequest.php");
 require_once(CLASSES_PATH ."/notification.php");
+require_once(CLASSES_PATH ."/history.php");
 
 // Stellt einen Benutzer dar
 class user
@@ -155,6 +156,20 @@ class user
 		$results = sql::exe($sql, $params);
 
 		return $results;
+	}
+
+	// Gibt history Objekte zurück
+	public function getHistories()
+	{
+		$sql = "SELECT * FROM verlauf WHERE teilnehmer1 = :username OR teilnehmer2 = :username";
+		$params = array(":username" => $this->getUsername());
+		$results = sql::exe($sql, $params);
+		
+		$histories = array();
+		foreach($results as $result) {
+			$histories[] = new history($result['id']);
+		}
+		return $histories
 	}
 
 	public function likeEntry($entryId)

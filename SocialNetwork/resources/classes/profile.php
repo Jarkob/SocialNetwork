@@ -57,7 +57,7 @@ class profile
 			if(sizeof($result) != 0) {
 				?>
 				<p>Du bist mit <?= $this->getUser()->getUsername()?> befreundet.</p>
-				<p><a href="?page=newHistory&freund=<?= $otherUsername?>">Sende eine Nachricht an <?= $otherUsername?></a></p>
+				<p><a href="?page=newHistory&friend=<?= $otherUsername?>">Sende eine Nachricht an <?= $otherUsername?></a></p>
 				<?php
 			} else {
 				?>
