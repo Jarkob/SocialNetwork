@@ -1,4 +1,5 @@
 <?php
+echo "in tfunctions.php";
 require_once(realpath(dirname(__FILE__) ."/../config.php"));
 require_once(CLASSES_PATH ."/sql.php");
 require_once(CLASSES_PATH ."/user.php");
