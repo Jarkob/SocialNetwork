@@ -15,15 +15,10 @@ if(sizeof($histories) != 0) {
 	foreach($histories as $history) {
 		?>
 		<li>
-			<a href="?chat&id=<?= $history['id']?>">
+			<a href="?chat&id=<?= $history->getId()?>">
 				Konversation mit 
 				<?php
-				$teilnehmer = $histories->getTeilnehmer();
-				if($teilnehmer[0] == $username) {
-					echo $teilnehmer[1];
-				} else {
-					echo $teilnehmer[0];
-				}
+				echo $history->getOtherParticipant($username);
 				?>
 			</a>
 		</li>
@@ -39,3 +34,4 @@ if(sizeof($histories) != 0) {
 	</p>
 	<?php
 }
+?>
