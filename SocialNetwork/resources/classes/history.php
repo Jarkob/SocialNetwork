@@ -74,9 +74,11 @@ class history
 	// Gibt alle zugehörigen message Objekte zurück
 	public function getMessages()
 	{
+		echo "in getMessages";
 		$sql = "SELECT * FROM message WHERE verlauf_id = :id";
 		$params = array(":id" => $this->getId());
 		$results = sql::exe($sql, $params);
+		echo "nach gettung";
 
 		$messages = array();
 		foreach($results as $result) {
