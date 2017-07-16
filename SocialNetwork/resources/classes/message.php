@@ -8,23 +8,23 @@ class message
 	protected $empfaenger;
 	protected $verlauf;
 
-	public getId()
+	public function getId()
 	{
 		return $this->id;
 	}
-	public getContent()
+	public function getContent()
 	{
 		return $this->content;
 	}
-	public getSender()
+	public function getSender()
 	{
 		return $this->sender;
 	}
-	public getEmpfaenger()
+	public function getEmpfaenger()
 	{
 		return $this->empfaenger;
 	}
-	public getVerlauf()
+	public function getVerlauf()
 	{
 		return $this->verlauf;
 	}
@@ -36,7 +36,7 @@ class message
 		$this->content = $result[0]['content'];
 		$this->sender = $result[0]['sender_id'];
 		$this->empfaenger = $result[0]['empfaenger_id'];
-		$this->verlauf = $result[0]['verlauf_id']
+		$this->verlauf = $result[0]['verlauf_id'];
 	}
 
 	public static function createNewMessage($content, $sender, $empfaenger, $verlauf)
