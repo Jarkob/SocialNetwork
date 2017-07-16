@@ -27,6 +27,7 @@ if(sizeof($histories) != 0) {
 				?>
 			</a>
 		</li>
+		<?php
 	}
 	?>
 </ul>
