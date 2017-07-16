@@ -3,9 +3,11 @@ echo "in tfunctions.php";
 require_once(realpath(dirname(__FILE__) ."/../config.php"));
 require_once(CLASSES_PATH ."/sql.php");
 require_once(CLASSES_PATH ."/user.php");
+echo "nach requiren der ersten paar";
 require_once(CLASSES_PATH ."/entry.php");
+echo "nach requiren von entry";
 require_once(CLASSES_PATH ."/login.php");
-
+echo "nach requiren in tfunctions";
 function renderPage()
 {
 	// Zugriff speichern
