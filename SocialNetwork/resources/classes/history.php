@@ -19,11 +19,13 @@ class history
 
 	public function __construct($id)
 	{
+		echo "in Konstruktor";
 		$result = findHistoryById($id);
 		$this->teilnehmer = array();
+		echo $result[0]['teilnehmer1'];
 		$this->teilnehmer[] = $result[0]['teilnehmer1'];
 		$this->teilnehmer[] = $result[0]['teilnehmer2'];
-		$this->id = $result[0]['id'];
+		$this->id = $id;
 	}
 
 	// Hilfsfunktion, gibt nur das result zurück
