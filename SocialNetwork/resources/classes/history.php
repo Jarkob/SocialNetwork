@@ -82,6 +82,7 @@ class history
 
 		$messages = array();
 		foreach($results as $result) {
+			echo "in foreach";
 			$messages[] = new message($result['id']);
 		}
 		return $messages;
