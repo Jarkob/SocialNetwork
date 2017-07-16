@@ -169,7 +169,7 @@ class user
 		foreach($results as $result) {
 			$histories[] = new history($result['id']);
 		}
-		return $histories
+		return $histories;
 	}
 
 	public function likeEntry($entryId)
