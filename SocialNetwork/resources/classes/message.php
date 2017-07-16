@@ -53,5 +53,19 @@ class message
 		$result = sql::exe($sql, $params);
 		return $result;
 	}
+
+	public function renderMessage()
+	{
+		?>
+		<div class="message">
+			<h4>
+				<?= $this->getSender()?>
+			</h4>
+			<p>
+				<?= $this->getContent()?>
+			</p>
+		</div>
+		<?php
+	}
 }
 ?>

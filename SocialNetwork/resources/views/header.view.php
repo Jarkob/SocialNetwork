@@ -33,7 +33,7 @@
 					<a href="?page=profile">Profil</a>
 				</li>
 				<li>
-					<a href="#">Nachrichten</a>
+					<a href="?page=histories">Nachrichten</a>
 				</li>
 				<li>
 					<a href="?page=friendrequests">Freundschaftsanfragen</a>

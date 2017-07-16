@@ -1,4 +1,5 @@
 <?php
+require_once(CLASSES_PATH ."/message.php");
 
 class history
 {
@@ -41,6 +42,15 @@ class history
 		return $result[0]['id'];
 	}
 
+	public function getOtherParticipant($teilnehmer)
+	{
+		if($this->$teilnehmer[0] == $teilnehmer) {
+			return $teilnehmer[1];
+		} else {
+			return $teilnehmer[0];
+		}
+	}
+
 	public static function getHistories($username)
 	{
 		$sql = "SELECT * FROM verlauf WHERE teilnehmer1 = :username OR teilnehmer2 = :username";
@@ -48,9 +58,19 @@ class history
 		return sql::exe($sql, $params);
 	}
 
+	// Gibt alle zugehörigen message Objekte zurück
 	public function getMessages()
 	{
-		
+		$sql = "SELECT * FROM message WHERE verlauf_id = :id";
+		$params = array(":id" => $this->getId());
+		$results = sql::exe($sql, $params);
+
+		$messages = array();
+		foreach($results as $result) {
+			$messages = new message($result['id']);
+		}
+		return $messages;
+		// Möglicherweise sind die Nachrichten noch falsch herum geordnet
 	}
 }
 ?>
