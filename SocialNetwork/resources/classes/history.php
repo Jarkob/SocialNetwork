@@ -57,7 +57,7 @@ class history
 
 	public function getOtherParticipant($teilnehmer)
 	{
-		if($this->$teilnehmer[0] == $teilnehmer) {
+		if($this->teilnehmer[0] == $teilnehmer) {
 			return $this->teilnehmer[1];
 		} else {
 			return $this->teilnehmer[0];
