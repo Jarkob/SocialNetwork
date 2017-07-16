@@ -80,7 +80,7 @@ class history
 
 		$messages = array();
 		foreach($results as $result) {
-			$messages = new message($result['id']);
+			$messages[] = new message($result['id']);
 		}
 		return $messages;
 		// Möglicherweise sind die Nachrichten noch falsch herum geordnet
