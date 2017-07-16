@@ -31,9 +31,7 @@ class message
 
 	public function __construct($id)
 	{
-		echo "in KOnstruktor von message";
-		$result = findMessageById($id);
-		echo "nach findMessageById";
+		$result = message::findMessageById($id);
 		$this->id = $id;
 		$this->content = $result[0]['content'];
 		$this->sender = $result[0]['sender_id'];

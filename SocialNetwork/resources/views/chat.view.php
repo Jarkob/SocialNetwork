@@ -12,9 +12,8 @@ $history = new history($_GET['id']);
 if(isset($_POST['message'])) {
 	message::createNewMessage($_POST['message'], $username, $history->getOtherParticipant($username), $history->getId());
 }
-echo "vor messages ini";
+
 $messages = $history->getMessages();
-echo "vor messages renderung";
 foreach($messages as $message) {
 	$message->renderMessage();
 }
