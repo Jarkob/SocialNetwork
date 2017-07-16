@@ -10,12 +10,7 @@ $history = new history($_GET['id']);
 
 // Wenn eine neue Nachricht gesendet wurde, muss sie erstellt werden
 if(isset($_POST['message'])) {
-	message::createNewMessage(
-		$_GET['id'],
-		$username,
-		$history->getOtherParticipant($username),
-		$history->getId()
-		);
+	message::createNewMessage($_POST['message'], $username, $history->getOtherParticipant($username), $history->getId());
 }
 
 $messages = $history->getMessages();
