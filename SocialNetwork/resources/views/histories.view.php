@@ -14,7 +14,7 @@ if(sizeof($histories) != 0) {
 	foreach($histories as $history) {
 		?>
 		<li>
-			<a href="?chat&id=<?= $history->getId()?>">
+			<a href="?page=chat&id=<?= $history->getId()?>">
 				Konversation mit 
 				<?php
 				echo $history->getOtherParticipant($username);
