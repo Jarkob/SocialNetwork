@@ -6,8 +6,7 @@ $username = user::findUserBySid(session_id());
 
 $friend = $_GET['friend'];
 
-$result = history::findHistoryByParticipating($username, $friend);
-if($result != "" && $result != null) {
+if(!history::doesHistoryExist($username, $friend)) {
 	$sql = "INSERT INTO verlauf (teilnehmer1, teilnehmer2, zeit) VALUES (:username, :friend, CURRENT_TIMESTAMP)";
 	$params = array(":username" => $username, ":friend" => $friend);
 	sql::exe($sql, $params);
@@ -22,6 +21,7 @@ if($result != "" && $result != null) {
 
 	<?php
 } else {
+	$result = history::findHistoryByParticipating($username, $friend);
 	?>
 	<script type="text/javascript">
 		document.location.href = "index.php?page=chat&id=<?= $result?>";

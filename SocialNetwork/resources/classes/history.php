@@ -34,6 +34,19 @@ class history
 		return sql::exe($sql, $params);
 	}
 
+	public static function doesHistoryExist($teilnehmer1, $teilnehmer2)
+	{
+		$sql = "SELECT * FROM verlauf WHERE (teilnehmer1 = :teilnehmer1 AND teilnehmer2 = :teilnehmer2) OR (teilnehmer1 = :teilnehmer2 AND teilnehmer2 = :teilnehmer1)";
+		$params = array(":teilnehmer1" => $teilnehmer1, ":teilnehmer2" => $teilnehmer2);
+		$result = sql::exe($sql, $params);
+		if($result != null) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	// Gibt id eines Verlaufs anhand der Teilnehmer zurück
 	public static function findHistoryByParticipating($teilnehmer1, $teilnehmer2)
 	{
 		$sql = "SELECT * FROM verlauf WHERE (teilnehmer1 = :teilnehmer1 AND teilnehmer2 = :teilnehmer2) OR (teilnehmer1 = :teilnehmer2 AND teilnehmer2 = :teilnehmer1)";
