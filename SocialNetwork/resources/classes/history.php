@@ -19,11 +19,8 @@ class history
 
 	public function __construct($id)
 	{
-		echo "in Konstruktor";
 		$result = history::findHistoryById($id);
-		echo "nach findHistoryById";
 		$this->teilnehmer = array();
-		echo $result[0]['teilnehmer1'] ." ist der erste Teilnehmer";
 		$this->teilnehmer[] = $result[0]['teilnehmer1'];
 		$this->teilnehmer[] = $result[0]['teilnehmer2'];
 		$this->id = $id;
@@ -61,9 +58,9 @@ class history
 	public function getOtherParticipant($teilnehmer)
 	{
 		if($this->$teilnehmer[0] == $teilnehmer) {
-			return $teilnehmer[1];
+			return $this->teilnehmer[1];
 		} else {
-			return $teilnehmer[0];
+			return $this->teilnehmer[0];
 		}
 	}
 

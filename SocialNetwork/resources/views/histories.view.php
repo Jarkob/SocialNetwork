@@ -2,12 +2,10 @@
 <?php
 require_once(CLASSES_PATH ."/user.php");
 require_once(CLASSES_PATH ."/history.php");
-echo "nach history";
+
 $username = user::findUserBySid(session_id());
 $user = new user($username);
-echo "nach userIni";
 $histories = $user->getHistories();
-echo "nach histories";
 // Fazit: Nachrichten auf diese Weise zu machen ist schlecht. Egal...
 if(sizeof($histories) != 0) {
 ?>

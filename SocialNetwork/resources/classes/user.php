@@ -167,9 +167,7 @@ class user
 		
 		$histories = array();
 		foreach($results as $result) {
-			echo "<h1>".$result['id']."</h1>";
 			$histories[] = new history($result['id']);
-			echo "<h1>History erzeugt</h1>";
 		}
 		return $histories;
 	}
