@@ -20,7 +20,7 @@ class history
 	public function __construct($id)
 	{
 		echo "in Konstruktor";
-		$result = findHistoryById($id);
+		$result = history::findHistoryById($id);
 		echo "nach findHistoryById";
 		$this->teilnehmer = array();
 		echo $result[0]['teilnehmer1'] ." ist der erste Teilnehmer";
