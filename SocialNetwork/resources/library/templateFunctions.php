@@ -156,7 +156,10 @@ function renderPage()
 
 function renderHome()
 {
-	require_once(VIEWS_PATH ."/newContent.view.php");
+	?>
+	<iframe framborder="0" style="border:0px;" src="http://fahrplan.oebb.at/bin/stboard.exe/dn?L=vs_liveticker&evaId=8100002&boardType=dep&productsFilter=0:111111&dirInput=&tickerID=dep&start=yes&eqstops=false&showJourneys=12&additionalTime=0"></iframe>
+	<?php
+require_once(VIEWS_PATH ."/newContent.view.php");
 
 	$username = user::findUserBySid(session_id());
 	$user = new user($username);
