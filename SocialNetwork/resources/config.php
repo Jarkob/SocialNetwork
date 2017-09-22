@@ -15,10 +15,37 @@ defined("TEMPLATES_PATH")
 defined("SITE_NAME")
 	or define("SITE_NAME", "youwho");
 
-ini_set("error_reporting", "true");
-error_reporting(E_ALL|E_STRICT);
+
+$dbconfig = array("local" => array(
+						"host" => "localhost",
+						"username" => "root",
+						"password" => "",
+						"dbname" => "socialnetwork"
+					),
+					"azure" => array(
+						"host" => "localhost;port=49925",
+						"username" => "azure",
+						"password" => "Iggibib!",
+						"dbname" => "socialnetwork"
+					)
+				);
 
 require_once(CLASSES_PATH ."/sql.php");
-sql::connect("localhost;port=49925", "azure", "Iggibib!", "socialnetwork");
+
+// Wenn es eine lokale Verbindung ist, soll die lokale Datenbankverbindung genutzt werden, sonst die azure
+if($_SERVER['REMOTE_ADDR']=='127.0.0.1') {
+	define('ENV', 'local');
+}
+
+if(ENV == 'local') {
+	ini_set('display_errors', 1);
+	ini_set('display_startup_errors', 1);
+	error_reporting(E_ALL);
+	sql::connect($dbconfig["local"]["host"], $dbconfig["local"]["username"], $dbconfig["local"]["password"], $dbconfig["local"]["dbname"]);
+} else {
+	ini_set("error_reporting", "true");
+	error_reporting(E_ALL|E_STRICT);
+	sql::connect($dbconfig["azure"]["host"], $dbconfig["azure"]["username"], $dbconfig["azure"]["password"], $dbconfig["azure"]["dbname"]);
+}
 
 ?>
