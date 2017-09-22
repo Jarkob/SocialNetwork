@@ -19,7 +19,7 @@ defined("SITE_NAME")
 $dbconfig = array("local" => array(
 						"host" => "localhost",
 						"username" => "root",
-						"password" => "",
+						"password" => "root",
 						"dbname" => "socialnetwork"
 					),
 					"azure" => array(
@@ -33,10 +33,10 @@ $dbconfig = array("local" => array(
 require_once(CLASSES_PATH ."/sql.php");
 
 // Wenn es eine lokale Verbindung ist, soll die lokale Datenbankverbindung genutzt werden, sonst die azure
-if($_SERVER['REMOTE_ADDR']=='127.0.0.1') {
+if($_SERVER['REMOTE_ADDR']=='127.0.0.1' || $_SERVER['REMOTE_ADDR'] == '::1') {
 	define('ENV', 'local');
 }
-
+echo $_SERVER['REMOTE_ADDR'];
 if(ENV == 'local') {
 	ini_set('display_errors', 1);
 	ini_set('display_startup_errors', 1);

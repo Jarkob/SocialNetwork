@@ -29,6 +29,8 @@ class sql
 	//$sql ist der Befehl(keine null queries!?), $params ein assoziatives array mit den Parametern
 	public static function exe($sql, $params=null)
 	{
+		$para_copy = $params;// keine Ahnung
+
 		//queries ausführen
 		$statement = self::$pdo->prepare($sql);
 		

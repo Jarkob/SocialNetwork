@@ -1,4 +1,4 @@
-CREATE DATABASE socialnetwork;
+/*CREATE DATABASE socialnetwork;*/
 
 USE socialnetwork;
 
@@ -58,13 +58,11 @@ CREATE TABLE comment(
     autor VARCHAR(20) NOT NULL,
     zeit TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
-    CONSTRAINT entry_id
     FOREIGN KEY (parent_id)
     REFERENCES socialnetwork.entry (id)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
 
-    CONSTRAINT user_autor
     FOREIGN KEY (autor)
     REFERENCES socialnetwork.user (username)
     ON DELETE CASCADE
