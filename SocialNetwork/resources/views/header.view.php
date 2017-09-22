@@ -107,5 +107,4 @@
 <!-- -->
 
 
-<div id="wrapper">
-<main>
+<div class="container" id="wrapper">
