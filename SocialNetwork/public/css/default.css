@@ -9,100 +9,21 @@ html, body {
 	margin: 0;
 	padding: 0;
 	font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-	background-color: #ddd;
 }
 
 #wrapper {
-	min-width: 600px;
-
 	min-height: 100%;
 
 	padding: 40px 0 0 0;
-	box-shadow: 0px 0px 30px #444;
 }
 
 a {
-	color: #000000;
 	text-decoration: none;
 }
-
-header, nav, footer {
-	display: block;
-}
-
-header {
-	text-align: center;
-}
-
-nav {
-	position: fixed;
-	width: 100%;
-	top: 0;
-	background-color: #000;
-	overflow: hidden;
-}
-
-main {
-	padding: 30px;
-}
-
-.topmenu {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-}
-
-.topmenu li {
-	float: left;
-	display: inline-block;
-	color: white;
-	padding: 16px;
-}
-
-.topmenu li a {
-	display: inline-block;
-	color: white;
-	text-align: center;
-	text-decoration: none;
-}
-
-.topmenu li a:hover {
-	color: #aaa;
-}
-
-.topmenu li a:active {
-	
-}
-
-.column {
-	float: left;
-	padding: 15px;
-}
-
-.clearfix::after {
-	content: "";
-	clear: both;
-	display: table;
-}
-
 
 footer {
 	text-align: center;
-	background-color: #000;
-	color: #fff;
-	overflow: hidden;
 }
-
-footer ul {
-	list-style-type: none;
-}
-
-footer a {
-	color: #fff;
-	padding: 16px;
-}
-
 
 #seiten {
 	list-style-type: none;
@@ -144,26 +65,12 @@ footer a {
 
 
 /* Entrykram */
-#newEntry {
-	margin: 15px;
-}
 
 #newEntry textarea, #editEntry textarea {
 width: 100%;
 height: 10em;
 }
 
-.entry {
-	margin: 15px;
-}
-
-.comment {
-	margin: 15px 15px 15px 50px;
-}
-
-.newComment {
-	margin: 15px;
-}
 
 .newComment textarea {
 	width: 60%;

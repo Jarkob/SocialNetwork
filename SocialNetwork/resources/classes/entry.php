@@ -104,7 +104,7 @@ class entry
 		$params = array(":id" => $this->id);
 		$result = sql::exe($sql, $params);
 		?>
-		<div class="entry">
+		<div class="thumbnail">
 			<p class="time">
 				<i>
 				<?php
@@ -274,8 +274,10 @@ class entry
 		$results = sql::exe($sql, $params);
 
 		$comments = array();
-		foreach($results as $result) {
-			$comments[] = comment::findCommentById($result['id']);
+		if($results != null) {
+			foreach($results as $result) {
+				$comments[] = comment::findCommentById($result['id']);
+			}
 		}
 		return $comments;	
 	}
