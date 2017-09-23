@@ -166,8 +166,11 @@ class user
 		$results = sql::exe($sql, $params);
 		
 		$histories = array();
-		foreach($results as $result) {
-			$histories[] = new history($result['id']);
+
+		if($results != null) {
+			foreach($results as $result) {
+				$histories[] = new history($result['id']);
+			}
 		}
 		return $histories;
 	}

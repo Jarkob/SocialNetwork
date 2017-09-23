@@ -33,13 +33,16 @@
 		<div class="collapse navbar-collapse" id="navbar-which-will-collapse">
 			<ul class="nav navbar-nav">
 				<li>
-					<a href="index.php">Startseite</a>
+					<a href="index.php">
+						<span class="glyphicon glyphicon-home" aria-hidden="true" title="Startseite"></span>
+					</a>
 				</li>
 
 			</ul>
 
 			<form class="navbar-form navbar-left" action="index.php?page=search&" method="get">
 				<div class="form-group">
+					<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 					<input type="hidden" name="page" value="search">
 					<input name="search">
 				</div>
@@ -56,32 +59,37 @@
 				{
 					?>
 					<li>
-						<a href="?page=profile">Profil</a>
-					</li>
-					<li>
-						<a href="?page=histories">Nachrichten</a>
-					</li>
-					<li>
-						<a href="?page=friendrequests">Freundschaftsanfragen</a>
-					</li>
-					<li>
-						<a href="?page=notifications" id="notificationsIcon">Benachrichtigungen
-						<?php
-						$username = user::findUserBySid(session_id());
-						$user = new user($username);
-						$anzahlBenachrichtigungen = $user->getNotifications();
-						if(sizeof($anzahlBenachrichtigungen) != 0) {
-							?>
-							<span style="color: #f00">
-								<?= sizeof($anzahlBenachrichtigungen)?>
-							</span>
-							<?php
-						}
-						?>
+						<a href="?page=profile" title="Profil">
+							<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 						</a>
 					</li>
 					<li>
-						<a href="?page=logout">Logout</a>
+						<a href="?page=histories" title="Nachrichten">
+							<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+						</a>
+					</li>
+					<li>
+						<a href="?page=friendrequests" title="Freundschaftsanfragen">
+							<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+						</a>
+					</li>
+					<li>
+						<a href="?page=notifications" id="notificationsIcon" title="Benachrichtigungen">
+							<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+							<?php
+							$username = user::findUserBySid(session_id());
+							$user = new user($username);
+							$anzahlBenachrichtigungen = $user->getNotifications();
+							?>
+							<span class="badge">
+								<?= sizeof($anzahlBenachrichtigungen)?>
+							</span>
+						</a>
+					</li>
+					<li>
+						<a href="?page=logout" title="logout">
+							<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+						</a>
 					</li>
 					<li>
 						<a href="#">Hallo, <?= $username?></a>
@@ -90,7 +98,9 @@
 				} else {
 					?>
 					<li>
-						<a href="?page=login">Login</a>
+						<a href="?page=login" title="login">
+							<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+						</a>
 					</li>
 					<li>
 						<a href="?page=registration">Registrieren</a>

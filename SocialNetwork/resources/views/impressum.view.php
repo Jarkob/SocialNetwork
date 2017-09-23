@@ -11,7 +11,7 @@
 	<p>
 		<h4>Motivation</h4>
 		<p>
-			Meine Motivation für die Arbeit an dieser Seite besteht in erster Linie in meinem Lernbedürfnis und dem Streben, ein guter "Programmierer" zu werden.
+			Meine Motivation für die Arbeit an dieser Seite ist wieder da.
 		</p>
 	</p>
 </div>

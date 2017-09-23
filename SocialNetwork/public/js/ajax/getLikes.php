@@ -7,7 +7,9 @@ require_once("../../../resources/config.php");
 require_once(CLASSES_PATH ."/sql.php");
 $results = sql::exe($sql, $params);
 
-foreach($results as $result) {
-	echo "\n". $result['autor_user']. " gefällt das";
+if($results != null) {
+	foreach($results as $result) {
+		echo "\n". $result['autor_user']. " gefällt das";
+	}
 }
 ?>

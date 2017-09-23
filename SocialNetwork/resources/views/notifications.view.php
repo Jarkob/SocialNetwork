@@ -11,8 +11,10 @@ $results = sql::exe($sql, $params);
 
 $notifications = array();
 
-foreach($results as $result) {
-	$notifications[] = notification::findNotificationById($result['id']);
+if($results != null) {
+	foreach($results as $result) {
+		$notifications[] = notification::findNotificationById($result['id']);
+	}
 }
 
 if(sizeof($notifications) != 0) {

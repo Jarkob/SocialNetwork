@@ -140,86 +140,96 @@ class entry
 				?>
 				</i>
 			</p>
-			<h4>
-				<a href="?page=profile&owner=<?= $result[0]['autor']?>">
-				<?php
-				if(file_exists("img/content/profile/". $result[0]['autor'] .".jpg")) {
+
+			<?php
+				// Hier müssen Bilder geladen werden
+				$picturePath = "img/content/posts/". $result[0]['autor'] ."/". $result[0]['id'];
+				
+				$pictureExists = false;
+
+				if(file_exists($picturePath . ".jpg")) {
+					$picturePath .= ".jpg";
+					$pictureExists = true;
+				} else if(file_exists($picturePath . ".png")) {
+					$picturePath .= ".png";
+					$pictureExists = true;
+				} else if(file_exists($picturePath . ".jpeg")) {
+					$picturePath .= ".jpeg";
+					$pictureExists = true;
+				} else if(file_exists($picturePath . ".gif")) {
+					$picturePath .= ".gif";
+					$pictureExists = true;
+				}
+
+				if($pictureExists) {
 					?>
-					<img id="profileIcon" title="<?= $row['autor']?>" src="img/content/profile/<?= $result[0]['autor']?>.jpg" style="width: 20px;">
+					<img class="img-responsive" title="Weg mit dem Cursor!" src="<?= $picturePath?>" style="width: 300px">
 					<?php
-				} else if(file_exists("img/content/profile/". $result[0]['autor'] .".png")) {
+				}
+			?>
+
+			<div class="caption">
+				<div class="media">
+					<div class="media-left">
+
+						<?php
+						if(file_exists("img/content/profile/". $result[0]['autor'] .".jpg")) {
+							?>
+							<img class="media-object" title="<?= $row['autor']?>" src="img/content/profile/<?= $result[0]['autor']?>.jpg" style="max-width: 64px">
+							<?php
+						} else if(file_exists("img/content/profile/". $result[0]['autor'] .".png")) {
+							?>
+							<img class="media-object" title="<?= $result[0]['autor']?>" src="img/content/profile/<?= $result[0]['autor']?>.png" style="max-width: 64px">
+							<?php
+						} else {
+							?>
+							<img class="media-object" title="<?= $result[0]['autor']?>" src="img/content/profile/default.png" style="max-width: 64px">
+							<?php
+						}
+						?>
+					</div>
+
+					<div class="media-body">
+						<h4>
+							<a href="?page=profile&owner=<?= $result[0]['autor']?>">
+								<?= $result[0]['autor']?>
+							</a>
+						</h4>
+						<p>
+							<?= $result[0]['content']?>
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<p>
+				<a href="#" class="btn btn-default" id="showLikes<?= $this->getId()?>" onclick="showLikes(<?= $this->getId()?>)">
+					<?= $this->getLikes()?> Leuten gefällt das
+				</a>
+				<?php
+				if($this->hasUserLiked(user::findUserBySid(session_id()))) {
 					?>
-					<img id="profileIcon" title="<?= $result[0]['autor']?>" src="img/content/profile/<?= $result[0]['autor']?>.png" style="width: 20px;">
+					<a class="btn btn-default" href="?page=home&dislikeEntry=<?= $this->id?>" title="Gefällt mir nicht mehr">
+						<span class="glyphicon glyphicon-thumbs-down"></span>
+					</a>
 					<?php
 				} else {
 					?>
-					<img id="profileIcon" title="<?= $result[0]['autor']?>" src="img/content/profile/default.png" style="width: 20px;">
+					<a class="btn btn-default" href="?page=home&likeEntry=<?= $this->id?>" aria-hidden="true">
+						<span class="glyphicon glyphicon-thumbs-up"></span>
+					</a>
 					<?php
 				}
-				?>
-
-				<?= $result[0]['autor']?></a>
-			</h4>
-
-			<?php
-			// Hier müssen Bilder geladen werden
-			$picturePath = "img/content/posts/". $result[0]['autor'] ."/". $result[0]['id'];
-			
-			$pictureExists = false;
-
-			if(file_exists($picturePath . ".jpg")) {
-				$picturePath .= ".jpg";
-				$pictureExists = true;
-			} else if(file_exists($picturePath . ".png")) {
-				$picturePath .= ".png";
-				$pictureExists = true;
-			} else if(file_exists($picturePath . ".jpeg")) {
-				$picturePath .= ".jpeg";
-				$pictureExists = true;
-			} else if(file_exists($picturePath . ".gif")) {
-				$picturePath .= ".gif";
-				$pictureExists = true;
-			}
-
-			if($pictureExists) {
-				?>
-				<img class="contentPicture" title="Weg mit dem Cursor!" src="<?= $picturePath?>" style="width: 300px">
-				<?php
-			}
-			?>
-
-			<p>
-				<?= $result[0]['content']?>
-			</p>
-			<p>
-				<span id="showLikes<?= $this->getId()?>" onclick="showLikes(<?= $this->getId()?>)">
-					<?= $this->getLikes()?> Leuten gefällt das
-				</span>
-				|
-				<span>
-					<?php
-					if($this->hasUserLiked(user::findUserBySid(session_id()))) {
-						?>
-						<a href="?page=home&dislikeEntry=<?= $this->id?>">Gefällt mir nicht mehr</a>
-						<?php
-					} else {
-						?>
-						<a href="?page=home&likeEntry=<?= $this->id?>">Gefällt mir</a>
-						<?php
-					}
-						?>
-				</span>
-				<?php
+				
 				if($result[0]['autor'] == user::findUserBySid(session_id())) {
 					?>
-					|
-					<span>
-						<a href="?page=editEntry&id=<?= $this->id?>">Bearbeiten</a>
-					</span>
-					|
-					<span>
-						<a href="?page=home&deleteEntry=<?= $result[0]['id']?>">Löschen</a>
-					</span>
+					<a class="btn btn-default" href="?page=editEntry&id=<?= $this->id?>" title="Bearbeiten">
+						<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+					</a>
+					
+					<a class="btn btn-default" href="?page=home&deleteEntry=<?= $result[0]['id']?>" title="Löschen">
+						<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+					</a>
 					<?php
 				}
 				?>
@@ -252,13 +262,19 @@ class entry
 		// Achtung: Kommentarerstellung wird in der newContent.view.php gelöst
 		?>
 		</div>
-		<div class="newComment">
-			<form action="index.php?entry=<?= $this->getId()?>" method="post">
-				<textarea name="content"></textarea>
-				<button type="submit">Kommentieren</button>
-			</form>
-		</div>
+		<form action="index.php?entry=<?= $this->getId()?>" method="post">
+			<div class="form-group">
+				<textarea class="form-control" name="content" placeholder="Kommentar"></textarea>
+			</div>
+			
+			<button class="btn btn-default" type="submit">
+				<span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+				Kommentieren
+			</button>
+		</form>
+
 		<hr>
+
 		<?php
 	}
 

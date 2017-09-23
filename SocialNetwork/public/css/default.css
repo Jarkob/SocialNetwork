@@ -19,6 +19,7 @@ html, body {
 
 a {
 	text-decoration: none;
+	color: #000;
 }
 
 footer {
@@ -65,17 +66,6 @@ footer {
 
 
 /* Entrykram */
-
-#newEntry textarea, #editEntry textarea {
-width: 100%;
-height: 10em;
-}
-
-
-.newComment textarea {
-	width: 60%;
-}
-
 
 .time {
 	text-align: right;

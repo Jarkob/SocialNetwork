@@ -16,10 +16,13 @@ if(isset($_GET['id'])) {
 	} else {
 		?>
 		<form action="?page=editEntry&id=<?= $_GET['id']?>" method="post" enctype="multipart/form-data">
-			<textarea name="content">
-				<?= $entry->getContent()?>
-			</textarea>
-			<button type="submit">Speichern</button>
+			<div class="form-group">
+				<label for="editEntry">Bearbeiten</label>
+				<textarea id="editEntry" class="form-control" name="content">
+					<?= $entry->getContent()?>
+				</textarea>
+			</div>
+			<button class="btn btn-default" type="submit">Speichern</button>
 		</form>
 		<?php
 	}
