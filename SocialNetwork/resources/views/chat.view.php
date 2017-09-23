@@ -23,6 +23,9 @@ foreach($messages as $message) {
 
 ?>
 <form action="?page=chat&id=<?= $_GET['id']?>" method="post">
-	<input name="message">
-	<button type="submit">Senden</button>
+	<div class="form-group">
+		<input class="form-control" name="message">
+	</div>
+	
+	<button type="submit" class="btn btn-default">Senden</button>
 </form>

@@ -100,6 +100,9 @@ function renderPage()
 				case 'chat':
 					$view .= "/chat.view.php";
 					break;
+				case 'comingSoon':
+					$view .= "/comingSoon.view.php";
+					break;
 				default:
 					$view .= "/error.view.php";
 					break;
@@ -162,7 +165,7 @@ function renderHome()
 	<iframe framborder="0" style="border:0px;" src="http://fahrplan.oebb.at/bin/stboard.exe/dn?L=vs_liveticker&evaId=8100002&boardType=dep&productsFilter=0:111111&dirInput=&tickerID=dep&start=yes&eqstops=false&showJourneys=12&additionalTime=0"></iframe>
 	<?php
 	*/
-require_once(VIEWS_PATH ."/newContent.view.php");
+	require_once(VIEWS_PATH ."/newContent.view.php");
 
 	$username = user::findUserBySid(session_id());
 	$user = new user($username);
@@ -180,7 +183,7 @@ require_once(VIEWS_PATH ."/newContent.view.php");
 
 	$anzahlEintraege = sizeof($alleEintraege);
 	$anzahlProSeite = 10;
-	$anzahlSeiten = $anzahlEintraege / $anzahlProSeite;
+	$anzahlSeiten = ($anzahlEintraege / $anzahlProSeite) + 1;
 
 	if(empty($_GET['nr'])) {
 		$seite = 1;
@@ -222,19 +225,19 @@ require_once(VIEWS_PATH ."/newContent.view.php");
 	}
 
 	?>
-	<ul id="seiten">
+	<ul class="pagination">
 		<?php
 		for($i = 1; $i <= $anzahlSeiten; $i++) {
 			if($seite == $i) {
 				?>
-				<li>
-					<a href="?page=home&nr=<?= $i?>"><b>Seite <?= $i?></b></a>
+				<li class="active">
+					<a href="?page=home&nr=<?= $i?>"><b><?= $i?></b></a>
 				</li>
 				<?php
 			} else {
 				?>
 				<li>
-					<a href="?page=home&nr=<?= $i?>">Seite <?= $i?></a>
+					<a href="?page=home&nr=<?= $i?>"><?= $i?></a>
 				</li>
 				<?php
 			}

@@ -79,8 +79,10 @@ class history
 		$results = sql::exe($sql, $params);
 
 		$messages = array();
-		foreach($results as $result) {
-			$messages[] = new message($result['id']);
+		if($results != null) {
+			foreach($results as $result) {
+				$messages[] = new message($result['id']);
+			}
 		}
 		return $messages;
 		// Möglicherweise sind die Nachrichten noch falsch herum geordnet

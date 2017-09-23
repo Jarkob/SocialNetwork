@@ -11,7 +11,7 @@ if(isset($_POST['vorname'], $_POST['nachname'], $_POST['gebdatum'], $_POST['gesc
 		nachname = :nachname, 
 		gebdatum = :gebdatum, 
 		geschlecht = :geschlecht, 
-		bezstatus = :bezstatus 
+		beziehungsstatus = :bezstatus 
 		WHERE username = :username";
 	$params = array(
 		":vorname" => $_POST['vorname'],
@@ -85,7 +85,7 @@ $profile = new profile($user);
 <form action="?page=editProfile" method="post" enctype="multipart/form-data">
 	<div class="form-group">
 		<label for="vorname">Vorname</label>
-		<input id="vorname" class="form-control" classname="vorname" value="<?= $profile->getUser()->getVorname()?>">
+		<input id="vorname" class="form-control" name="vorname" value="<?= $profile->getUser()->getVorname()?>">
 	</div>
 	<div class="form-group">
 		<label for="nachname">Nachname</label>

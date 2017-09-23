@@ -72,94 +72,96 @@ class comment extends entry
 		$params = array(":id" => $this->getId());
 		$result = sql::exe($sql, $params);
 		?>
-		<div class="comment">
-			<p class="time">
-				<i>
-					<?php
-					$time = new DateTime($result[0]['zeit']);
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<p class="time">
+					<i>
+						<?php
+						$time = new DateTime($result[0]['zeit']);
 
-					$sql = "SELECT CURRENT_TIMESTAMP";
-					$timeresult = sql::exe($sql);
-					$actualTime = new DateTime($timeresult[0]['CURRENT_TIMESTAMP']);
+						$sql = "SELECT CURRENT_TIMESTAMP";
+						$timeresult = sql::exe($sql);
+						$actualTime = new DateTime($timeresult[0]['CURRENT_TIMESTAMP']);
 
-					$betweenTime = $time->diff($actualTime);
+						$betweenTime = $time->diff($actualTime);
 
-					// Andersherum
-					$difference = $betweenTime->format("%d");
-					if($difference > 2) {
-						echo $time->format("j. F Y, H:i");
-					} else if($difference == 2) {
-						echo "Vorgestern";
-					} else if($difference == 1) {
-						echo "Gestern";
-					} else {
-						$difference = $betweenTime->format("%h");
-						if($difference >= 1) {
-							echo "Vor ". $difference ." Stunden";
+						// Andersherum
+						$difference = $betweenTime->format("%d");
+						if($difference > 2) {
+							echo $time->format("j. F Y, H:i");
+						} else if($difference == 2) {
+							echo "Vorgestern";
+						} else if($difference == 1) {
+							echo "Gestern";
 						} else {
-							$difference = $betweenTime->format("%i");
+							$difference = $betweenTime->format("%h");
 							if($difference >= 1) {
-								echo "Vor ". $difference ." Minuten";
+								echo "Vor ". $difference ." Stunden";
 							} else {
-								echo "Vor wenigen Sekunden";
+								$difference = $betweenTime->format("%i");
+								if($difference >= 1) {
+									echo "Vor ". $difference ." Minuten";
+								} else {
+									echo "Vor wenigen Sekunden";
+								}
 							}
 						}
-					}
-					?>
-				</i>
-			</p>
-			<h4>
-				<a href="?page=profile&owner=<?= $result[0]['autor']?>">
-					<?php
-					if(file_exists("img/content/profile/". $result[0]['autor'] .".jpg")) {
 						?>
-						<img id="profileIcon" title="<?= $row['autor']?>" src="img/content/profile/<?= $result[0]['autor']?>.jpg" style="width: 20px;">
+					</i>
+				</p>
+				<h4>
+					<a href="?page=profile&owner=<?= $result[0]['autor']?>">
 						<?php
-					} else if(file_exists("img/content/profile/". $result[0]['autor'] .".png")) {
+						if(file_exists("img/content/profile/". $result[0]['autor'] .".jpg")) {
+							?>
+							<img id="profileIcon" title="<?= $row['autor']?>" src="img/content/profile/<?= $result[0]['autor']?>.jpg" style="width: 20px;">
+							<?php
+						} else if(file_exists("img/content/profile/". $result[0]['autor'] .".png")) {
+							?>
+							<img id="profileIcon" title="<?= $result[0]['autor']?>" src="img/content/profile/<?= $result[0]['autor']?>.png" style="width: 20px;">
+							<?php
+						} else {
+							?>
+							<img id="profileIcon" title="<?= $result[0]['autor']?>" src="img/content/profile/default.png" style="width: 20px;">
+							<?php
+						}
 						?>
-						<img id="profileIcon" title="<?= $result[0]['autor']?>" src="img/content/profile/<?= $result[0]['autor']?>.png" style="width: 20px;">
-						<?php
-					} else {
-						?>
-						<img id="profileIcon" title="<?= $result[0]['autor']?>" src="img/content/profile/default.png" style="width: 20px;">
-						<?php
-					}
-					?>
-					<?= $result[0]['autor']?>	
-				</a>
-			</h4>
-			<p>
-				<?= $result[0]['content']?>
-			</p>
-			<p>
-				<span>
-					<?= $this->getLikes()?> Leuten gefällt das
-				</span>
-				|
-				<span>
+						<?= $result[0]['autor']?>	
+					</a>
+				</h4>
+				<p>
+					<?= $result[0]['content']?>
+				</p>
+
+				<p>
+					<a href="#" class="btn btn-default" id="showLikes<?= $this->getId()?>" onclick="showLikes(<?= $this->getId()?>)">
+						<?= $this->getLikes()?> Leuten gefällt das
+					</a>
 					<?php
 					if($this->hasUserLiked(user::findUserBySid(session_id()))) {
 						?>
-						<a href="?page=home&dislikeComment=<?= $this->getId()?>">Gefällt mir nicht mehr</a>
+						<a class="btn btn-default" href="?page=home&dislikeEntry=<?= $this->id?>" title="Gefällt mir nicht mehr">
+							<span class="glyphicon glyphicon-thumbs-down"></span>
+						</a>
 						<?php
 					} else {
 						?>
-						<a href="?page=home&likeComment=<?= $this->getId()?>">Gefällt mir</a>
+						<a class="btn btn-default" href="?page=home&likeEntry=<?= $this->id?>" aria-hidden="true">
+							<span class="glyphicon glyphicon-thumbs-up"></span>
+						</a>
+						<?php
+					}
+					
+					if($result[0]['autor'] == user::findUserBySid(session_id())) {
+						?>
+						<a class="btn btn-default" href="?page=home&deleteEntry=<?= $result[0]['id']?>" title="Löschen">
+							<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+						</a>
 						<?php
 					}
 					?>
-				</span>
-				<?php
-				if($this->author == user::findUserBySid(session_id())) {
-					?>
-					|
-					<span>
-						<a href="?page=home&deleteComment=<?= $result[0]['id']?>">Löschen</a>
-					</span>
-					<?php
-				}
-				?>
-			</p>
+				</p>
+			</div>
 		</div>
 		<?php
 	}

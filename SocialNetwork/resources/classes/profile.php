@@ -35,16 +35,9 @@ class profile
 			$ownProfile = false;
 		}
 
-		// Wenn das Profil das des Users ist, dann soll er die Möglichkeit angezeigt bekommen, sein Profil zu bearbeiten.
 		// Andernfalls soll der Freundschaftsstatus zwischen dem User und dem Profilbesitzer angezeigt werden.
 		// Wenn sie nicht befreundet sind, soll die Möglichkeit gegeben werden, dem Profilbesitzer eine Freundschaftsanfrage zu schicken.
-		if($ownProfile) {
-			?>
-			<p>
-				<a href="?page=editProfile">Profil bearbeiten</a>
-			</p>
-			<?php
-		} else {
+		if(!$ownProfile) {
 			// Prüfen ob User und Profilbesitzer befreundet sind
 			$otherUsername = $this->getUser()->getUsername();
 			$sql = "SELECT * FROM friendship WHERE 
@@ -69,54 +62,60 @@ class profile
 
 		// Anzeigen der Profildaten
 		?>
-		<h3>
-			Profil von <?= $this->getUser()->getUsername()?>
-		</h3>
+		<div class="row">
+			<h3>
+				Profil von <?= $this->getUser()->getUsername()?>
+			</h3>
 
-		<?php
+			<?php
 
-		// Profilbild laden
-		if(file_exists("img/content/profile/". $this->getUser()->getUsername() .".jpg")) {
+			// Profilbild laden
+			if(file_exists("img/content/profile/". $this->getUser()->getUsername() .".jpg")) {
+				?>
+				<img id="profilePicture" title="Profilbild" src="img/content/profile/<?= $this->getUser()->getUsername()?>.jpg" style="width: 300px">
+				<?php
+			} else if(file_exists("img/content/profile/". $this->getUser()->getUsername() .".png")) {
+				?>
+				<img id="profilePicture" title="Profilbild" src="img/content/profile/<?= $this->getUser()->getUsername()?>.jpg" style="width: 300px">
+				<?php
+			} else {
+				?>
+				<img id="profilePicture" title="Profilbild" src="img/content/profile/default.png" style="width: 300px">
+				<?php
+			}
 			?>
-			<img id="profilePicture" title="Profilbild" src="img/content/profile/<?= $this->getUser()->getUsername()?>.jpg" style="width: 300px">
-			<?php
-		} else if(file_exists("img/content/profile/". $this->getUser()->getUsername() .".png")) {
-			?>
-			<img id="profilePicture" title="Profilbild" src="img/content/profile/<?= $this->getUser()->getUsername()?>.jpg" style="width: 300px">
-			<?php
-		} else {
-			?>
-			<img id="profilePicture" title="Profilbild" src="img/content/profile/default.png" style="width: 300px">
-			<?php
-		}
-		?>
-		<div class="clearfix">
-			<div id="leftInformation">
-				<p>
-					Vorname: <?= $this->getUser()->getVorname()?>
-				</p>
-				<p>
-					Nachname: <?= $this->getUser()->getNachname()?>
-				</p>
-				<p>
-					Geburtsdatum: <?= $this->getUser()->getGebdatum()?>
-				</p>
-				<p>
-					Geschlecht: <?= $this->getUser()->getGeschlecht()?>
-				</p>
-				<p>
-					Beziehungsstatus: <?= $this->getUser()->getBezstatus()?>
-				</p>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-4 col-sm-4 col-md-4 col-ld-4">
+				<h4>Informationen</h4>
+				<ul class="list-group">
+					<li class="list-group-item">
+						Vorname: <?= $this->getUser()->getVorname()?>
+					</li>
+					<li class="list-group-item">
+						Nachname: <?= $this->getUser()->getNachname()?>
+					</li>
+					<li class="list-group-item">
+						Geburtsdatum: <?= $this->getUser()->getGebdatum()?>
+					</li>
+					<li class="list-group-item">
+						Geschlecht: <?= $this->getUser()->getGeschlecht()?>
+					</li>
+					<li class="list-group-item">
+						Beziehungsstatus: <?= $this->getUser()->getBezstatus()?>
+					</li>
+				</ul>
 			
 				<?php
 				$friends = $this->getUser()->getFriends();
 				?>
 				<h4>Freunde(<?= sizeof($friends)?>)</h4>
-				<ul>
+				<ul class="list-group">
 					<?php
 					foreach($friends as $friend) {
 						?>
-						<li>
+						<li class="list-group-item">
 							<a href="?page=profile&owner=<?= $friend?>"><?= $friend?></a>
 						</li>
 						<?php
@@ -124,18 +123,21 @@ class profile
 					?>
 				</ul>
 			</div>
-			<div id="ownEntries">
+
+			<div class="col-xs-8 col-sm-8 col-md-8 col-xs-8">
 				<?php
 				
 				$sql = "SELECT * FROM entry WHERE autor = :username ORDER BY zeit DESC";
 				$params = array(":username" => $this->getUser()->getUsername());
 				$alleEintraege = sql::exe($sql, $params);
 				$anzahlEintraege = sizeof($alleEintraege);
+
 				?>
-				<h4>Beiträge(<?= $anzahlEintraege?>)</h4>
+					<h4>Beiträge(<?= $anzahlEintraege?>)</h4>
 				<?php
+
 				$anzahlProSeite = 10;
-				$anzahlSeiten = $anzahlEintraege / $anzahlProSeite;
+				$anzahlSeiten = ($anzahlEintraege / $anzahlProSeite) + 1;
 
 				if(empty($_GET['nr'])) {
 					$seite = 1;
@@ -163,7 +165,8 @@ class profile
 					$entry->renderEntry();
 				}
 				?>
-				<ul id="seiten">
+
+				<ul class="pagination">
 					<?php
 					for($i = 1; $i <= $anzahlSeiten; $i++) {
 						if($seite == $i) {

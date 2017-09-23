@@ -15,6 +15,7 @@
 
 	<link rel="stylesheet" href="css/default.css">
 	<script type="text/javascript" src="js/functions.js"></script>
+
 	<title><?= SITE_NAME?></title>
 </head>
 <body>
@@ -88,6 +89,19 @@
 								<?= sizeof($anzahlBenachrichtigungen)?>
 							</span>
 						</a>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+							<span class="glyphicon glyphicon-cog"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li>
+								<a href="?page=editProfile">Profil bearbeiten</a>
+							</li>
+							<li>
+								<a href="?page=comingSoon">Profil löschen</a>
+							</li>
+						</ul>
 					</li>
 					<li>
 						<a href="?page=logout" title="logout">

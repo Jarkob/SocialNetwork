@@ -1,19 +1,22 @@
 <?php
 // Achtung: dient zur Erstellung neuer entries und comments
 ?>
-<form action="index.php" method="post" enctype="multipart/form-data">
-	<div class="form-group">
-		<label for="newEntryContent">Neuer Post</label>
-		<textarea class="form-control" rows="3" id="newEntryContent" name="content" placeholder="Neuer Post"></textarea>
+<div class="panel panel-default">
+	<div class="panel-body">
+		<form action="index.php" method="post" enctype="multipart/form-data">
+			<div class="form-group">
+				<label for="newEntryContent">Neuer Post</label>
+				<textarea class="form-control" rows="3" id="newEntryContent" name="content" placeholder="Neuer Post"></textarea>
+			</div>
+			
+			<div class="form-group">
+				<label for="newEntryPicture">Bild hinzufügen</label>
+				<input id="newEntryPicture" type="file" name="picture">
+			</div>
+			<button class="btn btn-default" type="submit">Posten</button>
+		</form>
 	</div>
-	
-	<div class="form-group">
-		<label for="newEntryPicture">Bild hinzufügen</label>
-		<input id="newEntryPicture" type="file" name="picture">
-	</div>
-	<button class="btn btn-default" type="submit">Posten</button>
-</form>
-
+</div>
 <?php
 
 require_once(CLASSES_PATH ."/sql.php");

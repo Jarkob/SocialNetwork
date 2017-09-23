@@ -3,14 +3,6 @@
 	box-sizing: border-box;
 }
 
-html, body {
-	height: 100%;
-	min-height: 100%;
-	margin: 0;
-	padding: 0;
-	font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-}
-
 #wrapper {
 	min-height: 100%;
 
@@ -25,6 +17,13 @@ a {
 footer {
 	text-align: center;
 }
+
+/*
+.panel {
+	padding: 15px;
+	margin: 15px;
+}
+*/
 
 #seiten {
 	list-style-type: none;
