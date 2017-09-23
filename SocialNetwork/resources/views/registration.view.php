@@ -33,21 +33,19 @@ if(isset($_POST['newUserName'], $_POST['newPassword'], $_POST['repeatNewPassword
 } else {
 ?>
 <form action="?page=registration" method="post">
-	<p>
+	<div class="form-group">
 		<label for="newUserName">Benutzername</label>
-		<input id="newUserName" name="newUserName">
-	</p>
-	<p>
+		<input id="newUserName" class="form-control" name="newUserName">
+	</div>
+	<div class="form-group">
 		<label for="newPassword">Passwort</label>
-		<input id="newPassword" type="password" name="newPassword">
-	</p>
-	<p>
+		<input id="newPassword" class="form-control" type="password" name="newPassword">
+	</div>
+	<div class="form-group">
 		<label for="repeatNewPassword">Passwort wiederholen</label>
-		<input id="repeatNewPassword" type="password" name="repeatNewPassword">
-	</p>
-	<p>
-		<button type="submit">Registrieren</button>
-	</p>
+		<input id="repeatNewPassword" class="form-control" type="password" name="repeatNewPassword">
+	</div>
+	<button type="submit" class="btn btn-default">Registrieren</button>
 </form>
 <?php
 }

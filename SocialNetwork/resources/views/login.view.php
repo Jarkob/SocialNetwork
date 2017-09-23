@@ -28,18 +28,19 @@ if(login::isLoggedIn(session_id())) {
 	} else {
 	?>
 		<form action="" method="POST">
-			<div>
-				<p><label for="username">Username</label></p>
-				<p><input id="username" name="username"></p>
+			<div class="form-group">
+				<label for="username">Username</label>
+				<input id="username" class="form-control" name="username" placeholder="Username">
 			</div>
-			<div>
-				<p><label for="password">Passwort</label></p>
-				<p><input id="password" name="password" type="password"></p>
+			<div class="form-group">
+				<label for="password">Passwort</label>
+				<input id="password" class="form-control" name="password" type="password" placeholder="Passwort">
 			</div>
-			<p><button>Anmelden</button></p>
+			<button class="btn btn-default" type="submit">Anmelden</button>
 		</form>
+
 		<p>Besitzen Sie noch keinen Account?</p>
-		<p>Dann können Sie sich <a href="#">hier</a> registrieren.</p>
+		<p>Dann können Sie sich <a href="?page=registration">hier</a> registrieren.</p>
 
 	<?php
 	}
