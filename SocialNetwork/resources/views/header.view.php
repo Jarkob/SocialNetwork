@@ -16,6 +16,8 @@
 	<link rel="stylesheet" href="css/default.css">
 	<script type="text/javascript" src="js/functions.js"></script>
 
+	<link rel="shortcut icon" type="image/png" href="/path/image.png"/>
+
 	<title><?= SITE_NAME?></title>
 </head>
 <body>
