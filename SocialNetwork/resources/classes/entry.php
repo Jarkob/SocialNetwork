@@ -22,7 +22,7 @@ class entry
 
 	public function changeContent($newContent)
 	{
-		$this->content = $newContent;
+		$this->content = $this->escapeInput($newContent);
 		$sql = "UPDATE entry SET content = :newContent WHERE id = :id";
 		$params = array(":newContent" => $newContent, ":id" => $this->id);
 		sql::exe($sql, $params);
@@ -44,7 +44,7 @@ class entry
 			$this->id = $id;
 		}
 		$this->author = $author;
-		$this->content = $content;
+		$this->content = $this->escapeInput($content);
 	}
 
 	// Gibt entry Objekt zurück
@@ -336,6 +336,11 @@ class entry
 		if($pictureExists) {
 			unlink($picturePath);
 		}
+	}
+	
+	public function escapeInput($html)
+	{
+		return preg_replace('#<script(.*?)>(.*?)</script>#is', '', $html);
 	}
 }
 
