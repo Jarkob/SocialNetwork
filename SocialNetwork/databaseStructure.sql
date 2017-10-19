@@ -207,7 +207,7 @@ CREATE TABLE comment_gefaelltMir(
     ON DELETE NO ACTION
     ON UPDATE CASCADE,
 
-    CONSTRAINT gefallender_comment
+    CONSTRAINT gefallender_commentnotification
     FOREIGN KEY (gefallender_comment)
     REFERENCES socialnetwork.comment (id)
     ON DELETE NO ACTION
