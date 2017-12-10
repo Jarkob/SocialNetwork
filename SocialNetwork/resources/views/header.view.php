@@ -137,6 +137,11 @@
 
 
 <div class="container" id="wrapper">
+	<!--
+	<video poster="altImg.png" controls="">
+        	<source src="teaser.mp4" type="video/mp4">
+	</video>
+	-->
 	<div class="row">
 		<div class="col-xs-0 col-sm-1 col-md-2 col-ld-3">
 			
