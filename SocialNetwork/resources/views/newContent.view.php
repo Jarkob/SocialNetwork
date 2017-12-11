@@ -13,6 +13,12 @@
 				<label for="newEntryPicture">Bild hinzufügen</label>
 				<input id="newEntryPicture" type="file" name="picture">
 			</div>
+
+			<div class="form-group">
+				<label for="newEntryVideo">Video hinzufügen</label>
+				<input id="newEntryVideo" type="file" name="video">
+			</div>
+
 			<button class="btn btn-default" type="submit">Posten</button>
 		</form>
 	</div>
@@ -79,6 +85,36 @@ if(array_key_exists('content', $_POST) && !array_key_exists('entry', $_GET)) {
 			 
 			//Alles okay, verschiebe Datei an neuen Pfad
 			move_uploaded_file($_FILES['picture']['tmp_name'], $new_path);
+		}
+	}
+
+	if(isset($_FILES['video']['name'])) {
+		if($_FILES['video']['name'] != "") {
+
+			$upload_folder = 'img/content/posts/'. $username .'/';
+			if(!file_exists($upload_folder)) {
+				mkdir($upload_folder);
+			}
+
+			$filename = pathinfo($_FILES['video']['name'], PATHINFO_FILENAME);
+			$extension = strtolower(pathinfo($_FILES['video']['name'], PATHINFO_EXTENSION));
+
+			$allowed_extensions = array('mp4', 'ogg');
+			if(!in_array($extension, $allowed_extensions)) {
+				die("Ungültige Dateiendung, momentan sind leider nur mp4 und ogg Dateien erlaubt.");
+			}
+
+			if($_FILES['video']['size'] > 1000000000) {
+				die("Bitte keine Riesendateien hochladen, danke.");
+			}
+
+			$new_path = $upload_folder . $contentId .'.'. $extension;
+
+			if(file_exists($new_path)) {
+				unlink($new_path);
+			}
+
+			move_uploaded_file($_FILES['video']['tmp_name'], $new_path);
 		}
 	}
 //}

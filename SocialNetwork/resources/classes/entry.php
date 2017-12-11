@@ -163,9 +163,34 @@ class entry
 							$pictureExists = true;
 						}
 
+
+						// Videoanzeige
+						$videoPath = "img/content/posts/". $result[0]['autor'] ."/". $result[0]['id'];
+
+						$videoExists = false;
+
+						if(file_exists($videoPath .".mp4")) {
+							$videoPath .= ".mp4";
+							$videoExists = true;
+						} else if(file_exists($videoPath .".ogg")) {
+							$videoPath .= ".ogg";
+							$videoExists = true;
+						}
+
+
 						if($pictureExists) {
 							?>
 							<img class="img-responsive" title="Weg mit dem Cursor!" src="<?= $picturePath?>" style="width: 300px">
+							<?php
+						} else if($videoExists) {
+
+							// TODO
+							// Momentan geht nur mp4
+							// Außerdem müssen videos auch gelöscht werden, wenn der Beitrag gelöscht wird!
+							?>
+							<video controls="">
+						        <source src="<?= $videoPath?>" type="video/mp4">
+							</video>
 							<?php
 						}
 					?>
