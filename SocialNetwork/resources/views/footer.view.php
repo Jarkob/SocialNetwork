@@ -5,10 +5,10 @@
 		</div>
 	</div>
 </div>
-
 <footer class="container-fluid">
 	<a href="?page=impressum">Impressum</a>
 </footer>
 
+<!-- </div> -->
 </body>
 </html>
