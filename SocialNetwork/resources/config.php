@@ -23,7 +23,7 @@ $dbconfig = array("local" => array(
 						"dbname" => "socialnetwork"
 					),
 					"azure" => array(
-						"host" => "localhost;port=49925",
+						"host" => "localhost",//;port=49925",
 						"username" => "azure",
 						"password" => "Iggibib!",
 						"dbname" => "socialnetwork"
