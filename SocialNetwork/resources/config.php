@@ -25,7 +25,6 @@ $dbconfig = array("local" => array(
 					"azure" => array(
 						// "host" => "localhost;port=49925",
 						"host" => "127.0.0.1;port=49974",
-						"port" => "49925",
 						"username" => "azure",
 						"password" => "Iggibib!",
 						"dbname" => "socialnetwork"
@@ -47,7 +46,7 @@ echo $_SERVER['REMOTE_ADDR'];
 //} else {
 // 	ini_set("error_reporting", "true");
 // 	error_reporting(E_ALL|E_STRICT);
-	// sql::connect($dbconfig["azure"]["host"], $dbconfig["azure"]["username"], $dbconfig["azure"]["password"], $dbconfig["azure"]["dbname"]);
+	sql::connect($dbconfig["azure"]["host"], $dbconfig["azure"]["username"], $dbconfig["azure"]["password"], $dbconfig["azure"]["dbname"]);
 // }
 
 ?>
