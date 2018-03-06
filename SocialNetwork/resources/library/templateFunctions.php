@@ -9,6 +9,7 @@ require_once(CLASSES_PATH ."/login.php");
 
 function renderPage()
 {
+	echo "in renderPage";
 	// Zugriff speichern
 	// require_once(CLASSES_PATH ."/log.php");
 	/*log::logAccess();
