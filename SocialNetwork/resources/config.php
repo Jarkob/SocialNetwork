@@ -47,7 +47,7 @@ echo $_SERVER['REMOTE_ADDR'];
 //} else {
 // 	ini_set("error_reporting", "true");
 // 	error_reporting(E_ALL|E_STRICT);
-	sql::connect($dbconfig["azure"]["host"], $dbconfig["azure"]["username"], $dbconfig["azure"]["password"], $dbconfig["azure"]["dbname"]);
+	// sql::connect($dbconfig["azure"]["host"], $dbconfig["azure"]["username"], $dbconfig["azure"]["password"], $dbconfig["azure"]["dbname"]);
 // }
 
 ?>
