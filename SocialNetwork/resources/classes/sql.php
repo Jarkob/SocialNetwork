@@ -14,7 +14,7 @@ class sql
 			self::$pdo = new PDO('mysql:host='. $host . $database, $username, $password);
 			return;
 		}catch(PDOException $e){
-			echo 'Fehlerhafter Connectionstring: '+ 'mysql:host='. $host . $database +","+ $username+","+ $password;
+			echo 'Fehlerhafter Connectionstring: '. 'mysql:host='. $host . $database .",". $username .",". $password;
 			throw new Exception($e->getMessage());
 		}
 	}
