@@ -24,7 +24,7 @@ $dbconfig = array("local" => array(
 					),
 					"azure" => array(
 						// "host" => "localhost;port=49925",
-						"host" => "localhost",
+						"host" => "127.0.0.1;port=49925",
 						"port" => "49925",
 						"username" => "azure",
 						"password" => "Iggibib!",
