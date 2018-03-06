@@ -4,10 +4,10 @@ class log
 {
 	public static function logAccess()
 	{
-		$ip = getenv('REMOTE_ADDR');
-		$userAgent = getenv('HTTP_USER_AGENT');
-		$referrer = getenv('HTTP_REFERER');
-		$query = getenv('QUERY_STRING');
+		// $ip = getenv('REMOTE_ADDR');
+		// $userAgent = getenv('HTTP_USER_AGENT');
+		// $referrer = getenv('HTTP_REFERER');
+		// $query = getenv('QUERY_STRING');
 
 		echo "in logAccess";
 
