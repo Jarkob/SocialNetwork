@@ -11,9 +11,9 @@ function renderPage()
 {
 	echo "in renderPage";
 	// Zugriff speichern
-	// require_once(CLASSES_PATH ."/log.php");
-	/*log::logAccess();
-	
+	require_once(CLASSES_PATH ."/log.php");
+	log::logAccess();
+	/*
 	require_once(VIEWS_PATH ."/header.view.php");
 
 	// Neuer Versuch
