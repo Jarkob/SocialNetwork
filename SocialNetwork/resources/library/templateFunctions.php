@@ -11,7 +11,7 @@ function renderPage()
 {
 	// Zugriff speichern
 	require_once(CLASSES_PATH ."/log.php");
-	log::logAccess();
+	/*log::logAccess();
 	
 	require_once(VIEWS_PATH ."/header.view.php");
 
@@ -150,7 +150,7 @@ function renderPage()
 			<?php
 		}
 	}
-
+*/
 
 		
 	require_once(VIEWS_PATH ."/footer.view.php");
