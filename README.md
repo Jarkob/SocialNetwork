@@ -1,7 +1,7 @@
 # SocialNetwork
 A social network built with php
 
-This is a primitive and not well built social network with php.
+This is a primitive and not well built social network created using php.
 The functions include:
 - Create a profile
 - Edit profile
